@@ -2,9 +2,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    // TODO: replace with your real domain once you pick one — this drives
-    // the sitemap, RSS feed, and canonical URLs.
-    url: "https://astro-paper.pages.dev/",
+    url: "https://quintavius-official.github.io/quangpx",
     title: "Quang Phuong",
     description:
       "Solutions architect writing about cloud architecture, SRE, and DevOps.",
@@ -26,9 +24,8 @@ export default defineAstroPaperConfig({
     showArchives: true,
     showBackButton: true,
     editPost: {
-      // TODO: turn this on once the blog lives in your own GitHub repo, with
-      // url pointing at that repo's edit/main/ path.
-      enabled: false,
+      enabled: true,
+      url: "https://github.com/quintavius-official/quangpx/edit/main/",
     },
     search: "pagefind",
   },
