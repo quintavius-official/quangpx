@@ -48,7 +48,7 @@ Fine wine? Craft beer? Doesn't matter what it is, as long as it's good quality.
 
 But not every liquid poured into a bottle earns the right to be called a bottle of wine, and the same goes for automation: not every automation gets to call itself DevOps. It has to close into a feedback loop, the one I described above.
 
-And worth repeating: what the internet is currently calling "loops" or "loops engineering" is really just a premium single-malt whisky, aged for however many decades (or however long it took to get trained on the data), poured into a beautifully engraved bottle with some fancy script on the label: "Powered by <insert trillion-dollar AI company here>"...
+And worth repeating: what the internet is currently calling "loops" or "loops engineering" is really just a premium single-malt whisky, aged for however many decades (or however long it took to get trained on the data), poured into a beautifully engraved bottle with some fancy script on the label: "Powered by &lt;insert trillion-dollar AI company here&gt;"...
 
 Exactly right! But to keep riding this fancy trend, we obviously can't just call that high-quality output "automation" anymore, it has to be something grander: Autonomous, AGI, the Singularity, Superintelligence, Matrix, Skynet, etc... You get where I'm going with this, right?
 
