@@ -2,7 +2,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://quintavius-official.github.io/quangpx",
+    url: "https://quangpx.com",
     title: "Quang Phuong",
     description:
       "Solutions architect writing about cloud architecture, SRE, and DevOps.",
