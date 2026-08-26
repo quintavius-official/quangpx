@@ -30,6 +30,7 @@ export default defineAstroPaperConfig({
     search: "pagefind",
   },
   socials: [
+    { name: "github",   url: "https://github.com/quintavius-official" },
     { name: "linkedin", url: "https://linkedin.com/in/quangpx" },
     { name: "mail",     url: "mailto:alexquang169@gmail.com" },
   ],
