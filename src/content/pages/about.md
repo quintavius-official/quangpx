@@ -3,9 +3,9 @@ title: "About"
 description: "Không phải portfolio. Chỉ là chỗ tôi viết cho vui, hơi mỉa mai, để giải toả."
 ---
 
-Tôi là Quang Phuong.
+Tôi là Quang Phuong — làm architect, đụng đủ thứ từ software development, architecture, DevOps, cho tới SRE.
 
-Blog này không phải portfolio, không phải case study, cũng không phải chỗ tôi liệt kê mình đang làm ở đâu hay đạt được thành tích gì — những thứ đó, nếu bạn tò mò, có chỗ khác để tìm rồi, không phải ở đây.
+Nhưng blog này không phải portfolio, không phải case study, cũng không phải chỗ tôi liệt kê mình đang làm ở đâu hay đạt được thành tích gì — những thứ đó, nếu bạn tò mò, có chỗ khác để tìm rồi, không phải ở đây.
 
 Ở đây tôi viết cho vui là chính. Phần lớn bài không nặng kỹ thuật, mà nặng... ngoài lề và mỉa mai nhiều hơn — một dạng giải toả cho mấy thứ tôi nghĩ trong đầu mà kể ra nghe hợp lý hơn là giữ trong bụng. Đọc xong mà vừa hiểu thêm được chút gì đó, vừa thấy hơi khó chịu 1 chút, thì coi như tôi làm đúng việc.
 
