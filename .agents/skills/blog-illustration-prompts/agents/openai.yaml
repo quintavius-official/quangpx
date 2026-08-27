@@ -1,0 +1,6 @@
+interface:
+  display_name: "Blog Illustration Prompts"
+  short_description: "Blog illustration prompts and integration"
+  default_prompt: "Use $blog-illustration-prompts to create prompts for my blog illustrations or embed images I already generated."
+policy:
+  allow_implicit_invocation: true
