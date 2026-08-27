@@ -1,18 +1,18 @@
 ---
 title: "About"
-description: "Không phải portfolio. Chỉ là chỗ tôi viết cho vui, hơi mỉa mai, để giải toả."
+description: "Not a portfolio. Just a place where I write for fun, a bit sarcastic, to vent."
 ---
 
-Tôi là Quang Phuong — làm architect, đụng đủ thứ từ software development, architecture, DevOps, cho tới SRE.
+I'm Quang Phuong, an architect who's bounced around software development, architecture, DevOps, and SRE.
 
-Nhưng blog này không phải portfolio, không phải case study, cũng không phải chỗ tôi liệt kê mình đang làm ở đâu hay đạt được thành tích gì — những thứ đó, nếu bạn tò mò, có chỗ khác để tìm rồi, không phải ở đây.
+But this blog isn't a portfolio, isn't a case study, and isn't a place where I list where I work or what I've accomplished. If you're curious about that, there are other places for it, just not here.
 
-Ở đây tôi viết cho vui là chính. Phần lớn bài không nặng kỹ thuật, mà nặng... ngoài lề và mỉa mai nhiều hơn — một dạng giải toả cho mấy thứ tôi nghĩ trong đầu mà kể ra nghe hợp lý hơn là giữ trong bụng. Đọc xong mà vừa hiểu thêm được chút gì đó, vừa thấy hơi khó chịu 1 chút, thì coi như tôi làm đúng việc.
+Here I mostly write for fun. Most posts aren't heavy on technical depth, they're heavy on... tangents and sarcasm instead, a kind of venting outlet for whatever's rattling around in my head that makes more sense said out loud than kept bottled up. If you finish a post having learned something and feeling mildly annoyed, I've done my job.
 
-Vài điều muốn nói rõ trước khi bạn đọc tiếp:
+A few things worth clarifying before you keep reading:
 
-- Trang này **không bán gì, không quảng cáo gì** cả. Không affiliate link, không sponsor post, không mục đích thương mại nào hết.
-- Một số bài có nhắc tới [GenCoach](https://gencoach.app) và [BoardRoom](https://boardroom.gencoach.app) — 2 sản phẩm tôi tự build. Nhắc tới vì đó là ví dụ thật tôi có sẵn trong tay để minh hoạ, không phải để quảng bá sản phẩm.
-- Quan điểm trong bài là của cá nhân tôi tại thời điểm viết, không đại diện cho ai hay tổ chức nào khác, và cũng không phải lời khuyên chuyên môn — đọc cho vui là chính, đừng đọc quá nghiêm túc.
+- This site **doesn't sell anything, doesn't advertise anything**. No affiliate links, no sponsored posts, no commercial angle whatsoever.
+- Some posts mention [GenCoach](https://gencoach.app) and [BoardRoom](https://boardroom.gencoach.app), two products I built myself. They come up because they're real examples I happen to have on hand, not because I'm trying to promote them.
+- The opinions here are my own, as of whenever I wrote them. They don't represent anyone or any organization, and they're not professional advice, read for fun, don't take it too seriously.
 
-Có gì muốn trao đổi (hoặc phản đối kịch liệt), tìm tôi ở [LinkedIn](https://linkedin.com/in/quangpx) hoặc [alexquang169@gmail.com](mailto:alexquang169@gmail.com).
+Got something to say (or a strong objection), find me on [LinkedIn](https://linkedin.com/in/quangpx) or at [alexquang169@gmail.com](mailto:alexquang169@gmail.com).
