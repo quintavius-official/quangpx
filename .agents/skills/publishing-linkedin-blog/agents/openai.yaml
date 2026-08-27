@@ -1,0 +1,3 @@
+interface:
+  display_name: "Publish QuangPX to LinkedIn"
+  short_description: "Publish a QuangPX blog post through a personal LinkedIn profile"
