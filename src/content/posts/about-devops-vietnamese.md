@@ -51,11 +51,15 @@ Nhưng không phải cái thứ gì gọi là nước mà đựng trong bình th
 
 Và cần nhắc lại cái gọi là loops hay loops engineering mà cư dân mạng đang gọi, thật chất cũng chỉ là 1 món rượu whisky thượng hạng ngâm trong vài thập kỷ (thời gian mà nó được training bởi data) đựng trong 1 cái bình thẩm mỹ cao có khắc vài dòng chữ mỹ miều: "Powered by <tên công ty AI nghìn tỷ nào đó>"...
 
+![Bình rượu whisky siêu sang khắc dòng “Powered by a trillion-dollar AI company”, tượng trưng cho lớp vỏ hào nhoáng của automation.](./image_1.png)
+
 Chính xác là như vậy! Nhưng để đu theo trend mỹ miều này, chúng ta cũng không thể gọi cái thứ nước chất lượng đầu ra đó là automation được, phải là thứ gì đó cao cấp hơn: nó phải là Autonomous, phải là AGI, phải là Điểm kỳ dị, phải là Superintelligence, Matrix, Skynet, etc... Bạn hiểu ý tôi rồi chứ?
 
 Nhưng cũng phải phân tích một cách nghiêm túc, nếu chúng ta thực sự đạt được level này thì sẽ như thế nào và mọi thứ sẽ trông ra sao? Không một ai biết cả, kể cả người "phát hiện" ra nó.
 
 Elon Musk, tỷ phú giàu nhất thế giới hiện tại và cũng cực kỳ thông minh, mới đây trả lời phỏng vấn The Economist (7/2026) đã dự đoán rằng tới năm 2036 tiền sẽ chẳng còn ý nghĩa gì nữa, vì AI và robot sẽ tạo ra dư thừa vật chất tới mức chẳng ai cần tiền để có đủ ăn đủ mặc nữa. Liệu rằng bạn có tin không?
+
+![Một nhân vật giàu có cạnh tiền bạc đang tan biến và những cánh tay robot tạo ra nhu yếu phẩm dồi dào, minh họa một tương lai hậu khan hiếm mang tính giả định.](./image_2.png)
 
 ## The final target
 
