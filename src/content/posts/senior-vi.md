@@ -39,4 +39,7 @@ Sau nhiều năm lăn lộn làm giải pháp cho đủ thứ bài toán kỹ th
 
 Bạn muốn thoát ra khỏi thế giới nghiệt ngã này để tìm một cuộc sống đời thường đúng nghĩa (chọn một bến đỗ mới), hay chấp nhận trở thành "cư dân" trong trò chơi – tiếp tay cho guồng máy và tiếp tục hành hạ những người chơi mới?
 
-
+> **Góc 101: Kiểm soát khác Thao túng**
+>
+> - **Kiểm soát** là hành động hoặc nỗ lực lèo lái các yếu tố để đạt được mục tiêu chính đáng. Ví dụ: giải quyết một bài toán hóc búa của khách hàng, hay cùng team bóc tách và xử lý tận gốc một vấn đề kỹ thuật.
+> - **Thao túng** là hành vi bóp méo nhận thức, đánh tráo khái niệm hoặc khiến người khác tin vào những điều không có thật nhằm mục đích tư lợi. Ví dụ: câu khẩu hiệu *"OT nhiều để tăng năng suất và tích lũy kinh nghiệm nhanh nhất"* chính là thao túng. Tăng năng suất vốn không tỉ lệ thuận với số giờ OT; đó chỉ là chiêu trò bòn rút effort miễn phí bằng cách kéo dài giờ làm một cách vô lý.
