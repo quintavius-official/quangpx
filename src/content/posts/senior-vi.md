@@ -29,5 +29,12 @@ Tốt thôi, trong trường hợp trên, nếu có sức chịu đựng cao, t�
 
 Khác gì so với Black Company? Chắc chỉ khác mỗi cái chữ, nhưng tôi nghĩ "dark" thì phải "thâm" hơn "black", còn "corporation" thì quy mô tổ chức ắt hẳn phải TO hơn "company" rồi, có phải không!?
 
-Và sau nhiều năm làm giải pháp cho các vấn đề kỹ thuật và tôi nhận ra rằng rồi cuối cùng chúng ta cũng phải tới lúc có pattern để giải quyết các vấn đề về mặt môi trường như thế này, theo tôi cũng rất đơn giản thôi, nếu như bạn đã là Senior (hoặc level cao hơn thì càng tốt), thì như người chiến thắng trong trò chơi Alice in Borderland, bạn muốn thoát ra khỏi thế giới nghiệt ngã này để tìm 1 cuộc sống bình dị đời thường (chọn bến đỗ mới), hay muốn trở thành cư dân trong trò chơi (ủng hộ guồng máy và tiếp tục hành hạ người chơi mới)?
+![Một bóng người đơn độc đứng giữa quảng trường hoang tàn ngập tràn cỏ dại dưới bầu trời tĩnh lặng, đối diện những khối điêu khắc lá bài khổng lồ lơ lửng, gợi nhắc thế giới Borderland và lựa chọn ở lại hay bước tiếp.](./senior-borderland.png)
+
+*Rời khỏi đấu trường, hay trở thành kẻ quản trò kế tiếp?*
+
+Sau nhiều năm lăn lộn làm giải pháp cho đủ thứ bài toán kỹ thuật, tôi nhận ra rằng rồi cũng đến lúc chúng ta cần một pattern để xử lý các vấn đề môi trường độc hại như thế này. Theo tôi thì nó cũng đơn giản thôi: một khi bạn đã là Senior (hoặc level cao hơn nữa), thì cũng như người chiến thắng trong trò chơi Alice in Borderland, bạn sẽ phải tự trả lời một câu hỏi:
+
+Bạn muốn thoát ra khỏi thế giới nghiệt ngã này để tìm một cuộc sống đời thường đúng nghĩa (chọn một bến đỗ mới), hay chấp nhận trở thành "cư dân" trong trò chơi – tiếp tay cho guồng máy và tiếp tục hành hạ những người chơi mới?
+
 
