@@ -10,16 +10,16 @@ import { getSortedPosts } from "@/utils/getSortedPosts";
 import { postFilter } from "@/utils/postFilter";
 import { slugifyStr } from "@/utils/slugify";
 import { toTransitionName } from "@/utils/toTransitionName";
-import EditPost from "./_components/EditPost.astro";
-import ShareLinks from "./_components/ShareLinks.astro";
-import BackButton from "./_components/BackButton.astro";
-import BackToTopButton from "./_components/BackToTopButton.astro";
-import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
+import EditPost from "@/pages/posts/[...slug]/_components/EditPost.astro";
+import ShareLinks from "@/pages/posts/[...slug]/_components/ShareLinks.astro";
+import BackButton from "@/pages/posts/[...slug]/_components/BackButton.astro";
+import BackToTopButton from "@/pages/posts/[...slug]/_components/BackToTopButton.astro";
+import AdjacentPostNav from "@/pages/posts/[...slug]/_components/AdjacentPostNav.astro";
 import config from "@/config";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts", ({ data }) => !data.draft);
-  const posts = allPosts.filter(({ data }) => data.lang === "en");
+  const posts = allPosts.filter(({ data }) => data.lang === "vi");
   const sortedPosts = getSortedPosts(posts);
 
   return sortedPosts.map((post, index) => {
@@ -28,14 +28,14 @@ export async function getStaticPaths() {
           p =>
             postFilter(p) &&
             p.data.translationKey === post.data.translationKey &&
-            p.data.lang === "vi"
+            p.data.lang === "en"
         )
       : null;
     const alternateUrl = alternatePost
       ? getPostUrl(
           alternatePost.id,
           alternatePost.filePath,
-          "vi",
+          "en",
           alternatePost.data.postSlug
         )
       : undefined;
@@ -85,7 +85,7 @@ type Props = {
 };
 
 const { post, prevPost, nextPost, alternateUrl } = Astro.props;
-const locale = Astro.currentLocale ?? config.site.lang;
+const locale = Astro.currentLocale ?? "vi";
 
 const {
   title,
@@ -170,7 +170,7 @@ const ogImage = ogImageUrl
             class="text-accent inline-flex items-center gap-1.5 underline decoration-dashed underline-offset-4 hover:opacity-80"
           >
             <span>🌐</span>
-            <span>Đọc bài viết này bằng Tiếng Việt →</span>
+            <span>Read this post in English →</span>
           </a>
         </div>
       )
@@ -315,8 +315,6 @@ const ogImage = ogImageUrl
     let overlay = null;
     let lastFocused = null;
 
-    // Defer attribute mutations so they don't push the LCP timestamp.
-    // Event listeners below use delegation and don't need the attributes to exist yet.
     requestAnimationFrame(() => {
       const images = Array.from(article.querySelectorAll("img"));
       for (const image of images) {
@@ -403,25 +401,16 @@ const ogImage = ogImageUrl
               if (currentScale > 1) {
                 resetTransform();
               } else {
-                currentScale = 2;
-                translateX = 0;
-                translateY = 0;
+                currentScale = 2.5;
                 applyTransform();
               }
-              lastTapTime = 0;
+            } else {
               panStartX = t[0].clientX;
               panStartY = t[0].clientY;
               panStartTranslateX = translateX;
               panStartTranslateY = translateY;
-            } else {
-              lastTapTime = now;
-              if (currentScale > 1) {
-                panStartX = t[0].clientX;
-                panStartY = t[0].clientY;
-                panStartTranslateX = translateX;
-                panStartTranslateY = translateY;
-              }
             }
+            lastTapTime = now;
           }
         },
         { passive: false }
@@ -438,67 +427,63 @@ const ogImage = ogImageUrl
               t[1].clientY - t[0].clientY
             );
             currentScale = Math.min(
-              4,
-              Math.max(1, initialScale * (dist / initialDist))
+              Math.max(initialScale * (dist / initialDist), 1),
+              4
             );
             applyTransform();
-          } else if (t.length === 1) {
-            if (currentScale > 1) {
-              e.preventDefault();
-              translateX =
-                panStartTranslateX + (t[0].clientX - panStartX) / currentScale;
-              translateY =
-                panStartTranslateY + (t[0].clientY - panStartY) / currentScale;
-              const maxX = Math.max(
-                0,
-                (image.clientWidth - overlay.clientWidth / currentScale) / 2
-              );
-              const maxY = Math.max(
-                0,
-                (image.clientHeight - overlay.clientHeight / currentScale) / 2
-              );
-              translateX = Math.min(maxX, Math.max(-maxX, translateX));
-              translateY = Math.min(maxY, Math.max(-maxY, translateY));
-              applyTransform();
-            } else {
-              e.preventDefault();
-            }
+          } else if (t.length === 1 && currentScale > 1) {
+            e.preventDefault();
+            translateX = panStartTranslateX + (t[0].clientX - panStartX);
+            translateY = panStartTranslateY + (t[0].clientY - panStartY);
+            applyTransform();
           }
         },
         { passive: false }
       );
 
-      overlay.addEventListener("touchend", e => {
-        if (e.touches.length === 0 && currentScale <= 1.05) {
-          resetTransform();
-        }
+      overlay.addEventListener("wheel", e => {
+        if (!e.ctrlKey) return;
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 1.15 : 0.85;
+        currentScale = Math.min(Math.max(currentScale * factor, 1), 4);
+        if (currentScale === 1) resetTransform();
+        else applyTransform();
       });
 
-      overlay.addEventListener("touchcancel", e => {
-        if (e.touches.length === 0 && currentScale <= 1.05) {
-          resetTransform();
+      overlay.addEventListener("dblclick", e => {
+        if (e.target !== image) return;
+        if (currentScale > 1) resetTransform();
+        else {
+          currentScale = 2.5;
+          applyTransform();
         }
       });
 
       document.body.appendChild(overlay);
-      document.body.style.overflow = "hidden";
-      document.addEventListener("keydown", onKeyDown);
+      window.__activeLightbox = overlay;
       window.__closeLightbox = close;
+      document.body.style.overflow = "hidden";
 
-      requestAnimationFrame(() => overlay?.classList.add("opacity-100"));
-      closeButton.focus();
+      requestAnimationFrame(() => {
+        overlay.classList.add("opacity-100");
+        closeButton.focus();
+      });
+
+      document.addEventListener("keydown", onKeyDown);
     }
 
     function close() {
       if (!overlay) return;
       const el = overlay;
       overlay = null;
+      window.__activeLightbox = null;
       window.__closeLightbox = null;
 
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
-      lastFocused?.focus();
-      lastFocused = null;
+      if (lastFocused && typeof lastFocused.focus === "function") {
+        lastFocused.focus();
+      }
 
       if (prefersReducedMotion()) {
         el.remove();
@@ -506,7 +491,7 @@ const ogImage = ogImageUrl
       }
       const remove = () => el.remove();
       el.addEventListener("transitionend", remove, { once: true });
-      setTimeout(remove, 250); // fallback in case transitionend never fires
+      setTimeout(remove, 250);
       el.classList.remove("opacity-100");
     }
 
@@ -518,7 +503,6 @@ const ogImage = ogImageUrl
       }
     }
 
-    // Keep keyboard focus inside the open dialog.
     function trapFocus(e) {
       if (!overlay) return;
       const focusables = overlay.querySelectorAll(

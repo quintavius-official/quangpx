@@ -10,9 +10,11 @@ tags:
   - Black Company
 featured: true
 draft: false
+lang: "vi"
+postSlug: "fake-incentives"
 ---
 
-Trong bài viết trước về [Seniority](/posts/senior-vi), tôi có nhắc đến chuyện một senior thực thụ rất dễ biến thành "công cụ bóc lột" thượng hạng trong mắt các Black Company và Dark Corporation. Sau bài viết đó, nhiều bạn nhắn tôi hỏi: *vậy cụ thể các tổ chức này dùng những ngón đòn nào để thao túng và vắt kiệt một người có năng lực?*
+Trong bài viết trước về [Seniority](/vi/posts/seniority), tôi có nhắc đến chuyện một senior thực thụ rất dễ biến thành "công cụ bóc lột" thượng hạng trong mắt các Black Company và Dark Corporation. Sau bài viết đó, nhiều bạn nhắn tôi hỏi: *vậy cụ thể các tổ chức này dùng những ngón đòn nào để thao túng và vắt kiệt một người có năng lực?*
 
 Hôm nay chúng ta sẽ bắt đầu bóc tách ngón đòn kinh điển đầu tiên: **Fake Incentives** – nghệ thuật tạo ra những chiếc bánh vẽ và ban phát chức danh rỗng.
 

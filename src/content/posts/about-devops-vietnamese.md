@@ -1,7 +1,7 @@
 ---
-title: "About DevOps (Vietnamese)"
+title: "About DevOps"
 pubDatetime: 2026-08-26T00:00:00Z
-description: ""
+description: "DevOps không chỉ là CI/CD hay một chức danh, đó là một vòng lặp phản hồi nhàm chán nhưng không bao giờ lỗi thời."
 tags:
   - DevOps
   - CI/CD
@@ -10,6 +10,9 @@ tags:
   - Agentic AI
 featured: true
 draft: false
+lang: "vi"
+postSlug: "about-devops"
+translationKey: "about-devops"
 ---
 
 

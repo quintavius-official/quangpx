@@ -15,10 +15,10 @@ import config from "@/config";
 
 const { socials, posts: postsConfig } = config;
 
-const locale = Astro.currentLocale ?? config.site.lang;
+const locale = "vi";
 const t = useTranslations(locale);
 
-const posts = await getCollection("posts", ({ data }) => !data.draft && data.lang === "en");
+const posts = await getCollection("posts", ({ data }) => !data.draft && data.lang === "vi");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
@@ -26,24 +26,6 @@ const homePath = getRelativeLocaleUrl(locale, "");
 ---
 
 <Layout>
-  <script is:inline>
-    (function () {
-      try {
-        const preferred = localStorage.getItem("preferred_lang");
-        if (preferred === "vi") {
-          window.location.replace("/vi/");
-          return;
-        }
-        if (!preferred) {
-          const langs = navigator.languages || [navigator.language || ""];
-          const isVi = langs.some(l => l && l.toLowerCase().startsWith("vi"));
-          if (isVi) {
-            window.location.replace("/vi/");
-          }
-        }
-      } catch (e) {}
-    })();
-  </script>
   <Header />
   <main
     id="main-content"
@@ -53,7 +35,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
   >
     <section id="hero" class="border-border border-b pt-8 pb-6">
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Hi, I'm Quang Phuong
+        Xin chào, tôi là Quang Phương
       </h1>
       <a
         target="_blank"
@@ -71,19 +53,18 @@ const homePath = getRelativeLocaleUrl(locale, "");
       </a>
 
       <p>
-        Solutions architect based in Ho Chi Minh City, working across cloud
-        infrastructure, SRE, and DevOps. I write here about what I run into
-        day to day.
+        Solutions architect tại TP. Hồ Chí Minh, chuyên về hạ tầng đám mây, SRE
+        và DevOps. Tôi viết ở đây về những gì mình gặp phải hàng ngày.
       </p>
       <p class="mt-2">
-        Read the posts below, or check{" "}
+        Đọc các bài viết bên dưới, hoặc xem{" "}
         <LinkButton
           class="hover:text-accent underline decoration-dashed underline-offset-4"
           href={getRelativeLocaleUrl(locale, "about")}
         >
-          About
+          Giới thiệu
         </LinkButton>{" "}
-        for more on me.
+        để biết thêm về tôi.
       </p>
       {
         socials.length > 0 && (

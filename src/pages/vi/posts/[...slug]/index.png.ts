@@ -14,7 +14,7 @@ export async function getStaticPaths() {
   }
 
   const posts = await getCollection("posts").then(p =>
-    p.filter(post => postFilter(post) && !post.data.ogImage && post.data.lang === "en")
+    p.filter(post => postFilter(post) && !post.data.ogImage && post.data.lang === "vi")
   );
 
   return posts.map(post => ({
@@ -131,21 +131,21 @@ export const GET: APIRoute = async ({ props, url }) => {
                               children: [
                                 "by ",
                                 {
-                                  type: "span",
-                                  props: {
-                                    style: { color: "transparent" },
-                                    children: '"',
-                                  },
+                                   type: "span",
+                                   props: {
+                                     style: { color: "transparent" },
+                                     children: '"',
+                                   },
                                 },
                                 {
-                                  type: "span",
-                                  props: {
-                                    style: {
-                                      overflow: "hidden",
-                                      fontWeight: "bold",
-                                    },
-                                    children: props.data.author,
-                                  },
+                                   type: "span",
+                                   props: {
+                                     style: {
+                                       overflow: "hidden",
+                                       fontWeight: "bold",
+                                     },
+                                     children: props.data.author,
+                                   },
                                 },
                               ],
                             },

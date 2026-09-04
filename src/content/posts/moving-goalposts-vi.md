@@ -10,9 +10,11 @@ tags:
   - Black Company
 featured: true
 draft: false
+lang: "vi"
+postSlug: "moving-goalposts"
 ---
 
-Nếu [Fake Incentives](/posts/fake-incentives-vi) là mồi câu thơm phức để lừa bạn cắn câu, thì **Moving Goalposts (Dời cọc gôn)** chính là chiếc cối xay nghiền nát sự tự tin và cản trở việc bạn nhận được những đãi ngộ xứng đáng. 
+Nếu [Fake Incentives](/vi/posts/fake-incentives) là mồi câu thơm phức để lừa bạn cắn câu, thì **Moving Goalposts (Dời cọc gôn)** chính là chiếc cối xay nghiền nát sự tự tin và cản trở việc bạn nhận được những đãi ngộ xứng đáng. 
 
 Đây là ngón đòn tàn độc nhất trong sổ tay quản trị của các Dark Corporation: nó không chỉ bòn rút công sức mà còn gieo rắc vào đầu nhân viên hội chứng *Imposter Syndrome nhân tạo* (hội chứng kẻ mạo danh do môi trường cố tình cấy vào), khiến bạn luôn sống trong cảm giác dằn vặt rằng mình làm mãi mà vẫn "chưa đủ tốt".
 

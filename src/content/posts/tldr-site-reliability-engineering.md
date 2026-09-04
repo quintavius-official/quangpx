@@ -7,6 +7,7 @@ tags:
   - DevOps
 featured: true
 draft: false
+lang: "en"
 canonicalURL: "https://www.linkedin.com/pulse/tldr-site-reliability-engineering-quang-ph%C6%B0%C6%A1ng-knclc/"
 ---
 

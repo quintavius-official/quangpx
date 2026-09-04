@@ -20,7 +20,14 @@ function getIdSlug(id: string): string {
   return postId.length > 0 ? String(postId[postId.length - 1]) : id;
 }
 
-function getPostSlugPath(id: string, filePath: string | undefined): string {
+function getPostSlugPath(
+  id: string,
+  filePath: string | undefined,
+  customSlug?: string
+): string {
+  if (customSlug) {
+    return slugifyStr(customSlug);
+  }
   const pathSegments = getPostPathSegments(filePath);
   const slug = getIdSlug(id);
   return pathSegments.length > 0
@@ -33,8 +40,12 @@ function getPostSlugPath(id: string, filePath: string | undefined): string {
  * No base prefix, no locale — Astro handles those at a higher level.
  * e.g. `/examples/my-post`
  */
-export function getPostSlug(id: string, filePath: string | undefined): string {
-  return `/${getPostSlugPath(id, filePath)}`;
+export function getPostSlug(
+  id: string,
+  filePath: string | undefined,
+  customSlug?: string
+): string {
+  return `/${getPostSlugPath(id, filePath, customSlug)}`;
 }
 
 /**
@@ -46,7 +57,11 @@ export function getPostSlug(id: string, filePath: string | undefined): string {
 export function getPostUrl(
   id: string,
   filePath: string | undefined,
-  locale: string | undefined = config.site.lang
+  locale: string | undefined = config.site.lang,
+  customSlug?: string
 ): string {
-  return getRelativeLocaleUrl(locale, `posts/${getPostSlugPath(id, filePath)}`);
+  return getRelativeLocaleUrl(
+    locale,
+    `posts/${getPostSlugPath(id, filePath, customSlug)}`
+  );
 }
