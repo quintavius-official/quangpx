@@ -14,7 +14,7 @@ draft: false
 
 Nếu [Fake Incentives](/posts/fake-incentives-vi) là mồi câu thơm phức để lừa bạn cắn câu, thì **Moving Goalposts (Dời cọc gôn)** chính là chiếc cối xay nghiền nát sự tự tin và cản trở việc bạn nhận được những đãi ngộ xứng đáng. 
 
-Đây là ngón đòn tàn độc nhất trong sổ tay quản trị của các Dark Corporation: nó không chỉ bòn rút công sức mà còn gieo rắc vào đầu nhân viên hội chứng *Imposter Syndrome nhân tạo* (hội chứng kẻ giả mạo do môi trường cố tình cấy vào), khiến bạn luôn sống trong cảm giác dằn vặt rằng mình làm mãi mà vẫn "chưa đủ tốt".
+Đây là ngón đòn tàn độc nhất trong sổ tay quản trị của các Dark Corporation: nó không chỉ bòn rút công sức mà còn gieo rắc vào đầu nhân viên hội chứng *Imposter Syndrome nhân tạo* (hội chứng kẻ mạo danh do môi trường cố tình cấy vào), khiến bạn luôn sống trong cảm giác dằn vặt rằng mình làm mãi mà vẫn "chưa đủ tốt".
 
 ---
 
@@ -90,11 +90,13 @@ Không bao giờ nhận một role lệch scope chỉ bằng lời nói suông. 
 
 Chiếc email này chính là "bằng chứng ngoại phạm" đanh thép nhất khi đến kỳ review sếp lôi tiêu chuẩn X hay Z ra để vặn vẹo bạn.
 
+Còn nếu sau chiếc email đó, bạn thấy sếp hoàn toàn im lặng, cố tình lờ đi hoặc chỉ trả lời miệng bâng quơ kiểu *"thôi em cứ liệu cơm gắp mắm..."*: xin chúc mừng, đây chính là một red flag sáng chói. Người ta cố tình né tránh văn bản để giữ lại quyền bắt bẻ bạn sau này. Một khi sự mập mờ là chủ đích của quản lý, tốt hơn hết bạn nên chuẩn bị tinh thần cho next step là vừa.
+
 ### B. Tự lập Brag Document (Nhật ký thành tựu)
 Đừng bao giờ để người khác định nghĩa giá trị của bạn bằng trí nhớ mơ hồ của họ. Hãy tự ghi chép lại mọi việc bạn làm:
-- Đã giải quyết bao nhiêu incident P0/P1?
-- Đã giảm downtime của hệ thống từ bao nhiêu xuống bao nhiêu?
-- Đã cứu được hợp đồng nào của khách hàng?
+- Đã giải quyết bao nhiêu issue Critical/High cho hệ thống?
+- Performance hệ thống được cải thiện bao nhiêu %, hoặc sau đợt dọn dẹp còn xảy ra downtime nữa hay không?
+- Đã gỡ rối và cứu được hợp đồng nào của khách hàng?
 
 Đến buổi review, đừng ngồi nghe sếp phán xét bằng cảm tính ("anh thấy dạo này em..."). Hãy đặt bảng số liệu định lượng lên bàn. Nếu họ tiếp tục lờ đi số liệu để nói về những thứ trừu tượng, bạn biết chắc chắn rằng cuộc chơi này đã bị gian lận từ đầu.
 
@@ -103,3 +105,15 @@ Chiếc email này chính là "bằng chứng ngoại phạm" đanh thép nhất
 - **Lần 2 tiếp tục kịch bản cũ:** Đây 100% là chủ đích của tổ chức nhằm bòn rút sức lao động giá rẻ.
 
 Đừng cố gắng chứng minh bản thân thêm một lần nào nữa. Lúc này, năng lượng quý giá duy nhất của bạn nên được dùng vào một việc: **Cập nhật CV, ping lại network cũ và tìm kiếm một bến đỗ nơi tài năng của bạn được đối xử như một đối tác sòng phẳng.**
+
+> **Góc 101: Thao túng và đòn Social Engineering công sở**
+>
+> Kỹ năng nhận diện thao túng thực chất không khác gì kỹ năng phát hiện phishing hay social engineering trong an toàn thông tin (security).
+>
+> Kẻ tấn công khai thác lỗ hổng tâm lý ra sao, thì một người sếp hoặc đối tác thao túng cũng sẽ dùng đúng các pattern hành vi y hệt như vậy:
+> - **Tạo cảm giác gấp gáp giả tạo (Artificial Urgency):** *"Cái này cực kỳ gấp, không làm ngay là toang cả dự án!"* — nhằm ép bạn phải nhận việc hoặc gánh trách nhiệm ngay lập tức mà không kịp suy nghĩ hay đối chiếu scope.
+> - **Thổi phồng sự nghiêm trọng (Artificial Severity):** Biến những trục trặc vận hành thông thường thành "thảm họa sinh tử", khiến bạn cảm thấy tội lỗi nếu không xông pha cứu nguy.
+> - **Thân mật thái quá và bất thường (Unsolicited Intimacy / Love Bombing):** Tự dưng xem bạn như "anh em vào sinh ra tử", kéo đi cà phê tâm sự, khen ngợi lên tận mây xanh trước khi dúi vào tay bạn một đống rác mà cả công ty không ai dám nhận.
+>
+> Bất cứ khi nào bạn thấy xuất hiện một trong ba triệu chứng trên đi kèm một yêu cầu công việc mập mờ: hãy bật ngay tường lửa phòng vệ. Khoảng dừng suy xét và yêu cầu xác nhận bằng văn bản chính là bản vá bảo mật (patch) quan trọng nhất cho sự nghiệp của bạn.
+
