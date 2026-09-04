@@ -76,12 +76,19 @@ function readPost(root, file) {
     .map(match => resolve(localDirectory, match[1]))
     .filter(asset => existsSync(asset));
 
+  const lang = frontmatterValue(frontmatter, "lang") || "en";
+  const postSlug = frontmatterValue(frontmatter, "postSlug");
+  const postPath = postSlug || segments.join("/");
+  const urlPrefix =
+    lang === "vi" ? "https://quangpx.com/vi/posts/" : "https://quangpx.com/posts/";
+
   return {
     file: relative(root, file),
     title,
     description,
     draft: /^draft:\s*true\s*$/m.test(frontmatter),
-    url: `https://quangpx.com/posts/${segments.join("/")}/`,
+    lang,
+    url: `${urlPrefix}${postPath}/`,
     assets,
   };
 }

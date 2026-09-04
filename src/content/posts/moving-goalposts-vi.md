@@ -12,6 +12,7 @@ featured: true
 draft: false
 lang: "vi"
 postSlug: "moving-goalposts"
+translationKey: "moving-goalposts"
 ---
 
 Nếu [Fake Incentives](/vi/posts/fake-incentives) là mồi câu thơm phức để lừa bạn cắn câu, thì **Moving Goalposts (Dời cọc gôn)** chính là chiếc cối xay nghiền nát sự tự tin và cản trở việc bạn nhận được những đãi ngộ xứng đáng. 

@@ -13,6 +13,7 @@ featured: true
 draft: false
 lang: "vi"
 postSlug: "seniority"
+translationKey: "seniority"
 ---
 
 Có bao giờ bạn rơi vào tình cảnh này: Bạn là người duy nhất trong team hiểu được mọi thứ vận hành và không vận hành ra sao. Bất kỳ task hay issue nào có độ phức tạp cao, hoặc đòi hỏi một sense "cảm khách hàng" để biết điều chỉnh, reconcile và giải quyết nhẹ nhàng như một task đơn giản nhất, dù bạn có thể không phải là người làm nhiều việc nhất (*). Hoặc chỉ một việc nhỏ xíu như reply một feedback của khách: nếu bạn không có mặt mà để ai đó trả lời hộ, ngay lập tức sẽ sinh chuyện. Nhẹ thì khách sinh nghi vặn vẹo vì niềm tin đã vơi đi ít nhiều; nặng thì họ sẽ bày đủ trò làm khó làm dễ, chơi trò mèo vờn chuột đến mức sau này bạn khó lòng gỡ ra nổi nếu không chịu xuống nước năn nỉ "thôi anh/chị tha cho em...". Đơn giản vì bạn là người biết rõ mọi thứ vận hành bình thường ra sao; còn khi bạn vắng mặt, cái thứ tưởng chừng như "dễ ẹc" kia hoá ra lại vô cùng phức tạp, đến nỗi người khác loay hoay trong một thời gian dài vẫn chưa xong cái việc mà bạn chỉ mất đúng một buổi là xong.
