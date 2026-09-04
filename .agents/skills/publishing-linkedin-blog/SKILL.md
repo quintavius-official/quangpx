@@ -36,6 +36,13 @@ Use only the returned `person_urn` (`urn:li:person:...`) as `--author`. Stop if 
 
 Create an article card with `lkdn post create`, setting `--article-url` to the helper's `url`, title and (when non-empty) description from the helper, and the requested visibility. Add `--article-thumbnail <asset>` only when the user has approved a relevant local image from `assets`; never attach an unrelated image.
 
+## Caption and status style
+
+When drafting, suggesting, or setting the LinkedIn post commentary/status:
+- **Ultra-short, single-line, and purely informational:** Exactly one simple line (e.g., `"Một góc nhìn về danh xưng Senior"`).
+- **No marketing fluff or CTA:** Do not include Call to Actions (no "đọc thêm ở link dưới", "check out the link", etc.), long bulleted teasers, engagement bait, or hashtags unless the user explicitly asks for them.
+- **Default pattern:** `"Một góc nhìn về <Chủ đề>"` (or in English: `"A perspective on <Topic>"` / `"On <Topic>"`).
+
 ## Approval boundary
 
 Publishing is an external, irreversible action. Before the first publish attempt in a request, show the exact caption, selected source file, quangpx.com URL, visibility, author type (**personal profile**), and thumbnail choice. Publish only after the user explicitly approves that preview. Report the resulting post URN and LinkedIn feed URL; do not read back credentials.
@@ -48,4 +55,5 @@ Publishing is an external, irreversible action. Before the first publish attempt
 | `canonicalURL` points to LinkedIn | Use the helper's quangpx.com URL. |
 | User asks to publish "as Page" | Explain this project skill is personal-profile-only and stop. |
 | Link card has no explicitly chosen image | Omit the thumbnail rather than choose an arbitrary asset. |
+| Long promotional caption, bulleted teaser, or CTA | Keep status ultra-short (1 single line, e.g. `"Một góc nhìn về <Chủ đề>"`), purely informational, no CTA. |
 | Token, client secret, or `.env` shown in output | Stop and redact; credentials must remain local. |
