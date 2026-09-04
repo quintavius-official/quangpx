@@ -60,6 +60,10 @@ Và trò hề thực sự chỉ lộ ra khi dự án đi đến hồi kết:
 
 Bạn mất trắng 1–2 năm tuổi nghề đỉnh cao vào một dự án ma không bao giờ được release ra thị trường, CV không có thêm một metric thực tế nào ngoài mái tóc bạc thêm vài sợi và sức khỏe giảm sút trầm trọng.
 
+![Chiếc bánh khổng lồ lộng lẫy dát vàng đứng sừng sững giữa quảng trường cẩm thạch dưới ánh ban mai, với một mặt để lộ cấu trúc rỗng toác đang tan biến thành bụi vàng, tượng trưng cho những chiếc bánh vẽ và lời hứa suông trong công sở.](./fake-incentives.png)
+
+*Chiếc bánh vẽ triệu đô: tráng lệ từ xa, rỗng tuếch khi chạm vào.*
+
 ---
 
 ## 3. Sniff Test: Làm sao để ngửi thấy mùi "Fake Incentives"?

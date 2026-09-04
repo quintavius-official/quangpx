@@ -81,6 +81,10 @@ Thế là bạn được điều chuyển sang một team mới toanh. Và cái 
 
 Đồng hồ thăng tiến của bạn chính thức bị **reset về vạch xuất phát**. Cứ thế, chu kỳ lặp lại 2–3 năm, bạn nhảy qua 3 dự án khác nhau để dập lửa, cống hiến hết thanh xuân, nhưng level và thu nhập vẫn đứng yên một chỗ.
 
+![Cỗ máy trò chơi cơ học tinh xảo bằng đá vôi ngà và bánh răng đồng đứng lẻ loi giữa đại sảnh ngập nắng, với các bánh xe quay được thiết kế để biểu tượng trúng thưởng không bao giờ thẳng hàng, biểu trưng cho một cuộc chơi đã bị gian lận từ đầu.](./moving-goalposts.png)
+
+*Khi luật chơi được lập trình sẵn để bạn không bao giờ chạm tới đích.*
+
 ---
 
 ## 4. Cách phá thế cờ "Moving Goalposts"

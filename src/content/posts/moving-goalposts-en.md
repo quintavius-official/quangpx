@@ -81,6 +81,10 @@ And just like that, you are reassigned to a completely unfamiliar team. And the 
 
 Your promotion clock has been **officially reset to square one**. Rinse and repeat this cycle for 2–3 years: you hop across three separate dumpster fires, sacrifice your youth saving sinking ships, while your level and compensation remain frozen in carbonite.
 
+![An exquisite museum-grade mechanical gaming automaton in pale limestone and polished brass inside a sunlit hall, with intricate gears engineered so the winning jackpot symbols can never align, symbolizing a rigged game and predetermined outcomes.](./moving-goalposts.png)
+
+*When the game is engineered so you can never hit the jackpot.*
+
 ---
 
 ## 4. Breaking the "Moving Goalposts" Game

@@ -60,6 +60,10 @@ And the farce only truly reveals itself when the project reaches its conclusion:
 
 You just threw away 1–2 of your prime career years on a ghost project that will never see the light of production, leaving your resume without a single measurable metric to show for it — just a few more grey hairs and thoroughly wrecked health.
 
+![A colossal, magnificent gilded pie standing monumentally in a pale marble plaza under morning light, with one side revealing a hollow facade flaking away into golden dust, symbolizing alluring yet empty corporate promises.](./fake-incentives.png)
+
+*The multi-million dollar illusion: magnificent from afar, completely hollow up close.*
+
 ---
 
 ## 3. Sniff Test: How to Detect "Fake Incentives"
