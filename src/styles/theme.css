@@ -32,3 +32,46 @@
   --muted-foreground: #afb9ca;
   --border: #ab4b08;
 }
+
+/* Native dark theme fallback when data-theme is not explicitly light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #212737;
+    --foreground: #eaedf3;
+    --accent: #ff6b01;
+    --accent-foreground: #ffffff;
+    --muted: #343f60;
+    --muted-foreground: #afb9ca;
+    --border: #ab4b08;
+  }
+}
+
+/* Theme mode icon visibility */
+#theme-btn .icon-system,
+#theme-btn .icon-light,
+#theme-btn .icon-dark {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0) rotate(90deg);
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root:not([data-theme-mode="light"]):not([data-theme-mode="dark"]) #theme-btn .icon-system,
+:root[data-theme-mode="system"] #theme-btn .icon-system {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  pointer-events: auto;
+}
+
+:root[data-theme-mode="light"] #theme-btn .icon-light {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  pointer-events: auto;
+}
+
+:root[data-theme-mode="dark"] #theme-btn .icon-dark {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  pointer-events: auto;
+}
+

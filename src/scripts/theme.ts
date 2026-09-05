@@ -1,30 +1,74 @@
 const THEME_KEY = "theme";
+const SYSTEM = "system";
 const LIGHT = "light";
 const DARK = "dark";
 
-function getPreferredTheme(): string {
+type ThemeMode = typeof SYSTEM | typeof LIGHT | typeof DARK;
+type ResolvedTheme = typeof LIGHT | typeof DARK;
+
+interface ThemeState {
+  mode?: ThemeMode;
+  value?: ResolvedTheme;
+}
+
+function getStoredMode(): ThemeMode {
   const stored = localStorage.getItem(THEME_KEY);
-  if (stored) return stored;
+  return stored === LIGHT || stored === DARK ? stored : SYSTEM;
+}
+
+function getSystemTheme(): ResolvedTheme {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? DARK
     : LIGHT;
 }
 
-// Reuse the value already set by the inline FOUC-prevention script if available.
-let themeValue: string =
-  (window as unknown as { __theme?: { value: string } }).__theme?.value ??
-  getPreferredTheme();
+function resolveTheme(mode: ThemeMode): ResolvedTheme {
+  return mode === SYSTEM ? getSystemTheme() : mode;
+}
+
+const initialWindowTheme = (window as unknown as { __theme?: ThemeState })
+  .__theme;
+let themeMode: ThemeMode = initialWindowTheme?.mode ?? getStoredMode();
+let themeValue: ResolvedTheme =
+  initialWindowTheme?.value ?? resolveTheme(themeMode);
+
+function cycleMode(current: ThemeMode): ThemeMode {
+  const systemTheme = getSystemTheme();
+  if (current === SYSTEM) {
+    return systemTheme === LIGHT ? DARK : LIGHT;
+  }
+  if (current === DARK) {
+    return systemTheme === LIGHT ? LIGHT : SYSTEM;
+  }
+  return systemTheme === LIGHT ? SYSTEM : DARK;
+}
 
 function persist(): void {
-  localStorage.setItem(THEME_KEY, themeValue);
+  if (themeMode === SYSTEM) {
+    localStorage.removeItem(THEME_KEY);
+  } else {
+    localStorage.setItem(THEME_KEY, themeMode);
+  }
   reflect();
 }
 
 function reflect(): void {
+  themeValue = resolveTheme(themeMode);
+
   const root = document.firstElementChild;
+  root?.setAttribute("data-theme-mode", themeMode);
   root?.setAttribute("data-theme", themeValue);
   root?.classList.toggle("dark", themeValue === DARK);
-  document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
+
+  const themeBtn = document.querySelector("#theme-btn");
+  if (themeBtn) {
+    themeBtn.setAttribute("data-mode", themeMode);
+    themeBtn.setAttribute("aria-label", themeMode);
+    const title = themeBtn.getAttribute(`data-title-${themeMode}`);
+    if (title) {
+      themeBtn.setAttribute("title", title);
+    }
+  }
 
   // Fill <meta name="theme-color"> with the computed background colour so
   // Android's browser chrome matches the page background.
@@ -36,8 +80,9 @@ function reflect(): void {
 
 function setup(): void {
   reflect();
-  document.querySelector("#theme-btn")?.addEventListener("click", () => {
-    themeValue = themeValue === LIGHT ? DARK : LIGHT;
+  const themeBtn = document.querySelector("#theme-btn");
+  themeBtn?.addEventListener("click", () => {
+    themeMode = cycleMode(themeMode);
     persist();
   });
 }
@@ -60,10 +105,11 @@ document.addEventListener("astro:before-swap", event => {
   }
 });
 
-// Sync with OS-level dark/light preference changes.
+// Sync with OS-level dark/light preference changes when in SYSTEM mode.
 window
   .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", ({ matches }) => {
-    themeValue = matches ? DARK : LIGHT;
-    persist();
+  .addEventListener("change", () => {
+    if (themeMode === SYSTEM) {
+      reflect();
+    }
   });

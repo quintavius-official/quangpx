@@ -6,6 +6,7 @@ import IconArchive from "@/assets/icons/IconArchive.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconSearch from "@/assets/icons/IconSearch.svg";
 import IconMoon from "@/assets/icons/IconMoon.svg";
+import IconDeviceDesktop from "@/assets/icons/IconDeviceDesktop.svg";
 import IconX from "@/assets/icons/IconX.svg";
 import LinkButton from "./LinkButton.astro";
 import { stripBase, stripLocale } from "@/utils/withBase";
@@ -163,11 +164,15 @@ const isActive = (path: string) => {
                 id="theme-btn"
                 class="focus-outline hover:[&>svg]:stroke-accent relative size-12 p-4 sm:size-8"
                 title={t.a11y.toggleTheme}
-                aria-label="auto"
+                data-title-system={t.a11y.themeSystem}
+                data-title-light={t.a11y.themeLight}
+                data-title-dark={t.a11y.themeDark}
+                aria-label={t.a11y.toggleTheme}
                 aria-live="polite"
               >
-                <IconMoon class="absolute top-[50%] left-[50%] translate-[-50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-                <IconSunHigh class="absolute top-[50%] left-[50%] translate-[-50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+                <IconDeviceDesktop class="icon-system absolute top-[50%] left-[50%]" />
+                <IconSunHigh class="icon-light absolute top-[50%] left-[50%]" />
+                <IconMoon class="icon-dark absolute top-[50%] left-[50%]" />
               </button>
             </li>
           )

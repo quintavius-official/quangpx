@@ -105,12 +105,16 @@ const rssHref = getRelativeLocaleUrl(
         const prefersDark = window.matchMedia(
           "(prefers-color-scheme: dark)"
         ).matches;
-        const theme = stored ?? (prefersDark ? "dark" : "light");
+        const mode =
+          stored === "light" || stored === "dark" ? stored : "system";
+        const theme =
+          mode === "system" ? (prefersDark ? "dark" : "light") : mode;
         const root = document.firstElementChild;
+        root?.setAttribute("data-theme-mode", mode);
         root?.setAttribute("data-theme", theme);
         root?.classList.toggle("dark", theme === "dark");
         // Expose value so theme.ts can skip re-detection.
-        window.__theme = { value: theme };
+        window.__theme = { mode, value: theme };
       })();
     </script>
 
