@@ -2,6 +2,7 @@
 title: "About DevOps"
 pubDatetime: 2026-08-26T00:00:00Z
 description: "DevOps không chỉ là CI/CD hay một chức danh, đó là một vòng lặp phản hồi nhàm chán nhưng không bao giờ lỗi thời."
+ogImage: "./image_1.png"
 tags:
   - DevOps
   - CI/CD

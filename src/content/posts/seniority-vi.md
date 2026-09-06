@@ -2,6 +2,7 @@
 title: "Seniority"
 pubDatetime: 2026-09-03T00:00:00Z
 description: "Thế nào là một senior thực thụ? Và khi tài năng bị biến thành công cụ trong các Black Company và Dark Corporation."
+ogImage: "./senior-borderland.png"
 tags:
   - Career
   - Engineering

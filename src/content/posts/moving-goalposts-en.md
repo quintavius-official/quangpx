@@ -2,6 +2,7 @@
 title: "Dark Patterns #2: Moving Goalposts – Hired for X, Tasked with Y, Graded on Z"
 pubDatetime: 2026-09-05T00:00:00Z
 description: "The moving goalposts game inside Dark Corporations: why you're perpetually 'not quite ready', and the reorg playbook used to reset your promotion clock."
+ogImage: "./moving-goalposts.png"
 tags:
   - Career
   - Culture

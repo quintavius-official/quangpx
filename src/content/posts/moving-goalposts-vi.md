@@ -2,6 +2,7 @@
 title: "Dark Patterns #2: Moving Goalposts – Tuyển X, làm Y và đánh giá Z"
 pubDatetime: 2026-09-05T00:00:00Z
 description: "Trò chơi dời cọc gôn trong các Dark Corporation: khi nhân viên luôn là người 'chưa đủ tốt', và nghệ thuật thuyên chuyển để reset đồng hồ tăng lương."
+ogImage: "./moving-goalposts.png"
 tags:
   - Career
   - Culture

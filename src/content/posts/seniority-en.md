@@ -2,6 +2,7 @@
 title: "Seniority"
 pubDatetime: 2026-09-03T00:00:00Z
 description: "What does it actually mean to be a senior? And how your talent turns into an exploitation tool in Black Companies and Dark Corporations."
+ogImage: "./senior-borderland.png"
 tags:
   - Career
   - Engineering

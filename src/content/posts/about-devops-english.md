@@ -2,6 +2,7 @@
 title: "About DevOps"
 pubDatetime: 2026-08-26T00:00:00Z
 description: "DevOps isn't just CI/CD or a job title, it's one boring feedback loop that never goes out of style. From the origin of the name to Agent Loops and AGI."
+ogImage: "./image_1.png"
 tags:
   - DevOps
   - CI/CD

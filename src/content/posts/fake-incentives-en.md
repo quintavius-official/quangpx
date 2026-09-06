@@ -2,6 +2,7 @@
 title: "Dark Patterns #1: Fake Incentives – Empty Promises and Budgetless Titles"
 pubDatetime: 2026-09-04T00:00:00Z
 description: "How Black Companies and Dark Corporations use phantom opportunities and hollow titles to extract 200% effort from seniors without spending a single dime."
+ogImage: "./fake-incentives.png"
 tags:
   - Career
   - Culture
