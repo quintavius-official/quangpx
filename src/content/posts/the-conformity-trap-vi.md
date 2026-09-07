@@ -1,6 +1,6 @@
 ---
 title: 'Dark Patterns #3: The Conformity Trap – Chiếc lồng cào bằng và đòn triệt hạ dưới mác "Unfit Culture"'
-pubDatetime: 2026-09-06T00:00:00Z
+pubDatetime: 2026-09-15T00:00:00Z
 description: "Cách các Dark Corporation dùng tiêu chuẩn thấp để giam cầm người giỏi, biến tư duy đột phá thành 'tội đồ văn hoá', trong khi âm thầm tuồn ý tưởng cho nhóm thân tín để trục lợi."
 tags:
   - Career

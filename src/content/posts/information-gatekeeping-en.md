@@ -1,6 +1,6 @@
 ---
 title: "Dark Patterns #4: Information Gatekeeping – The Truth Distorters and the Silent Sacrifices of Real Seniors"
-pubDatetime: 2026-09-07T00:00:00Z
+pubDatetime: 2026-09-17T00:00:00Z
 description: "How manipulative gatekeepers distort reality between clients and engineering teams: sabotaging competent vendors to feed favored cronies, and the silent destruction of passionate seniors."
 tags:
   - Career

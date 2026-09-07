@@ -1,7 +1,7 @@
 ---
 title: "Dark Patterns #3: The Conformity Trap – Forcing Mediocrity, Faking Culture, and Hijacking Ideas"
-pubDatetime: 2026-09-06T00:00:00Z
-description: "How Dark Corporations use low standards to cage high performers, label breakthrough thinking as a 'cultural mismatch', and quietly smuggle your ideas to the inner circle for profit."
+pubDatetime: 2026-09-15T00:00:00Z
+description: "How Dark Corporations use low common denominators to cage exceptional talent, label breakthrough thinking as 'culture unfit', while quietly hijacking ideas behind closed doors for private profit."
 tags:
   - Career
   - Culture

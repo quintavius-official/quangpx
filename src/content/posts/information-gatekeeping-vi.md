@@ -1,6 +1,6 @@
 ---
 title: "Dark Patterns #4: Information Gatekeeping – Kẻ gác cổng bóp méo sự thật và cái chết của những senior tâm huyết"
-pubDatetime: 2026-09-07T00:00:00Z
+pubDatetime: 2026-09-17T00:00:00Z
 description: "Trò chơi thao túng sự thật của những kẻ gác cổng khách hàng: dìm chết vendor giỏi để nuôi béo nhóm lợi ích, và bi kịch của những senior tâm huyết bị chôn vùi trong bóng tối."
 tags:
   - Career
