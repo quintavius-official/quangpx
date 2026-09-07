@@ -2,6 +2,7 @@
 title: "Dark Patterns #3: The Conformity Trap – Forcing Mediocrity, Faking Culture, and Hijacking Ideas"
 pubDatetime: 2026-09-15T00:00:00Z
 description: "How Dark Corporations use low common denominators to cage exceptional talent, label breakthrough thinking as 'culture unfit', while quietly hijacking ideas behind closed doors for private profit."
+ogImage: "./the-conformity-trap.png"
 tags:
   - Career
   - Culture
@@ -129,11 +130,15 @@ Once you detect forced conformity, cease all attempts to "reform" the organizati
 
 ### The Exit Strategy: Return Eagles to the Sky
 
-The capacity for independent, original thought and high-leverage problem solving is the rarest and most valuable asset an engineer possesses. It was meant to solve hard engineering challenges, create tangible user value, and push technical boundaries forward.
+The capacity for independent, original thought and high-leverage problem solving is the rarest and most valuable asset an engineer possesses. It was meant to solve hard yet practical engineering challenges, create tangible user value, and push technical boundaries forward.
 
 If an organization treats your competence as a "condition that needs curing", and your drive for excellence as a "threat to corporate harmony", the only reason you're still sitting there is inertia.
 
 Never mutilate your own wings just to fit neatly into someone else's cramped cage. Pack your knowledge, preserve your professional dignity, and take your talents to an arena where breakthrough thinking is valued as a superpower, not feared as a rebellion.
+
+![A noble eagle perched within an ornate antique bronze pavilion on a classical Roman marble terrace under the moonlit sky, quietly observing sparrows gathering golden grains below while free eagles soar across the nocturnal clouds.](./the-conformity-trap.png)
+
+_The cage of mediocrity: Never mutilate your wings to fit among ground-bound sparrows._
 
 ---
 

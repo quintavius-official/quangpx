@@ -2,6 +2,7 @@
 title: "Dark Patterns #4: Information Gatekeeping – The Truth Distorters and the Silent Sacrifices of Real Seniors"
 pubDatetime: 2026-09-17T00:00:00Z
 description: "How manipulative gatekeepers distort reality between clients and engineering teams: sabotaging competent vendors to feed favored cronies, and the silent destruction of passionate seniors."
+ogImage: "./information-gatekeeping.png"
 tags:
   - Career
   - Culture
@@ -68,6 +69,10 @@ Micro-doses of venom are dripped into the client’s consciousness day after day
 Worse still, these microscopic passive-aggressive attacks are not just the bread and butter of project gatekeepers. They are **the premier weapon of choice for toxic middle management** — a predatory pattern we will dissect thoroughly in upcoming chapters. Instead of engaging in transparent, merits-based debate, insecure managers deploy these covert strikes to chip away at self-confidence, gaslight, and systematically break the willpower of high-performing engineers. By the time the target begins spiraling into manufactured imposter syndrome and psychological exhaustion, the manipulator has won total victory without leaving a single fingerprint.
 
 Eventually, the client is thoroughly brainwashed. They become so convinced that Vendor A is the root of all evil that Vendor B's catastrophic ineptitude is normalized: _"Well, B might be slow, but at least they're humble and follow orders — unlike the obstinate Prima Donnas over at Vendor A!"_
+
+![A crude wooden training sword venerated inside a gilded glass case as the chosen weapon of battle, while the authentic master steel sword with a golden hilt is lodged deep and immobilized in the cracked stone floor under the cold moon, symbolizing useless incompetence chosen for battle while real expertise is locked away and discarded.](./information-gatekeeping.png)
+
+_The gatekeeper's illusion: The wooden toy is chosen for battle while the master blade is trapped in stone._
 
 ---
 

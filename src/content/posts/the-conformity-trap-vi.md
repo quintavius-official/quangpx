@@ -2,6 +2,7 @@
 title: 'Dark Patterns #3: The Conformity Trap – Chiếc lồng cào bằng và đòn triệt hạ dưới mác "Unfit Culture"'
 pubDatetime: 2026-09-15T00:00:00Z
 description: "Cách các Dark Corporation dùng tiêu chuẩn thấp để giam cầm người giỏi, biến tư duy đột phá thành 'tội đồ văn hoá', trong khi âm thầm tuồn ý tưởng cho nhóm thân tín để trục lợi."
+ogImage: "./the-conformity-trap.png"
 tags:
   - Career
   - Culture
@@ -129,11 +130,15 @@ Một khi thấy dấu hiệu của sự cào bằng cưỡng bức, hãy ngừn
 
 ### Thoát ly: Trả đại bàng về với bầu trời
 
-Năng lực tư duy độc lập và giải quyết vấn đề xuất sắc là món quà tự nhiên quý giá nhất của một kỹ sư. Nó sinh ra để giải quyết các bài toán lớn, tạo ra giá trị thực tế cho người dùng và thúc đẩy công nghệ tiến lên.
+Năng lực tư duy độc lập và giải quyết vấn đề xuất sắc là món quà tự nhiên quý giá nhất của một kỹ sư. Nó sinh ra để giải quyết các bài toán khó nhưng thiết thực, tạo ra giá trị thực tế cho người dùng và thúc đẩy công nghệ tiến lên.
 
 Nếu một tổ chức xem tài năng của bạn là một "căn bệnh cần phải chữa trị", xem sự khác biệt của bạn là "tội đồ làm mất đoàn kết", thì lý do duy nhất bạn còn ở đó là vì quán tính.
 
 Đừng bao giờ tự bẻ gãy đôi cánh của mình chỉ để vừa vặn với một chiếc lồng chật hẹp. Hãy gói ghém tri thức, giữ vững lòng tự trọng nghề nghiệp và mang bản sắc của bạn đến một bến đỗ nơi người ta xem tư duy đột phá là một tài sản vô giá, chứ không phải một mối đe dọa.
+
+![Một chú chim ưng kiêu hãnh đậu bên trong lầu vọng cảnh bằng đồng trên sân thượng cẩm thạch kiểu La Mã cổ đại, lặng lẽ quan sát đàn chim sẻ nhặt thóc dưới sân trong khi trên bầu trời đêm trăng sáng, những cánh chim ưng tự do đang chao liệng giữa ngàn mây.](./the-conformity-trap.png)
+
+_Chiếc lồng cào bằng: Đừng tự bẻ gãy đôi cánh chỉ để vừa vặn với đàn chim sẻ nhặt thóc._
 
 ---
 
