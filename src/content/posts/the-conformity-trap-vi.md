@@ -137,10 +137,10 @@ Nếu một tổ chức xem tài năng của bạn là một "căn bệnh cần 
 
 ---
 
-> **Góc 101: Tall Poppy Syndrome & Đòn trừng phạt người tiên phong**
+> **Góc 101: Tư duy giỏ cua & Cái bẫy kéo nhau cùng chìm**
 >
-> Trong văn hoá học tổ chức, có một thuật ngữ nổi tiếng là **Tall Poppy Syndrome (Hội chứng hoa anh túc cao)**: Bông hoa nào mọc cao hơn hẳn mặt bằng chung của cánh đồng sẽ là bông hoa đầu tiên bị cắt tỉa cho bằng ngọn.
+> Dân gian có một câu chuyện kinh điển về **tư duy giỏ cua**: Khi bạn nhốt một đàn cua vào trong giỏ, bạn thậm chí chẳng cần phải đậy nắp. Bởi vì mỗi khi có một con cua nỗ lực dùng càng bám vào miệng giỏ để leo ra ngoài ánh sáng, những con cua còn lại ở dưới đáy sẽ lập tức thò càng kẹp chặt và lôi tuột nó xuống lại. Kết quả là không một con nào thoát được, và cả giỏ cua cùng ngoan ngoãn chờ tới giờ vào nồi nước sôi.
 >
-> Tại các Dark Corporation, hội chứng này được nâng cấp thành một công cụ quản trị có hệ thống. Bằng cách trừng phạt công khai những người dám nghĩ khác, dám làm khác dưới chiêu bài "bảo vệ văn hóa", họ phát đi một tín hiệu ngầm cho toàn thể nhân viên: _Ở đây, kẻ an toàn là kẻ tầm thường; kẻ sống sót là kẻ biết cúi đầu_.
+> Tại các Dark Corporation, tư duy giỏ cua không chỉ dừng lại ở sự đố kỵ bộc phát giữa các cá nhân, mà đã bị nâng cấp thành một cơ chế quản trị cào bằng có hệ thống. Bằng cách mượn tay số đông tầm thường để kéo tụt những cá nhân xuất sắc dưới chiêu bài "bảo vệ văn hóa", tổ chức phát đi một tín hiệu ngầm lạnh gáy: _Ở đây, kẻ an toàn là kẻ an phận ở đáy giỏ; kẻ muốn trèo lên sẽ bị bẻ gãy càng đầu tiên_.
 >
-> Khi một công ty bắt đầu coi trọng sự vâng lời hơn năng lực thực tế, cái chết về mặt công nghệ của nó đã được ấn định. Trong kỷ nguyên công nghệ biến chuyển từng ngày, sự cào bằng không mang lại ổn định — nó chỉ là khúc dạo đầu êm ái cho sự đào thải hoàn toàn.
+> Khi một tập thể coi trọng sự đồng dạng hơn là sự bứt phá, chiếc giỏ cua ấy đã tự ấn định số phận của mình. Trong kỷ nguyên công nghệ biến chuyển từng ngày, việc kéo nhau cùng ở đáy không đem lại "sự đoàn kết" — nó chỉ đảm bảo rằng khi làn sóng đào thải ập đến, cả đàn sẽ cùng bị nấu chín mà không kịp trở tay.
