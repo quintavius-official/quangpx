@@ -12,6 +12,7 @@ tags:
   - Black Company
 featured: true
 draft: false
+prePublish: true
 lang: "vi"
 postSlug: "the-silent-siege"
 translationKey: "the-silent-siege"

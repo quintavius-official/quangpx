@@ -12,6 +12,7 @@ tags:
   - Black Company
 featured: true
 draft: false
+prePublish: true
 lang: "en"
 postSlug: "information-gatekeeping"
 translationKey: "information-gatekeeping"
