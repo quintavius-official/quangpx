@@ -90,9 +90,16 @@ _Khi luật chơi được lập trình sẵn để bạn không bao giờ chạ
 
 ## Phá thế cờ "Moving Goalposts"
 
-Khi đối mặt với một hệ thống được thiết kế để bạn luôn thua, việc cố gắng "chạy nhanh hơn để sút vào cọc gôn" là một chiến lược ngây thơ. Bạn cần thay đổi luật chơi:
+Khi đối mặt với một hệ thống được thiết kế để bạn luôn thua, việc cố gắng "chạy nhanh hơn để sút vào cọc gôn" là một chiến lược ngây thơ. 
 
-### Chốt Baseline bằng văn bản (Paper Trail)
+Một nguyên tắc sống còn bạn cần khắc cốt ghi tâm: **Đối phó với Dark Pattern không bao giờ có một "viên đạn bạc" duy nhất. Bạn bắt buộc phải kết hợp (combine) nhiều lớp phòng thủ cùng lúc.** Nếu chỉ dùng một cách đơn lẻ, kẻ thao túng sẽ dễ dàng bẻ gãy lá chắn của bạn:
+- Có văn bản chốt việc nhưng thiếu số liệu chứng minh? Họ sẽ bảo bạn "kết quả kém".
+- Có số liệu khủng nhưng không có văn bản chốt scope? Họ sẽ bảo bạn "làm sai định hướng".
+- Có đủ cả hai nhưng không vạch sẵn ranh giới? Bạn chỉ là một người cãi lý giỏi tiếp tục bị nhốt trong cối xay thịt.
+
+Một hệ thống phòng thủ đa tầng thực chiến cần được phối hợp đồng bộ qua 3 lớp:
+
+### 1. Chốt Baseline bằng văn bản (Paper Trail)
 
 Không bao giờ nhận một role lệch scope chỉ bằng lời nói suông. Khi sếp yêu cầu bạn nhảy vào làm việc Y (dập lửa/dọn rác), hãy gửi ngay một email xác nhận:
 
@@ -102,22 +109,26 @@ Chiếc email này chính là "bằng chứng ngoại phạm" đanh thép nhất
 
 Còn nếu sau chiếc email đó, bạn thấy sếp hoàn toàn im lặng, cố tình lờ đi hoặc chỉ trả lời miệng bâng quơ kiểu _"thôi em cứ liệu cơm gắp mắm..."_: xin chúc mừng, đây chính là một red flag sáng chói. Người ta cố tình né tránh văn bản để giữ lại quyền bắt bẻ bạn sau này. Một khi sự mập mờ là chủ đích của quản lý, tốt hơn hết bạn nên chuẩn bị tinh thần cho next step là vừa.
 
-### Tự lập Brag Document (Nhật ký thành tựu)
+### 2. Nhật ký công việc thực chiến (Log số liệu, quyết định & giải pháp)
 
-Đừng bao giờ để người khác định nghĩa giá trị của bạn bằng trí nhớ mơ hồ của họ. Hãy tự ghi chép lại mọi việc bạn làm:
+Song song với việc chốt văn bản, bạn cần một công cụ ghi nhận giá trị thực tế. Trong giới kỹ thuật, bạn có thể tham khảo format **Brag Document** do kỹ sư Julia Evans phổ biến, nhưng khi đem vào thực chiến đối phó thao túng, tài liệu này tuyệt đối **không phải là một chiếc timesheet chấm công vô dụng** chỉ ghi bạn ngồi ở văn phòng bao nhiêu tiếng hay checklist vài task vụn vặt.
 
-- Đã giải quyết bao nhiêu issue Critical/High cho hệ thống?
-- Performance hệ thống được cải thiện bao nhiêu %, hoặc sau đợt dọn dẹp còn xảy ra downtime nữa hay không?
-- Đã gỡ rối và cứu được hợp đồng nào của khách hàng?
+Một nhật ký công việc có sức nặng phòng vệ phải được ghi chép rõ ràng ba thứ:
 
-Đến buổi review, đừng ngồi nghe sếp phán xét bằng cảm tính ("anh thấy dạo này em..."). Hãy đặt bảng số liệu định lượng lên bàn. Nếu họ tiếp tục lờ đi số liệu để nói về những thứ trừu tượng, bạn biết chắc chắn rằng cuộc chơi này đã bị gian lận từ đầu.
+- **Số liệu thống kê định lượng:** Giải quyết bao nhiêu sự cố Critical/High? Tối ưu throughput bao nhiêu %, độ trễ giảm bao nhiêu ms, downtime giảm về 0? Cứu được hợp đồng nào?
+- **Các quyết định kỹ thuật quan trọng:** Khi hệ thống bế tắc hoặc đứng trước các ngã rẽ kiến trúc, bạn đã đưa ra quyết định gì, đánh đổi (trade-off) ra sao, vì sao chọn hướng đó?
+- **Giải pháp thực tế đi kèm:** Bạn đã trực tiếp bẻ gãy nút thắt cổ chai bằng cách nào, đóng gói giải pháp ra sao để team không còn phải đâm đầu vào dọn rác thủ công?
 
-### Quy tắc "Quá tam ba bận" (thực ra là Quá hai bận)
+Đến buổi review, đừng ngồi im chịu trận nghe sếp phán xét bằng cảm tính ("anh thấy dạo này em..."). Hãy đặt bản nhật ký với đầy đủ số liệu thống kê, quyết định then chốt và giải pháp thực tế lên bàn.
+
+### 3. Quy tắc "Quá tam ba bận" (thực ra là Quá hai bận) và chuẩn bị đường lui
+
+Khi bạn đã kết hợp cả Paper Trail lẫn Nhật ký số liệu mà sếp vẫn cố tình lờ đi để bẻ lái sang tiêu chuẩn Z:
 
 - **Lần 1 bị dời cọc gôn hoặc bị điều chuyển:** Có thể do công ty biến động thật, tạm thời chấp nhận và quan sát.
 - **Lần 2 tiếp tục kịch bản cũ:** Đây 100% là chủ đích của tổ chức nhằm bòn rút sức lao động giá rẻ.
 
-Đừng cố gắng chứng minh bản thân thêm một lần nào nữa. Lúc này, năng lượng quý giá duy nhất của bạn nên được dùng vào một việc: **Cập nhật CV, ping lại network cũ và tìm kiếm một bến đỗ nơi tài năng của bạn được đối xử như một đối tác sòng phẳng.**
+Đừng cố gắng chứng minh bản thân thêm một lần nào nữa. Lúc này, mảnh ghép phòng thủ cuối cùng chính là sự dứt khoát: **Cập nhật CV, ping lại network cũ và tìm kiếm một bến đỗ nơi tài năng của bạn được đối xử như một đối tác sòng phẳng.**
 
 > **Góc 101: Thao túng và đòn Social Engineering công sở**
 >
