@@ -26,7 +26,7 @@ Nhưng trong thế giới ngầm của quyền lực và phe nhóm, kẻ gác c�
 
 ---
 
-## 1. Trò chơi dìm Vendor A để nuôi béo Vendor B
+## Trò chơi dìm Vendor A để nuôi béo Vendor B
 
 Hãy hình dung một kịch bản dự án kinh điển mà bất kỳ ai lăn lộn lâu năm trong ngành outsourcing hay tư vấn giải pháp đều từng ít nhất một lần rùng mình chứng kiến:
 
@@ -59,7 +59,7 @@ Chiêu bài thêu dệt được thực hiện kiên trì, tỉ mỉ từng ngà
 
 ---
 
-## 2. Hậu quả định mệnh: Đốt tiền, dẹp dự án và sự thật muộn màng
+## Đốt tiền, dẹp dự án và sự thật muộn màng
 
 Trò chơi bóp méo thông tin có thể giúp kẻ gác cổng bỏ túi những khoản lợi ích béo bở trong vài quý. Nhưng có một định luật bất biến mà không kẻ thao túng nào có thể bẻ cong: **Khoa học máy tính không biết nói dối, và hệ thống vận hành không chạy bằng những lời nịnh bợ.**
 
@@ -85,7 +85,7 @@ Kẻ gác cổng? Với sự giảo hoạt thượng thừa tích lũy qua nhi�
 
 ---
 
-## 3. Cái chết trong bóng tối của những senior tâm huyết
+## Cái chết trong bóng tối của những senior tâm huyết
 
 Kẻ gác cổng bình yên vô sự. Khách hàng xem như mất một khoản tiền học phí đắt đỏ. Nhưng ai là người thực sự phải trả giá đắt nhất cho vở kịch tàn độc này?
 
@@ -109,18 +109,18 @@ Họ mãi mãi bị chôn vùi trong bóng tối của sự bất công. Nhiều
 
 ---
 
-## 4. Phá thế cờ: Xuyên thủng bức màn sắt thông tin
+## Xuyên thủng bức màn sắt thông tin
 
 Khi làm việc trong một cấu trúc dự án phức tạp có sự xuất hiện của các "kẻ gác cổng", một senior tỉnh táo không thể chỉ biết cắm đầu gõ code và hy vọng "hữu xạ tự nhiên hương". Bạn cần xây dựng cơ chế tự bảo vệ:
 
-### A. Chống "Man-in-the-Middle" bằng kênh xác thực trực tiếp
+### Chống "Man-in-the-Middle" bằng kênh xác thực trực tiếp
 
 Đừng bao giờ chấp nhận mô hình thông tin một chiều tuyệt đối qua một đầu mối duy nhất:
 
 - **Đòi hỏi các buổi Demo kỹ thuật định kỳ mở:** Trong quy trình Agile/Scrum, buổi Sprint Review phải là không gian mở nơi tech team trực tiếp demo tính năng và giải đáp thắc mắc cho Product Owner thật của khách hàng. Hãy tận dụng không gian này để thể hiện năng lực chuyên môn và tính minh bạch.
 - **Văn bản hóa tài liệu bàn giao:** Mọi tài liệu thiết kế kiến trúc, Release Notes, và biên bản nghiệm thu kỹ thuật phải được gửi qua email chính thức có CC đầy đủ các bên liên quan, thay vì chỉ gửi qua tin nhắn cá nhân cho kẻ gác cổng.
 
-### B. Biến dữ liệu định lượng thành tấm khiên bất khả xâm phạm
+### Biến dữ liệu định lượng thành tấm khiên bất khả xâm phạm
 
 Kẻ gác cổng có thể giỏi thêu dệt bằng lời nói, nhưng **metrics và logs không bao giờ biết nói dối**:
 
@@ -128,7 +128,7 @@ Kẻ gác cổng có thể giỏi thêu dệt bằng lời nói, nhưng **metric
 - Xây dựng báo cáo Root Cause Analysis (RCA) rõ ràng cho mọi bug nghiêm trọng: phân định rạch ròi bug phát sinh do lỗi code của ai, hay do yêu cầu kỹ thuật (specs) từ phía trung gian bị sai lệch/thay đổi vào phút chót.
 - Khi khách hàng hoặc ban giám đốc vặn vẹo về năng lực, đừng thanh minh bằng cảm xúc. Hãy đặt bản báo cáo RCA và dashboard giám sát hệ thống lên bàn. Số liệu định lượng chính là vũ khí đanh thép nhất để bẻ gãy mọi luận điệu thêu dệt.
 
-### C. Nhận diện ranh giới buông tay: Đừng chết trên ngọn đồi của người khác
+### Nhận diện ranh giới buông tay: Đừng chết trên ngọn đồi của người khác
 
 Có những trận chiến sinh ra không phải để bạn chiến thắng:
 

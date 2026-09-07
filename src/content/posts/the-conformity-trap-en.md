@@ -24,7 +24,7 @@ Welcome to **The Conformity Trap** – the dark art of crushing natural brillian
 
 ---
 
-## 1. The Mediocrity Cage and the Sacred Mantra: "That's Not How We Do Things Here"
+## The Mediocrity Cage and the Sacred Mantra: "That's Not How We Do Things Here"
 
 The playbook typically opens under the respectable guise of "professionalization" and "governance":
 
@@ -62,7 +62,7 @@ In a single meeting, your natural competitive edge and dedication are re-framed 
 
 ---
 
-## 2. The Backstage Twist: Brazen Idea Hijacking
+## The Backstage Twist: Brazen Idea Hijacking
 
 If the story stopped at an entrenched organization resisting change, that would merely be garden-variety stagnation. Why is this classified as a **Dark Pattern**?
 
@@ -86,7 +86,7 @@ Your intellectual capital is siphoned out the back door, while at the front door
 
 ---
 
-## 3. The Underlying Psychology: The Mediocrity Protection Racket
+## The Underlying Psychology: The Mediocrity Protection Racket
 
 Why do incompetent managers harbor such visceral animosity toward high performers who think differently?
 
@@ -106,11 +106,11 @@ Consequently, the institutional immune system kicks in to protect the racket of 
 
 ---
 
-## 4. Breaking the Playbook: Don't Let the Mediocrity Cage Clip Your Wings
+## Don't Let the Mediocrity Cage Clip Your Wings
 
 When you realize you've been corralled into "The Conformity Trap", shouting louder or doubling down on sharing brilliant ideas will only accelerate your burnout and bitterness. How does an astute senior navigate out of this corner?
 
-### A. Protect Your Intellectual Property: "Interface over Implementation"
+### Protect Your Intellectual Property: "Interface over Implementation"
 
 Never hand over 100% of your detailed system design, proprietary know-how, or production-ready implementation when the environment lacks a transparent, audited mechanism to protect idea ownership.
 
@@ -118,7 +118,7 @@ Never hand over 100% of your detailed system design, proprietary know-how, or pr
 - Keep the **Implementation Details** close to the vest: the fine-grained data flow, critical edge-case handlers, and specialized tuning parameters.
 - If leadership asks you to hand off your concept to another team for "further study", establish polite but unequivocal boundaries: _"This design relies on nuanced concurrency primitives to prevent race conditions. I am eager to directly lead the implementation and take full delivery ownership. If transferred to another group without core architectural oversight, I cannot guarantee system stability."_
 
-### B. Distinguish Real Alignment from Forced Conformity
+### Distinguish Real Alignment from Forced Conformity
 
 Refuse to be gaslit by corporate jargon:
 
@@ -127,7 +127,7 @@ Refuse to be gaslit by corporate jargon:
 
 Once you detect forced conformity, cease all attempts to "reform" the organization. In an environment that worships mediocrity, every attempt at technical enlightenment is viewed as treason.
 
-### C. The Exit Strategy: Return Eagles to the Sky
+### The Exit Strategy: Return Eagles to the Sky
 
 The capacity for independent, original thought and high-leverage problem solving is the rarest and most valuable asset an engineer possesses. It was meant to solve hard engineering challenges, create tangible user value, and push technical boundaries forward.
 

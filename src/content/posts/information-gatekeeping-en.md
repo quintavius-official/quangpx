@@ -26,7 +26,7 @@ In the dark shadows of organizational politics, however, the gatekeeper doesn't 
 
 ---
 
-## 1. The Favoritism Playbook: Sinking Vendor A to Feed Vendor B
+## The Favoritism Playbook: Sinking Vendor A to Feed Vendor B
 
 Picture a classic enterprise consulting scenario that anyone with years in outsourcing or solution delivery has witnessed with a shudder:
 
@@ -59,7 +59,7 @@ This whispering campaign is sustained methodically, week after week. Eventually,
 
 ---
 
-## 2. The Inevitable Reckoning: Wasted Millions, Scrapped Projects, and Belated Truths
+## Wasted Millions, Scrapped Projects, and Belated Truths
 
 Distorting narratives can line a gatekeeper's pockets for a few quarters. But there is an immutable law of software engineering that no con artist can rewrite: **Computer science does not respect office politics, and systems cannot run on PowerPoint sycophancy.**
 
@@ -85,7 +85,7 @@ And the Gatekeeper? With years of political cunning, they have already secured t
 
 ---
 
-## 3. The Silent Sacrifices of Dedicated Seniors
+## The Silent Sacrifices of Dedicated Seniors
 
 The Gatekeeper walks away unscathed. The client writes off the disaster as a painful business lesson. But who pays the real price for this tragedy?
 
@@ -109,18 +109,18 @@ They remain buried in the dark, victims of a crooked game. Many exceptionally ta
 
 ---
 
-## 4. Breaking the Playbook: Piercing the Information Iron Curtain
+## Piercing the Information Iron Curtain
 
 When operating inside an enterprise engagement dominated by self-serving gatekeepers, burying your head in your IDE and hoping your good work will "speak for itself" is dangerous naivety. You must construct defensive operational protocols:
 
-### A. Defeat "Man-in-the-Middle" with Direct Verification Channels
+### Defeat "Man-in-the-Middle" with Direct Verification Channels
 
 Never accept a strictly mediated, single-channel communication hierarchy:
 
 - **Insist on Open Technical Demos:** In Scrum/Agile ceremonies, Sprint Reviews must be open forums where the core engineering team directly demonstrates delivered working software and answers technical questions for actual business stakeholders. Use these moments to demonstrate unshakeable technical clarity.
 - **Formalize Written Handoffs:** Architectural decision records (ADRs), system specifications, and release notes must be delivered through official cross-organization email channels with all primary stakeholders CC'd, rather than passed informally through backchannel chats to the gatekeeper.
 
-### B. Make Quantitative Metrics an Impenetrable Shield
+### Make Quantitative Metrics an Impenetrable Shield
 
 Gatekeepers thrive on subjective rumors, but **telemetry and version control do not lie**:
 
@@ -128,7 +128,7 @@ Gatekeepers thrive on subjective rumors, but **telemetry and version control do 
 - Produce objective Root Cause Analysis (RCA) documents for every critical defect: clearly demarcating whether a failure stemmed from software logic or invalid, shifting requirements fed by intermediaries.
 - When challenged on competence, never argue with emotion. Place system latency graphs, test coverage reports, and timestamped specification diffs on the table. Hard data is the ultimate weapon against manufactured gossip.
 
-### C. Recognize When to Walk Away: Don't Die on Someone Else's Hill
+### Recognize When to Walk Away: Don't Die on Someone Else's Hill
 
 Some battles are rigged from the start:
 

@@ -24,7 +24,7 @@ Chào mừng bạn đến với **The Conformity Trap (Cái bẫy cào bằng)**
 
 ---
 
-## 1. Chiếc lồng tiêu chuẩn và câu thần chú "Ở đây chúng tôi không làm vậy"
+## Chiếc lồng tiêu chuẩn và câu thần chú "Ở đây chúng tôi không làm vậy"
 
 Kịch bản này thường bắt đầu một cách rất êm đềm dưới vỏ bọc của sự "chuyên nghiệp hóa":
 
@@ -62,7 +62,7 @@ Chỉ sau một buổi họp, lợi thế cạnh tranh tự nhiên và tinh th�
 
 ---
 
-## 2. Cú twist sau cánh gà: Ý tưởng bị "luộc" trắng trợn (Idea Hijacking)
+## Cú twist sau cánh gà: Ý tưởng bị "luộc" trắng trợn
 
 Nếu câu chuyện chỉ dừng lại ở việc một tổ chức bảo thủ từ chối đổi mới, thì đó chỉ đơn thuần là sự trì trệ. Nhưng tại sao lại gọi đây là **Dark Pattern**?
 
@@ -86,7 +86,7 @@ Bạn bị vắt kiệt chất xám ra cửa sau, nhưng ở cửa trước, b�
 
 ---
 
-## 3. Bản chất tâm lý học: Pháo đài của sự tầm thường (The Mediocrity Protection Racket)
+## Pháo đài của sự tầm thường
 
 Tại sao những kẻ quản lý bất tài lại căm ghét người giỏi khác biệt đến tận xương tủy như vậy?
 
@@ -106,11 +106,11 @@ Do đó, phản xạ tự nhiên của tầng lớp này là liên minh lại đ
 
 ---
 
-## 4. Phá thế cờ: Đừng để chiếc lồng tầm thường bẻ gãy đôi cánh
+## Đừng để chiếc lồng tầm thường bẻ gãy đôi cánh
 
 Khi bạn nhận ra mình đang bị đưa vào "The Conformity Trap", cố gắng gào thét chứng minh mình đúng hay tiếp tục cúc cung dâng hiến ý tưởng là con đường nhanh nhất dẫn đến kiệt quệ và cay đắng. Một senior có bản lĩnh sẽ xử lý như thế nào?
 
-### A. Bảo vệ tài sản trí tuệ: Nguyên tắc "Interface over Implementation"
+### Bảo vệ tài sản trí tuệ: Nguyên tắc "Interface over Implementation"
 
 Đừng bao giờ phơi bày 100% bản thiết kế chi tiết, bí quyết công nghệ (know-how) hay mã nguồn hoàn chỉnh khi tổ chức chưa có cơ chế bảo vệ quyền sở hữu ý tưởng minh bạch.
 
@@ -118,16 +118,16 @@ Khi bạn nhận ra mình đang bị đưa vào "The Conformity Trap", cố gắ
 - Giữ lại **Implementation Details**: kiến trúc cụ thể, thuật toán lõi, cấu hình tối ưu.
 - Nếu sếp yêu cầu bàn giao lại cho nhóm khác "ngâm cứu", hãy lịch sự nhưng dứt khoát xác lập quyền sở hữu: _"Giải pháp này đòi hỏi am hiểu sâu về kiến trúc lõi để tránh lỗi race condition. Em sẵn sàng trực tiếp lead việc triển khai và chịu trách nhiệm về delivery của nó. Nếu team khác làm, em không thể đảm bảo chất lượng hệ thống."_
 
-### B. Phân định rạch ròi: Alignment vs. Forced Conformity
+### Phân định rạch ròi: Alignment vs. Cào bằng cưỡng bức
 
 Hãy tỉnh táo để không bị thao túng tâm lý:
 
 - **Alignment (Đồng thuận kỹ thuật):** Là khi cả team cùng thảo luận dựa trên số liệu, logic và mục tiêu chung của sản phẩm. Người ta có thể từ chối giải pháp của bạn vì hạn chế về hạ tầng, budget hay timeline – đó là chuyện bình thường.
-- **Forced Conformity (Cào bằng cưỡng bức):** Là khi người ta từ chối giải pháp của bạn bằng cảm tính, quy chụp cá nhân, viện cớ "truyền thống", "văn hoá", và ép bạn phải làm theo cách tồi hơn chỉ để "giống mọi người".
+- **Cào bằng cưỡng bức (Forced Conformity):** Là khi người ta từ chối giải pháp của bạn bằng cảm tính, quy chụp cá nhân, viện cớ "truyền thống", "văn hoá", và ép bạn phải làm theo cách tồi hơn chỉ để "giống mọi người".
 
 Một khi thấy dấu hiệu của sự cào bằng cưỡng bức, hãy ngừng ngay việc cố gắng thay đổi hệ thống. Mọi nỗ lực khai sáng trong một môi trường tôn sùng sự tầm thường đều sẽ bị coi là hành vi phản loạn.
 
-### C. Thoát ly: Trả đại bàng về với bầu trời
+### Thoát ly: Trả đại bàng về với bầu trời
 
 Năng lực tư duy độc lập và giải quyết vấn đề xuất sắc là món quà tự nhiên quý giá nhất của một kỹ sư. Nó sinh ra để giải quyết các bài toán lớn, tạo ra giá trị thực tế cho người dùng và thúc đẩy công nghệ tiến lên.
 
