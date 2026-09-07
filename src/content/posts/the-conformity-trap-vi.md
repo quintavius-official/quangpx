@@ -67,7 +67,7 @@ Chỉ sau một buổi họp, lợi thế cạnh tranh tự nhiên và tinh th�
 
 Nếu câu chuyện chỉ dừng lại ở việc một tổ chức bảo thủ từ chối đổi mới, thì đó chỉ đơn thuần là sự trì trệ. Nhưng tại sao lại gọi đây là **Dark Pattern**?
 
-Bởi vì trò bẩn thỉu thực sự luôn diễn ra sau lưng bạn:
+Bởi vì tính chất "dark" thực sự của pattern này chỉ lộ diện sau cánh gà:
 
 Trong khi bạn bị nhốt chặt trong lồng, ngày ngày làm những task vụn vặt và liên tục bị sếp "nhắc nhở" trong các buổi 1-on-1 rằng: _"Em cần học cách khiêm tốn lại, hạ cái tôi xuống, phải fit vào văn hoá công ty nếu muốn đi đường dài..."_ – thì ở một góc phòng họp khác, ý tưởng của bạn đang có một số phận hoàn toàn khác.
 
@@ -89,7 +89,7 @@ Bạn bị vắt kiệt chất xám ra cửa sau, nhưng ở cửa trước, b�
 
 ## Pháo đài của sự tầm thường
 
-Tại sao những kẻ quản lý bất tài lại căm ghét người giỏi khác biệt đến tận xương tủy như vậy?
+Tại sao tầng lớp quản trị trung gian lại dị ứng và e dè với những người giỏi khác biệt đến thế?
 
 Câu trả lời nằm ở cơ chế sinh tồn chính trị: **Sự xuất sắc của bạn là chiếc gương soi rõ nhất sự vô dụng của họ.**
 
@@ -100,8 +100,8 @@ Khi một senior thực thụ xuất hiện và chỉ ra rằng: _"Bài toán n�
 Nếu công nhận bạn đúng:
 
 - Ban giám đốc sẽ nhận ra bộ quy trình cũ là lãng phí.
-- Những kẻ quản lý bấy lâu nay ăn lương cao sẽ lộ bản chất là những mắt xích thừa thãi.
-- Quyền lực kiểm soát sẽ rơi vào tay những người thực sự làm được việc thay vì những kẻ giỏi khua môi múa mép.
+- Tầng lớp quản lý bấy lâu nay sẽ lộ bản chất là những mắt xích thừa thãi.
+- Quyền lực kiểm soát sẽ rơi vào tay những người thực sự làm được việc thay vì những chuyên gia trình diễn slide và báo cáo màu mè.
 
 Do đó, phản xạ tự nhiên của tầng lớp này là liên minh lại để bảo vệ sự tầm thường. Chiếc lồng tiêu chuẩn thấp chính là pháo đài phòng thủ, và nhãn dán **"Unfit Culture"** là vũ khí hủy diệt hàng loạt: nó cho phép họ gạt bỏ bất kỳ cá nhân xuất sắc nào mà không cần phải tranh luận về mặt logic hay số liệu.
 

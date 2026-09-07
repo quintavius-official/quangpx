@@ -38,7 +38,7 @@ Nếu bạn đường đột sa thải họ:
 
 Vì vậy, thay vì rút gươm chém thẳng mặt, các bậc thầy thao túng chọn một chiến lược tao nhã và tàn độc hơn nhiều: **Chiến tranh bao vây phong tỏa (Siege Warfare)**.
 
-Mục tiêu tối thượng của chiến lược này không phải là đuổi bạn, mà là: **Vắt kiệt thể xác, bẻ gãy tinh thần, cấy vào đầu bạn hội chứng tự nghi ngờ bản thân, để rồi cuối cùng bạn phải tự quỳ xuống ký đơn xin nghỉ việc trong hoang mang và tủi hổ.** 
+Mục tiêu tối thượng của chiến lược này không phải là đuổi bạn, mà là: **Vắt kiệt thể xác, bẻ gãy tinh thần, cấy vào đầu bạn hội chứng tự nghi ngờ bản thân, để rồi cuối cùng bạn phải chủ động nộp đơn xin rút lui trong kiệt quệ và hoang mang.** 
 
 Tất cả diễn ra thông qua một combo ba đòn tổng tấn công kinh điển được dàn dựng bài bản như một vở bi kịch nhiều hồi.
 
@@ -114,9 +114,9 @@ Các tiêu chí trong bản PIP này được thiết kế tinh vi đến mức 
 Lúc này, bạn nhìn lại bản thân: sức khỏe suy kiệt, tinh thần rệu rã, lòng tin vào con người vỡ vụn. Bạn không còn hơi sức đâu để đi thu thập bằng chứng hay làm ầm ĩ lên ban giám đốc.
 
 Và kịch bản kết thúc mỹ mãn diễn ra đúng như dự tính của kẻ thao túng:
-- Bạn lẳng lặng viết lá đơn xin thôi việc trong sự cay đắng tột cùng, tự dằn vặt rằng mình là kẻ thất bại.
+- Bạn lẳng lặng nộp lá đơn xin thôi việc trong kiệt quệ, tự dằn vặt rằng mình là kẻ thất bại.
 - Công ty không mất một xu tiền bồi thường hay tranh chấp pháp lý.
-- Kẻ thao túng mỉm cười đắc thắng: vừa nhổ sạch cái gai trong mắt, vừa được ban giám đốc khen ngợi là _"người quản lý bản lĩnh, dám mạnh tay thanh lọc nhân sự yếu kém vì sự phát triển chung của tổ chức"_.
+- **Mục tiêu hoàn tất mỹ mãn:** vừa loại bỏ được một tiếng nói phản biện gai góc, vừa được ban giám đốc ghi nhận là _"người quản lý bản lĩnh, dám mạnh tay thanh lọc nhân sự yếu kém vì sự phát triển chung của tổ chức"_.
 
 Một màn thủ tiêu nhân sự hoàn hảo, không để lại một giọt máu trên sàn.
 
@@ -124,11 +124,11 @@ Một màn thủ tiêu nhân sự hoàn hảo, không để lại một giọt m
 
 ## Giải phẫu động cơ: Tại sao cỗ máy này vận hành trơn tru đến thế?
 
-Tại sao một trò chơi bẩn thỉu và tàn nhẫn như vậy lại có thể tồn tại và lặp đi lặp lại ở biết bao công ty công nghệ lớn nhỏ?
+Tại sao một cơ chế đào thải méo mó và tàn độc như vậy lại có thể vận hành trơn tru và lặp đi lặp lại ở biết bao công ty công nghệ lớn nhỏ?
 
 - **Lợi thế phi đối xứng về tài nguyên:** Kẻ thao túng dùng quyền lực của tổ chức, ngân sách của công ty và thời gian làm việc hành chính để bày mưu tính kế. Ngược lại, nạn nhân phải dùng chính máu, mồ hôi, thời gian ngủ và sức khỏe tinh thần của bản thân để chống đỡ. Một bên vừa nhâm nhi cà phê vừa gài bẫy, một bên cắm mặt OT gõ code – kết cục cuộc chiến đã được định đoạt từ đầu.
 - **Sự đồng lõa của hiệu ứng người ngoài cuộc (Bystander Effect):** Những đồng nghiệp xung quanh bạn có nhận ra sự bất công đó không? Có chứ! Đa số họ đều thấy và hiểu rõ. Nhưng như tôi đã phân tích trong [The Conformity Trap](/vi/posts/the-conformity-trap), họ chọn cách im lặng, thậm chí hùa theo để cô lập bạn. Bởi vì trong một môi trường độc hại, bất kỳ ai tỏ ra đồng cảm với kẻ bị ruồng bỏ đều có nguy cơ trở thành mục tiêu săn đuổi tiếp theo.
-- **Cái giá phải trả của doanh nghiệp:** Tổ chức tưởng rằng mình vừa "tinh gọn bộ máy", nhưng thực chất họ vừa hoàn tất quá trình tự sát tập thể: xua đuổi những người làm được việc nhất, chỉ giữ lại những kẻ bất tài giỏi luồn cúi và những người yếu thế không còn đường chạy.
+- **Cái giá phải trả của doanh nghiệp:** Tổ chức tưởng rằng mình vừa "tinh gọn bộ máy", nhưng thực chất họ vừa hoàn tất quá trình tự sát tập thể: xua đuổi những nhân sự có năng lực phản biện, chỉ giữ lại văn hóa vâng lời (yes-men) và những người không còn lựa chọn rời đi.
 
 ---
 

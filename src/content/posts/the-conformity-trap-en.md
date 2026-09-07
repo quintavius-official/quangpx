@@ -67,7 +67,7 @@ In a single meeting, your natural competitive edge and dedication are re-framed 
 
 If the story stopped at an entrenched organization resisting change, that would merely be garden-variety stagnation. Why is this classified as a **Dark Pattern**?
 
-Because the real deceit always unfolds behind your back:
+Because the true "dark" nature of this pattern only reveals itself backstage:
 
 While you are locked inside your cage, relegated to mundane boilerplate tasks and receiving regular "coaching" during 1-on-1s about how you need to _"tone down your ego, practice humility, and fit into the company culture if you want a future here"_ — your rejected idea is quietly living an entirely different life in another room.
 
@@ -89,7 +89,7 @@ Your intellectual capital is siphoned out the back door, while at the front door
 
 ## The Underlying Psychology: The Mediocrity Protection Racket
 
-Why do incompetent managers harbor such visceral animosity toward high performers who think differently?
+Why are safety-seeking bureaucracies so allergic to high performers who think differently?
 
 The answer is rooted in raw political survival: **Your excellence is an unvarnished mirror that reflects their utter redundancy.**
 
@@ -100,8 +100,8 @@ When a genuine senior arrives and demonstrates that: _"This entire problem can b
 If they acknowledge you are right:
 
 - Executive leadership might realize the current processes are pure waste.
-- Highly paid bureaucratic gatekeepers will be exposed as dead weight.
-- Influence and decision-making power will shift to those who actually build and deliver, rather than those who talk in circles.
+- Bureaucratic gatekeepers will be exposed as redundant links in the chain.
+- Influence and decision-making power will shift to those who actually build and deliver, rather than those who specialize in decorative slides and polished status reports.
 
 Consequently, the institutional immune system kicks in to protect the racket of mediocrity. The low-standard cage serves as their defensive fortress, and the **"Cultural Mismatch"** label is their weapon of mass destruction: it allows them to neutralize an existential threat without ever having to engage in a technical debate on facts or merits.
 

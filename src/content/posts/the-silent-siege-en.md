@@ -38,7 +38,7 @@ If you fire them outright:
 
 So instead of drawing a sword and charging head-on, master manipulators choose a far more elegant, insidious doctrine: **Siege Warfare**.
 
-The ultimate goal of this strategy is never to fire you directly. It is to: **Exhaust your body, break your spirit, seed synthetic imposter syndrome into your marrow, until you finally drop to your knees and hand in your resignation in dazed humiliation.**
+The ultimate goal of this strategy is never to fire you directly. It is to: **Exhaust your body, break your spirit, seed synthetic imposter syndrome into your marrow, until you finally choose to submit your resignation in total exhaustion and self-doubt.**
 
 It all unfolds across a classic three-strike blitzkrieg, meticulously staged like a multi-act corporate tragedy.
 
@@ -114,17 +114,17 @@ The acceptance criteria on this PIP are deliberately engineered to be mathematic
 At this juncture, you look in the mirror: health deteriorated, spirit fractured, faith in people shattered. You have zero stamina left to gather legal evidence or escalate a counter-offensive to senior management.
 
 The playbook concludes exactly as intended:
-- You quietly draft your resignation letter in bitter exhaustion, blaming yourself for failing.
+- You quietly submit your resignation in total exhaustion, self-blaming for failing to keep up.
 - The company avoids severance payouts, unemployment claims, and legal friction.
-- The manipulator smirks: they eliminated a threat, while leadership commends them as a _"decisive leader who isn't afraid to prune underperformers for the greater good of the organization."_
+- **Mission accomplished:** a sharp dissenting voice has been sanitized from the org chart, while leadership commends the manager as a _"decisive leader who isn't afraid to prune underperformers for the greater good of the organization."_
 
 A flawless corporate hit, without a single drop of blood left on the floor.
 
 ---
 
-## Anatomy of the Machinery: Why Does This Game Work So Seamlessly?
+## Anatomy of the Machinery: Why Does This System Run So Seamlessly?
 
-Why does such a cruel playbook repeat itself endlessly across tech companies of all sizes?
+Why does such a distorted, predatory mechanism repeat itself endlessly across tech companies of all sizes?
 
 - **Asymmetric Resource Warfare:** The manipulator uses organizational authority, company payroll, and 9-to-5 working hours to orchestrate the trap. The victim, meanwhile, must sacrifice their personal sleep, mental well-being, and weekends just to stay afloat. One side sips coffee while setting snares; the other burns life force just to survive—the outcome is rigged from day one.
 - **The Bystander Effect:** Do your peers notice the injustice? Absolutely. Most see it plain as day. But as explored in [The Conformity Trap](/posts/the-conformity-trap), they choose silence or even join in ostracizing you. In a toxic organization, anyone who shows sympathy to the outcast risks becoming the next target.

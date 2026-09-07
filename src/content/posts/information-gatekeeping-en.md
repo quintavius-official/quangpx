@@ -94,7 +94,7 @@ And the curtain falls:
 
 - The client is shocked to discover that Vendor A — the group they spent a year vilifying — was the only team writing production-grade code and repeatedly raising alarms about architectural failure.
 - Vendor B is unmasked as an empty shell devoid of basic engineering competency.
-- The Gatekeeper is exposed as a parasitic grifter who orchestrated the entire charade.
+- The Gatekeeper is exposed as a compromised node, profiting off deliberate information asymmetry.
 
 The inevitable conclusion arrives: **The project is officially cancelled.** Millions of dollars are written off into dust.
 

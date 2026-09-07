@@ -94,7 +94,7 @@ Và tấm màn nhung rơi xuống:
 
 - Khách hàng ngã ngửa khi nhận ra Vendor A – những người bị họ căm ghét bấy lâu – hóa ra lại là những người duy nhất viết code đạt chuẩn và đã nhiều lần cảnh báo về rủi ro kiến trúc.
 - Vendor B lộ nguyên hình là một cái vỏ rỗng không đủ năng lực cơ bản.
-- Kẻ gác cổng lộ rõ là một kẻ trục lợi vô liêm sỉ.
+- Kẻ gác cổng lộ rõ vai trò của một compromised node, trục lợi trên sự mù mờ thông tin.
 
 Hậu quả duy nhất và tất yếu xảy ra: **Dự án chính thức bị khai tử.** Toàn bộ số tiền triệu đô đầu tư biến thành tro bụi.
 
