@@ -96,11 +96,11 @@ def upload_local_images(api, body: str, base_dir: Path) -> str:
     # Replace markdown image syntax ![alt](path)
     return re.sub(r'!\[(.*?)\]\((.*?)\)', replace_img, body)
 
-def process_markdown_links_and_footer(body: str, pub_url: str) -> str:
+def process_markdown_links_and_footer(body: str, pub_url: str, add_footer: bool = True) -> str:
     """
     1. Replaces internal blog links (e.g. /vi/posts/<slug>) with Substack URLs.
     2. Sanitizes unsupported inline LaTeX math arrows (e.g. $\\rightarrow$).
-    3. Appends neutral footer note pointing to quangpx.com.
+    3. Optionally appends neutral footer note pointing to quangpx.com.
     """
     # 1. Convert internal post links to Substack URLs
     body = re.sub(
@@ -115,10 +115,11 @@ def process_markdown_links_and_footer(body: str, pub_url: str) -> str:
     body = re.sub(r'\$\s*\\Rightarrow\s*\$', '⇒', body)
     body = re.sub(r'\$\s*\\Leftarrow\s*\$', '⇐', body)
 
-    # 3. Add neutral footer note if not already present
-    footer_text = "\n\n---\n\n*Đọc thêm các bài viết khác của tác giả tại [quangpx.com](https://quangpx.com).*"
-    if "*Đọc thêm các bài viết khác" not in body:
-        body = body + footer_text
+    # 3. Add neutral footer note if requested and not already present
+    if add_footer:
+        footer_text = "\n\n---\n\n*Đọc thêm các bài viết khác của tác giả tại [quangpx.com](https://quangpx.com).*"
+        if "*Đọc thêm các bài viết khác" not in body:
+            body = body + footer_text
 
     return body
 
@@ -263,7 +264,7 @@ def update_about_page(api, pub_url: str, about_path: Path, dry_run: bool = False
     from substack.post import Post
 
     content = upload_local_images(api, body, about_path.parent)
-    content = process_markdown_links_and_footer(content, pub_url)
+    content = process_markdown_links_and_footer(content, pub_url, add_footer=False)
 
     post = Post(
         title=metadata.get("title", "About"),
