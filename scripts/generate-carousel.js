@@ -30,18 +30,27 @@ const BRAND = {
   secondaryColor: "#FF007F",
   accentOrange: "#FF5E3A",
   bgDark: "#0B0D17",
-  cardBg: "#141A29",
+  cardBg: "rgba(20, 26, 41, 0.88)",
   textMuted: "#94A3B8",
 };
 
 /**
- * Prepares an image as an optimized base64 data URL for Satori
+ * Prepares image buffers as base64 data URLs for Satori
  */
-async function getImageDataUrl(imagePath, width = 1080, height = 800) {
+async function getImageDataUrl(imagePath, width = 1080, height = 920) {
   if (!fs.existsSync(imagePath)) return null;
   const buffer = await sharp(imagePath)
     .resize(width, height, { fit: "cover", position: "center" })
     .jpeg({ quality: 88 })
+    .toBuffer();
+  return `data:image/jpeg;base64,${buffer.toString("base64")}`;
+}
+
+async function getFullBgDataUrl(imagePath) {
+  if (!fs.existsSync(imagePath)) return null;
+  const buffer = await sharp(imagePath)
+    .resize(1080, 1920, { fit: "cover", position: "center" })
+    .jpeg({ quality: 85 })
     .toBuffer();
   return `data:image/jpeg;base64,${buffer.toString("base64")}`;
 }
@@ -113,17 +122,24 @@ function renderCoverSlide(slide, meta, coverDataUrl, logoDataUrl) {
 }
 
 /**
- * Slide Type: Insight / Quote Card
+ * Slide Type: Insight / Quote Card (with full-bleed background image)
  */
-function renderQuoteSlide(slide, meta, logoDataUrl) {
+function renderQuoteSlide(slide, meta, bgDataUrl, logoDataUrl) {
   const logoImg = logoDataUrl
     ? `<img src="${logoDataUrl}" style="width: 44px; height: 44px; border-radius: 10px;" />`
     : "";
 
+  const bgSection = bgDataUrl
+    ? `
+      <img src="${bgDataUrl}" style="position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; object-fit: cover;" />
+      <div style="display: flex; position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; background: rgba(11, 13, 23, 0.88);"></div>
+    `
+    : "";
+
   const takeawayHtml = slide.takeaway
     ? `
-      <div style="display: flex; flex-direction: column; border-top: 1px solid #1E293B; padding-top: 36px;">
-        <p style="font-size: 34px; line-height: 1.6; color: ${BRAND.textMuted}; margin: 0;">
+      <div style="display: flex; flex-direction: column; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 36px;">
+        <p style="font-size: 34px; line-height: 1.6; color: #CBD5E1; margin: 0;">
           ${slide.takeaway}
         </p>
       </div>
@@ -131,41 +147,45 @@ function renderQuoteSlide(slide, meta, logoDataUrl) {
     : "";
 
   const raw = `
-    <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; background-color: ${BRAND.bgDark}; color: white; padding: 90px 80px 80px 80px; font-family: 'Google Sans Code';">
-      <!-- Top header bar -->
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.primaryColor}; background-color: rgba(0, 180, 219, 0.12); border: 2px solid rgba(0, 180, 219, 0.4); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
-          ${slide.tag || "INSIGHT"}
-        </span>
-        <div style="display: flex; align-items: center; gap: 14px;">
-          ${logoImg}
-          <span style="font-size: 24px; color: #64748B;">${BRAND.name}</span>
-        </div>
-      </div>
+    <div style="display: flex; position: relative; width: 1080px; height: 1920px; background-color: ${BRAND.bgDark}; color: white; font-family: 'Google Sans Code';">
+      ${bgSection}
 
-      <!-- Main Content Block (Centered vertically) -->
-      <div style="display: flex; flex-direction: column; justify-content: center; gap: 48px; margin: auto 0; padding: 20px 0;">
-        <h2 style="font-size: 64px; font-weight: 700; line-height: 1.25; color: #FFFFFF; margin: 0;">
-          ${slide.headline}
-        </h2>
-
-        <!-- Featured Quote Box -->
-        <div style="display: flex; flex-direction: column; background-color: ${BRAND.cardBg}; border-radius: 20px; padding: 48px; border: 1px solid #1E293B; border-left: 10px solid ${BRAND.primaryColor};">
-          <span style="font-size: 72px; line-height: 0.8; color: ${BRAND.primaryColor}; margin-bottom: 20px; font-family: serif;">“</span>
-          <p style="font-size: 40px; font-weight: 400; line-height: 1.5; color: #F1F5F9; margin: 0; font-style: italic;">
-            ${slide.quote}
-          </p>
+      <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; padding: 90px 80px 80px 80px;">
+        <!-- Top header bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.primaryColor}; background-color: rgba(0, 180, 219, 0.15); border: 2px solid rgba(0, 180, 219, 0.5); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
+            ${slide.tag || "INSIGHT"}
+          </span>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            ${logoImg}
+            <span style="font-size: 24px; color: #94A3B8;">${BRAND.name}</span>
+          </div>
         </div>
 
-        ${takeawayHtml}
-      </div>
+        <!-- Main Content Block -->
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 48px; margin: auto 0; padding: 20px 0;">
+          <h2 style="font-size: 64px; font-weight: 700; line-height: 1.25; color: #FFFFFF; margin: 0;">
+            ${slide.headline}
+          </h2>
 
-      <!-- Bottom Footer -->
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #1E293B; padding-top: 36px;">
-        <span style="font-size: 24px; color: #64748B;">${BRAND.url}</span>
-        <span style="font-size: 28px; font-weight: 700; color: ${BRAND.primaryColor};">
-          ${slide.pageIndicator}
-        </span>
+          <!-- Featured Quote Box -->
+          <div style="display: flex; flex-direction: column; background-color: ${BRAND.cardBg}; border-radius: 20px; padding: 48px; border: 1px solid rgba(255, 255, 255, 0.1); border-left: 10px solid ${BRAND.primaryColor};">
+            <span style="font-size: 72px; line-height: 0.8; color: ${BRAND.primaryColor}; margin-bottom: 20px; font-family: serif;">“</span>
+            <p style="font-size: 40px; font-weight: 400; line-height: 1.5; color: #F1F5F9; margin: 0; font-style: italic;">
+              ${slide.quote}
+            </p>
+          </div>
+
+          ${takeawayHtml}
+        </div>
+
+        <!-- Bottom Footer -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid rgba(255, 255, 255, 0.15); padding-top: 36px;">
+          <span style="font-size: 24px; color: #94A3B8;">${BRAND.url}</span>
+          <span style="font-size: 28px; font-weight: 700; color: ${BRAND.primaryColor};">
+            ${slide.pageIndicator}
+          </span>
+        </div>
       </div>
     </div>
   `;
@@ -174,56 +194,67 @@ function renderQuoteSlide(slide, meta, logoDataUrl) {
 }
 
 /**
- * Slide Type: Comparison / Analysis
+ * Slide Type: Comparison / Analysis (with full-bleed background image)
  */
-function renderComparisonSlide(slide, meta, logoDataUrl) {
+function renderComparisonSlide(slide, meta, bgDataUrl, logoDataUrl) {
   const logoImg = logoDataUrl
     ? `<img src="${logoDataUrl}" style="width: 44px; height: 44px; border-radius: 10px;" />`
     : "";
 
+  const bgSection = bgDataUrl
+    ? `
+      <img src="${bgDataUrl}" style="position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; object-fit: cover;" />
+      <div style="display: flex; position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; background: rgba(11, 13, 23, 0.88);"></div>
+    `
+    : "";
+
   const raw = `
-    <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; background-color: ${BRAND.bgDark}; color: white; padding: 90px 80px 80px 80px; font-family: 'Google Sans Code';">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.secondaryColor}; background-color: rgba(255, 0, 127, 0.12); border: 2px solid rgba(255, 0, 127, 0.4); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
-          ${slide.tag || "ANALYSIS"}
-        </span>
-        <div style="display: flex; align-items: center; gap: 14px;">
-          ${logoImg}
-          <span style="font-size: 24px; color: #64748B;">${BRAND.name}</span>
-        </div>
-      </div>
+    <div style="display: flex; position: relative; width: 1080px; height: 1920px; background-color: ${BRAND.bgDark}; color: white; font-family: 'Google Sans Code';">
+      ${bgSection}
 
-      <div style="display: flex; flex-direction: column; justify-content: center; gap: 40px; margin: auto 0;">
-        <h2 style="font-size: 64px; font-weight: 700; line-height: 1.25; color: #FFFFFF; margin: 0 0 10px 0;">
-          ${slide.headline}
-        </h2>
-
-        <!-- Card 1 -->
-        <div style="display: flex; flex-direction: column; background-color: ${BRAND.cardBg}; border: 2px solid rgba(0, 180, 219, 0.4); border-radius: 20px; padding: 48px;">
-          <span style="font-size: 34px; font-weight: 700; color: ${BRAND.primaryColor}; margin-bottom: 18px;">
-            ${slide.item1Title}
+      <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; padding: 90px 80px 80px 80px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.secondaryColor}; background-color: rgba(255, 0, 127, 0.15); border: 2px solid rgba(255, 0, 127, 0.4); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
+            ${slide.tag || "ANALYSIS"}
           </span>
-          <p style="font-size: 34px; line-height: 1.55; color: #CBD5E1; margin: 0;">
-            ${slide.item1Text}
-          </p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            ${logoImg}
+            <span style="font-size: 24px; color: #94A3B8;">${BRAND.name}</span>
+          </div>
         </div>
 
-        <!-- Card 2 -->
-        <div style="display: flex; flex-direction: column; background-color: ${BRAND.cardBg}; border: 2px solid rgba(255, 0, 127, 0.4); border-radius: 20px; padding: 48px;">
-          <span style="font-size: 34px; font-weight: 700; color: ${BRAND.secondaryColor}; margin-bottom: 18px;">
-            ${slide.item2Title}
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 40px; margin: auto 0;">
+          <h2 style="font-size: 64px; font-weight: 700; line-height: 1.25; color: #FFFFFF; margin: 0 0 10px 0;">
+            ${slide.headline}
+          </h2>
+
+          <!-- Card 1 -->
+          <div style="display: flex; flex-direction: column; background-color: ${BRAND.cardBg}; border: 2px solid rgba(0, 180, 219, 0.5); border-radius: 20px; padding: 48px;">
+            <span style="font-size: 34px; font-weight: 700; color: ${BRAND.primaryColor}; margin-bottom: 18px;">
+              ${slide.item1Title}
+            </span>
+            <p style="font-size: 34px; line-height: 1.55; color: #CBD5E1; margin: 0;">
+              ${slide.item1Text}
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div style="display: flex; flex-direction: column; background-color: ${BRAND.cardBg}; border: 2px solid rgba(255, 0, 127, 0.5); border-radius: 20px; padding: 48px;">
+            <span style="font-size: 34px; font-weight: 700; color: ${BRAND.secondaryColor}; margin-bottom: 18px;">
+              ${slide.item2Title}
+            </span>
+            <p style="font-size: 34px; line-height: 1.55; color: #CBD5E1; margin: 0;">
+              ${slide.item2Text}
+            </p>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid rgba(255, 255, 255, 0.15); padding-top: 36px;">
+          <span style="font-size: 24px; color: #94A3B8;">${BRAND.url}</span>
+          <span style="font-size: 28px; font-weight: 700; color: ${BRAND.secondaryColor};">
+            ${slide.pageIndicator}
           </span>
-          <p style="font-size: 34px; line-height: 1.55; color: #CBD5E1; margin: 0;">
-            ${slide.item2Text}
-          </p>
         </div>
-      </div>
-
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #1E293B; padding-top: 36px;">
-        <span style="font-size: 24px; color: #64748B;">${BRAND.url}</span>
-        <span style="font-size: 28px; font-weight: 700; color: ${BRAND.secondaryColor};">
-          ${slide.pageIndicator}
-        </span>
       </div>
     </div>
   `;
@@ -232,48 +263,59 @@ function renderComparisonSlide(slide, meta, logoDataUrl) {
 }
 
 /**
- * Slide Type: Outro / CTA
+ * Slide Type: Outro / CTA (with full-bleed background image)
  */
-function renderCtaSlide(slide, meta, logoDataUrl) {
+function renderCtaSlide(slide, meta, bgDataUrl, logoDataUrl) {
   const logoImg = logoDataUrl
     ? `<img src="${logoDataUrl}" style="width: 120px; height: 120px; border-radius: 28px; margin-bottom: 10px;" />`
     : "";
 
+  const bgSection = bgDataUrl
+    ? `
+      <img src="${bgDataUrl}" style="position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; object-fit: cover;" />
+      <div style="display: flex; position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; background: rgba(11, 13, 23, 0.90);"></div>
+    `
+    : "";
+
   const raw = `
-    <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; background-color: ${BRAND.bgDark}; color: white; padding: 100px 80px 80px 80px; font-family: 'Google Sans Code';">
-      <div style="display: flex; align-items: center;">
-        <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.primaryColor}; background-color: rgba(0, 180, 219, 0.12); border: 2px solid rgba(0, 180, 219, 0.4); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
-          THE CORPORATE DISPATCH
-        </span>
-      </div>
+    <div style="display: flex; position: relative; width: 1080px; height: 1920px; background-color: ${BRAND.bgDark}; color: white; font-family: 'Google Sans Code';">
+      ${bgSection}
 
-      <div style="display: flex; flex-direction: column; justify-content: center; gap: 40px; margin: auto 0;">
-        ${logoImg}
-
-        <h2 style="font-size: 78px; font-weight: 700; line-height: 1.15; color: #FFFFFF; margin: 0;">
-          ${slide.headline || "Quên System Design đi."}
-        </h2>
-
-        <p style="font-size: 40px; line-height: 1.55; color: ${BRAND.textMuted}; margin: 0;">
-          ${slide.subtitle || "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."}
-        </p>
-
-        <!-- CTA Box -->
-        <div style="display: flex; flex-direction: column; background: linear-gradient(135deg, rgba(0, 180, 219, 0.15), rgba(255, 0, 127, 0.15)); border: 2px solid rgba(0, 180, 219, 0.4); border-radius: 24px; padding: 48px; margin-top: 20px;">
-          <span style="font-size: 28px; font-weight: 700; color: #94A3B8; letter-spacing: 2px; margin-bottom: 14px;">
-            ĐỌC TRỌN BỘ BÀI VIẾT TẠI:
-          </span>
-          <span style="font-size: 44px; font-weight: 700; color: #38BDF8; word-break: break-all;">
-            ${BRAND.url}
+      <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; padding: 100px 80px 80px 80px;">
+        <div style="display: flex; align-items: center;">
+          <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.primaryColor}; background-color: rgba(0, 180, 219, 0.15); border: 2px solid rgba(0, 180, 219, 0.4); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
+            THE CORPORATE DISPATCH
           </span>
         </div>
-      </div>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #1E293B; padding-top: 36px;">
-        <span style="font-size: 28px; font-weight: 700; color: #F8FAFC;">Tác giả: ${BRAND.author}</span>
-        <span style="font-size: 28px; font-weight: 700; color: ${BRAND.primaryColor};">
-          ${slide.pageIndicator}
-        </span>
+        <div style="display: flex; flex-direction: column; gap: 40px; margin: auto 0;">
+          ${logoImg}
+
+          <h2 style="font-size: 78px; font-weight: 700; line-height: 1.15; color: #FFFFFF; margin: 0;">
+            ${slide.headline || "Quên System Design đi."}
+          </h2>
+
+          <p style="font-size: 40px; line-height: 1.55; color: ${BRAND.textMuted}; margin: 0;">
+            ${slide.subtitle || "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."}
+          </p>
+
+          <!-- CTA Box -->
+          <div style="display: flex; flex-direction: column; background: linear-gradient(135deg, rgba(0, 180, 219, 0.2), rgba(255, 0, 127, 0.2)); border: 2px solid rgba(0, 180, 219, 0.5); border-radius: 24px; padding: 48px; margin-top: 20px;">
+            <span style="font-size: 28px; font-weight: 700; color: #94A3B8; letter-spacing: 2px; margin-bottom: 14px;">
+              ĐỌC TRỌN BỘ BÀI VIẾT TẠI:
+            </span>
+            <span style="font-size: 44px; font-weight: 700; color: #38BDF8; word-break: break-all;">
+              ${BRAND.url}
+            </span>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid rgba(255, 255, 255, 0.15); padding-top: 36px;">
+          <span style="font-size: 28px; font-weight: 700; color: #F8FAFC;">Tác giả: ${BRAND.author}</span>
+          <span style="font-size: 28px; font-weight: 700; color: ${BRAND.primaryColor};">
+            ${slide.pageIndicator}
+          </span>
+        </div>
       </div>
     </div>
   `;
@@ -295,10 +337,12 @@ export async function generateCarousel(options) {
 
   fs.mkdirSync(outputDir, { recursive: true });
 
-  // Resolve cover image and logo
+  // Resolve cover image and full background data URL
   let coverDataUrl = null;
+  let bgDataUrl = null;
   if (slides[0]?.coverImage) {
-    coverDataUrl = await getImageDataUrl(slides[0].coverImage);
+    coverDataUrl = await getImageDataUrl(slides[0].coverImage, 1080, 920);
+    bgDataUrl = await getFullBgDataUrl(slides[0].coverImage);
   }
 
   const logoPath = path.join(__dirname, "assets/cd-logo.png");
@@ -314,11 +358,11 @@ export async function generateCarousel(options) {
     if (slide.type === "cover") {
       markupNode = renderCoverSlide(slide, {}, coverDataUrl, logoDataUrl);
     } else if (slide.type === "comparison") {
-      markupNode = renderComparisonSlide(slide, {}, logoDataUrl);
+      markupNode = renderComparisonSlide(slide, {}, bgDataUrl, logoDataUrl);
     } else if (slide.type === "cta") {
-      markupNode = renderCtaSlide(slide, {}, logoDataUrl);
+      markupNode = renderCtaSlide(slide, {}, bgDataUrl, logoDataUrl);
     } else {
-      markupNode = renderQuoteSlide(slide, {}, logoDataUrl);
+      markupNode = renderQuoteSlide(slide, {}, bgDataUrl, logoDataUrl);
     }
 
     const svg = await satori(markupNode, {
