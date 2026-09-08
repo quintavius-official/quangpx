@@ -244,10 +244,53 @@ def process_post(
         print(f"[+] Successfully published: '{title}' -> {pub_url}/p/{canonical_slug}")
         return "created"
 
+def update_about_page(api, pub_url: str, about_path: Path, dry_run: bool = False) -> bool:
+    """Updates Substack publication's subscribe_content (About page) from markdown."""
+    if not about_path.exists():
+        print(f"[-] About file not found: {about_path}")
+        return False
+
+    print(f"\n==================================================")
+    print(f"[*] Updating Substack About page from: {about_path}")
+
+    raw_content = about_path.read_text(encoding="utf-8")
+    metadata, body = parse_frontmatter(raw_content)
+
+    if dry_run:
+        print("[DRY-RUN] Action: UPDATE Substack About page (subscribe_content)")
+        return True
+
+    from substack.post import Post
+
+    content = upload_local_images(api, body, about_path.parent)
+    content = process_markdown_links_and_footer(content, pub_url)
+
+    post = Post(
+        title=metadata.get("title", "About"),
+        subtitle=metadata.get("description", ""),
+        user_id=api.get_user_id(),
+        audience="everyone",
+        write_comment_permissions="everyone",
+    )
+    post.from_markdown(content, api=api)
+    draft_body = post.get_draft()["draft_body"]
+
+    res = api._session.put(
+        f"{pub_url.rstrip('/')}/api/v1/publication",
+        json={"subscribe_content": draft_body},
+    )
+    if res.status_code == 200:
+        print(f"[+] Successfully updated About page -> {pub_url}/about")
+        return True
+    else:
+        print(f"[-] Error updating About page ({res.status_code}): {res.text[:200]}")
+        return False
+
 def main():
     parser = argparse.ArgumentParser(description="Publish or update posts to Substack from Markdown files.")
     parser.add_argument("files", nargs="*", help="Markdown file(s) to publish/update")
     parser.add_argument("--all", action="store_true", help="Process all posts in src/content/posts")
+    parser.add_argument("--about", action="store_true", help="Sync About page (src/content/pages/about-substack.md) to Substack")
     parser.add_argument("--lang", default="vi", help="Language filter ('vi', 'en', or 'any'). Default: 'vi'")
     parser.add_argument("--include-drafts", action="store_true", help="Include files with draft: true in frontmatter")
     parser.add_argument("--draft-only", action="store_true", help="Save to Substack as draft without publishing live")
@@ -256,6 +299,13 @@ def main():
 
     # Determine files to process
     target_files: List[Path] = []
+    if args.about:
+        about_file = Path("src/content/pages/about-substack.md").resolve()
+        api, pub_url = get_substack_api()
+        success = update_about_page(api, pub_url, about_file, dry_run=args.dry_run)
+        if not args.all and not args.files:
+            sys.exit(0 if success else 1)
+
     if args.all:
         posts_dir = Path("src/content/posts").resolve()
         if posts_dir.exists():
@@ -272,7 +322,7 @@ def main():
                 target_files.extend(sorted(list(p.glob("*.md"))))
             else:
                 print(f"[-] Warning: File or directory not found: {f}")
-    else:
+    elif not args.about:
         parser.print_help()
         sys.exit(0)
 
