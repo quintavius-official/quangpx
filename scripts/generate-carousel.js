@@ -5,6 +5,7 @@ import satori from "satori";
 import { html } from "satori-html";
 import { Resvg } from "@resvg/resvg-js";
 import sharp from "sharp";
+import { mdToCarousel } from "./md-to-carousel.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -263,6 +264,213 @@ function renderComparisonSlide(slide, meta, bgDataUrl, logoDataUrl) {
 }
 
 /**
+ * Calculates responsive typography, gaps, and box paddings based on total character count
+ * so text fills the vertical canvas comfortably without overflowing.
+ */
+function calculateDynamicStyles(slide) {
+  if (slide.fontSize) {
+    const fs = slide.fontSize;
+    return {
+      fontSize: fs,
+      lineHeight: 1.6,
+      blockGap: 24,
+      boxPadding: "28px 32px",
+      boxFontSize: fs - 2,
+      quoteFontSize: fs + 2,
+      sidenoteFontSize: Math.max(22, fs - 2),
+      headlineFontSize: Math.min(50, fs + 16),
+    };
+  }
+
+  // Calculate approximate text density
+  let totalChars = 0;
+  if (slide.headline) totalChars += slide.headline.length * 1.3;
+  if (slide.paragraphs) {
+    totalChars += slide.paragraphs.reduce((sum, p) => sum + p.length, 0);
+  }
+  if (slide.boxes) {
+    totalChars += slide.boxes.reduce((sum, b) => sum + (b.title ? b.title.length : 0) + (b.text ? b.text.length : 0), 0) * 1.15;
+  }
+  if (slide.quote) totalChars += slide.quote.length * 1.15;
+  if (slide.sidenote) totalChars += slide.sidenote.length * 1.15;
+
+  let fontSize;
+  let lineHeight;
+  let blockGap;
+  let boxPadding;
+
+  if (totalChars <= 220) {
+    // Very short text: fill slide with prominent, readable typography
+    fontSize = 38;
+    lineHeight = 1.68;
+    blockGap = 32;
+    boxPadding = "36px 40px";
+  } else if (totalChars <= 380) {
+    // Medium-short text
+    fontSize = 34;
+    lineHeight = 1.62;
+    blockGap = 26;
+    boxPadding = "32px 36px";
+  } else if (totalChars <= 550) {
+    // Standard reading size
+    fontSize = 31;
+    lineHeight = 1.58;
+    blockGap = 22;
+    boxPadding = "28px 32px";
+  } else if (totalChars <= 720) {
+    // Longer text: scale down to guarantee zero overflow
+    fontSize = 28;
+    lineHeight = 1.54;
+    blockGap = 18;
+    boxPadding = "24px 28px";
+  } else {
+    // Very dense text / large callout cards
+    fontSize = 25;
+    lineHeight = 1.48;
+    blockGap = 14;
+    boxPadding = "20px 24px";
+  }
+
+  return {
+    fontSize,
+    lineHeight,
+    blockGap,
+    boxPadding,
+    boxFontSize: Math.max(22, fontSize - 2),
+    quoteFontSize: fontSize + 2,
+    sidenoteFontSize: Math.max(22, fontSize - 2),
+    headlineFontSize: Math.min(50, fontSize + 16),
+  };
+}
+
+/**
+ * Slide Type: Long-form Editorial / Reader Slide (for storytelling, essays, and dense reading)
+ */
+function renderReaderSlide(slide, meta, bgDataUrl, logoDataUrl) {
+  const logoImg = logoDataUrl
+    ? `<img src="${logoDataUrl}" style="width: 44px; height: 44px; border-radius: 10px;" />`
+    : "";
+
+  const bgSection = bgDataUrl
+    ? `
+      <img src="${bgDataUrl}" style="position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; object-fit: cover;" />
+      <div style="display: flex; position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; background: rgba(11, 13, 23, 0.88);"></div>
+    `
+    : "";
+
+  const styles = calculateDynamicStyles(slide);
+  const bodyFontSize = styles.fontSize;
+
+  const paragraphsHtml = (slide.paragraphs || []).map(p => `
+    <p style="font-size: ${bodyFontSize}px; line-height: ${styles.lineHeight}; color: #E2E8F0; margin: 0 0 ${Math.max(12, styles.blockGap - 6)}px 0;">
+      ${p}
+    </p>
+  `).join("");
+
+  const boxesHtml = (slide.boxes || []).map(b => {
+    const isPink = b.accent === BRAND.secondaryColor || b.accent === "pink" || b.accent === "#FF007F";
+    const accentColor = isPink ? BRAND.secondaryColor : BRAND.primaryColor;
+    const bgRgba = isPink ? "rgba(255, 0, 127, 0.08)" : "rgba(0, 180, 219, 0.08)";
+    const borderRgba = isPink ? "rgba(255, 0, 127, 0.3)" : "rgba(0, 180, 219, 0.3)";
+    const textParagraphs = (b.text || "").split("\n\n").map(tp => `
+      <p style="font-size: ${b.fontSize || styles.boxFontSize}px; line-height: ${styles.lineHeight}; color: #E2E8F0; margin: 0 0 10px 0;">
+        ${tp}
+      </p>
+    `).join("");
+    return `
+      <div style="display: flex; flex-direction: column; background: ${bgRgba}; border: 1px solid ${borderRgba}; border-left: 8px solid ${accentColor}; border-radius: 16px; padding: ${styles.boxPadding}; margin: 8px 0;">
+        ${b.title ? `<span style="font-size: ${styles.boxFontSize + 2}px; font-weight: 700; color: ${accentColor}; margin-bottom: 12px; letter-spacing: 1px;">${b.title}</span>` : ""}
+        <div style="display: flex; flex-direction: column;">
+          ${textParagraphs}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  const quoteHtml = slide.quote
+    ? `
+      <div style="display: flex; flex-direction: column; background: rgba(255, 0, 127, 0.08); border-left: 8px solid ${BRAND.secondaryColor}; border-radius: 16px; padding: ${styles.boxPadding}; margin: 8px 0;">
+        <p style="font-size: ${slide.quoteFontSize || styles.quoteFontSize}px; font-weight: 600; line-height: 1.55; color: #FFFFFF; margin: 0; font-style: italic;">
+          “${slide.quote}”
+        </p>
+      </div>
+    `
+    : "";
+
+  const sidenoteHtml = slide.sidenote
+    ? `
+      <div style="display: flex; flex-direction: column; background: rgba(0, 180, 219, 0.08); border: 1px solid rgba(0, 180, 219, 0.3); border-left: 8px solid ${BRAND.primaryColor}; border-radius: 16px; padding: ${styles.boxPadding}; margin: 8px 0;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span style="font-size: ${styles.sidenoteFontSize - 4}px; font-weight: 700; color: ${BRAND.primaryColor}; letter-spacing: 2px;">
+            SIDE NOTE / TỰ SỰ CỦA TÁC GIẢ
+          </span>
+        </div>
+        <p style="font-size: ${slide.sidenoteFontSize || styles.sidenoteFontSize}px; font-style: italic; line-height: ${styles.lineHeight}; color: #CBD5E1; margin: 0;">
+          ${slide.sidenote}
+        </p>
+      </div>
+    `
+    : "";
+
+  const takeawayHtml = slide.takeaway
+    ? `
+      <div style="display: flex; flex-direction: column; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 20px;">
+        <p style="font-size: ${styles.fontSize}px; line-height: ${styles.lineHeight}; color: #94A3B8; margin: 0;">
+          ${slide.takeaway}
+        </p>
+      </div>
+    `
+    : "";
+
+  const raw = `
+    <div style="display: flex; position: relative; width: 1080px; height: 1920px; background-color: ${BRAND.bgDark}; color: white; font-family: 'Google Sans Code';">
+      ${bgSection}
+
+      <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; padding: 90px 80px 80px 80px;">
+        <!-- Top header bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.primaryColor}; background-color: rgba(0, 180, 219, 0.15); border: 2px solid rgba(0, 180, 219, 0.5); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
+            ${slide.tag || "ESSAY"}
+          </span>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            ${logoImg}
+            <span style="font-size: 24px; color: #94A3B8;">${BRAND.name}</span>
+          </div>
+        </div>
+
+        <!-- Main Reading Block: Centered vertically and flex: 1 to fill available height comfortably -->
+        <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; gap: ${styles.blockGap}px; padding: 20px 0;">
+          ${slide.headline ? `
+            <h2 style="font-size: ${styles.headlineFontSize}px; font-weight: 700; line-height: 1.25; color: #FFFFFF; margin: 0 0 8px 0;">
+              ${slide.headline}
+            </h2>
+          ` : ""}
+
+          <div style="display: flex; flex-direction: column;">
+            ${paragraphsHtml}
+          </div>
+
+          ${boxesHtml}
+          ${quoteHtml}
+          ${sidenoteHtml}
+          ${takeawayHtml}
+        </div>
+
+        <!-- Bottom Footer -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid rgba(255, 255, 255, 0.15); padding-top: 36px;">
+          <span style="font-size: 24px; color: #94A3B8;">${BRAND.url}</span>
+          <span style="font-size: 28px; font-weight: 700; color: ${BRAND.primaryColor};">
+            ${slide.pageIndicator}
+          </span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return html(raw);
+}
+
+/**
  * Slide Type: Outro / CTA (with full-bleed background image)
  */
 function renderCtaSlide(slide, meta, bgDataUrl, logoDataUrl) {
@@ -361,6 +569,8 @@ export async function generateCarousel(options) {
       markupNode = renderComparisonSlide(slide, {}, bgDataUrl, logoDataUrl);
     } else if (slide.type === "cta") {
       markupNode = renderCtaSlide(slide, {}, bgDataUrl, logoDataUrl);
+    } else if (slide.type === "reader" || slide.type === "story") {
+      markupNode = renderReaderSlide(slide, {}, bgDataUrl, logoDataUrl);
     } else {
       markupNode = renderQuoteSlide(slide, {}, bgDataUrl, logoDataUrl);
     }
@@ -400,7 +610,8 @@ export async function generateCarousel(options) {
 
 // Check for companion JSON file or fallback
 const args = process.argv.slice(2);
-const postName = args[0] || "seniority";
+const postName = args.find(a => !a.startsWith("--")) || "seniority";
+const forceFromMd = args.includes("--from-md");
 const outputFolder = path.join(rootDir, "output/carousels", postName);
 
 const companionJsonPath = path.join(
@@ -410,32 +621,43 @@ const companionJsonPath = path.join(
 );
 
 let slidesToRun;
-if (fs.existsSync(companionJsonPath)) {
+
+// If explicitly requested or JSON doesn't exist, generate deterministically from markdown
+if (forceFromMd || !fs.existsSync(companionJsonPath)) {
+  const postPathVi = path.join(rootDir, `src/content/posts/${postName}-vi.md`);
+  const postPathDirect = path.join(rootDir, `src/content/posts/${postName}.md`);
+  const mdPath = fs.existsSync(postPathVi) ? postPathVi : (fs.existsSync(postPathDirect) ? postPathDirect : null);
+
+  if (mdPath) {
+    console.log(`Generating slides deterministically from markdown: ${mdPath}`);
+    const mdContent = fs.readFileSync(mdPath, "utf-8");
+    const generatedData = mdToCarousel(mdContent, postName);
+    fs.writeFileSync(companionJsonPath, JSON.stringify(generatedData, null, 2), "utf-8");
+    slidesToRun = generatedData.slides;
+  }
+}
+
+if (!slidesToRun && fs.existsSync(companionJsonPath)) {
   console.log(`Loaded custom slides definition from: ${companionJsonPath}`);
   const rawData = JSON.parse(fs.readFileSync(companionJsonPath, "utf-8"));
   slidesToRun = rawData.slides;
-  if (
-    slidesToRun[0]?.coverImage &&
-    !path.isAbsolute(slidesToRun[0].coverImage)
-  ) {
-    slidesToRun[0].coverImage = path.resolve(
-      rootDir,
-      "src/content/posts",
-      slidesToRun[0].coverImage
-    );
-  }
-} else {
-  console.log(`Using fallback slides for: ${postName}`);
-  slidesToRun = [
-    {
-      type: "cover",
-      category: "CAREER & CULTURE",
-      title: "Seniority",
-      subtitle:
-        "Thế nào là một senior thực thụ? Và khi tài năng bị biến thành công cụ trong các Black Company và Dark Corporation.",
-      coverImage: path.join(rootDir, "src/content/posts/senior-borderland.png"),
-    },
-  ];
+}
+
+if (!slidesToRun) {
+  console.error(`Could not find or generate slides for post: ${postName}`);
+  process.exit(1);
+}
+
+// Resolve cover image path
+if (
+  slidesToRun[0]?.coverImage &&
+  !path.isAbsolute(slidesToRun[0].coverImage)
+) {
+  slidesToRun[0].coverImage = path.resolve(
+    rootDir,
+    "src/content/posts",
+    slidesToRun[0].coverImage
+  );
 }
 
 generateCarousel({
@@ -443,3 +665,4 @@ generateCarousel({
   slides: slidesToRun,
   outputDir: outputFolder,
 }).catch(console.error);
+
