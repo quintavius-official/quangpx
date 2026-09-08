@@ -31,3 +31,9 @@ public/pagefind
 
 # docker compose
 compose.override.yaml
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+

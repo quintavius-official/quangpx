@@ -52,9 +52,9 @@ Nghe xong bạn chỉ biết đứng hình. Bạn vừa dành nửa năm cứu v
 
 Bản chất của trò chơi _Moving Goalposts_ là **thước đo luôn thay đổi ngay khi bạn sắp chạm đích**:
 
-- Khi bạn tập trung làm Tech thật giỏi $\rightarrow$ Họ bảo bạn thiếu Kỹ năng mềm.
-- Khi bạn cải thiện Giao tiếp và phối hợp team mượt mà $\rightarrow$ Họ bảo bạn thiếu Tư duy kinh doanh (Business Acumen).
-- Khi bạn thức đêm hiểu cả nghiệp vụ kinh doanh $\rightarrow$ Họ bảo bạn thiếu "Văn hoá gắn kết", chưa chịu đi nhậu hoặc chưa chủ động tham gia hoạt động phong trào.
+- Khi bạn tập trung làm Tech thật giỏi → Họ bảo bạn thiếu Kỹ năng mềm.
+- Khi bạn cải thiện Giao tiếp và phối hợp team mượt mà → Họ bảo bạn thiếu Tư duy kinh doanh (Business Acumen).
+- Khi bạn thức đêm hiểu cả nghiệp vụ kinh doanh → Họ bảo bạn thiếu "Văn hoá gắn kết", chưa chịu đi nhậu hoặc chưa chủ động tham gia hoạt động phong trào.
 
 Cọc gôn luôn bị dời đi một đoạn xa hơn bước chân của bạn. Mục đích tối thượng của trò này không phải để bạn tiến bộ, mà để **tạo cớ hợp lý hóa việc từ chối tăng lương/thăng chức** mà không làm bạn nổi khùng bỏ việc ngay lập tức.
 

@@ -52,9 +52,9 @@ You sit there frozen in disbelief. You just spent half a year bailing water out 
 
 The fundamental mechanic of the _Moving Goalposts_ game is that **the criteria shapeshift the moment you're about to score**:
 
-- Excel at pure technical execution? $\rightarrow$ They claim you lack Soft Skills.
-- Hone your communication and team alignment? $\rightarrow$ They claim you lack Business Acumen.
-- Stay up late learning the domain economics inside out? $\rightarrow$ They claim you lack "Cultural Fit", haven't attended enough team happy hours, or failed to display grassroots team spirit.
+- Excel at pure technical execution? → They claim you lack Soft Skills.
+- Hone your communication and team alignment? → They claim you lack Business Acumen.
+- Stay up late learning the domain economics inside out? → They claim you lack "Cultural Fit", haven't attended enough team happy hours, or failed to display grassroots team spirit.
 
 The goalposts are deliberately repositioned one stride beyond wherever your feet land. The ultimate purpose of this charade isn't to help you grow — it's to **manufacture a plausible pretext to deny your raise or promotion** without provoking you to rage-quit on the spot.
 

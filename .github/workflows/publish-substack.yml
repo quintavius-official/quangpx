@@ -1,0 +1,74 @@
+name: Publish to Substack
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/content/posts/**"
+  workflow_dispatch:
+    inputs:
+      file:
+        description: "Markdown file path (e.g. src/content/posts/my-post-vi.md), or 'all' for all posts. Leave empty for git diff."
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run (preview actions without updating Substack)"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Sync posts to Substack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed post files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files: |
+            src/content/posts/*.md
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Run Substack Publish Script
+        env:
+          SUBSTACK_COOKIES: ${{ secrets.SUBSTACK_COOKIES }}
+          COOKIES_STRING: ${{ secrets.SUBSTACK_COOKIES }}
+          PUBLICATION_URL: ${{ vars.SUBSTACK_PUBLICATION_URL || 'https://quangpx.substack.com' }}
+        run: |
+          if [ -z "$SUBSTACK_COOKIES" ]; then
+            echo "[-] Error: Secret SUBSTACK_COOKIES is not set in GitHub repository secrets."
+            exit 1
+          fi
+
+          EXTRA_ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            EXTRA_ARGS="--dry-run"
+          fi
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.file }}" ]; then
+            if [ "${{ github.event.inputs.file }}" = "all" ]; then
+              echo "[*] Triggered manually for ALL posts"
+              uv run scripts/publish-substack.py --all $EXTRA_ARGS
+            else
+              echo "[*] Triggered manually for file: ${{ github.event.inputs.file }}"
+              uv run scripts/publish-substack.py $EXTRA_ARGS "${{ github.event.inputs.file }}"
+            fi
+          elif [ "${{ steps.changed-files.outputs.any_changed }}" = "true" ]; then
+            echo "[*] Processing changed post files: ${{ steps.changed-files.outputs.all_changed_files }}"
+            uv run scripts/publish-substack.py $EXTRA_ARGS ${{ steps.changed-files.outputs.all_changed_files }}
+          else
+            echo "[*] No post files modified in this push. Nothing to publish."
+          fi
