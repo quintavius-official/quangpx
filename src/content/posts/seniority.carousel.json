@@ -1,0 +1,47 @@
+{
+  "post": "seniority",
+  "slides": [
+    {
+      "type": "cover",
+      "category": "CAREER & CULTURE",
+      "title": "Seniority",
+      "subtitle": "Thế nào là một senior thực thụ? Và khi tài năng bị biến thành công cụ trong các Black Company và Dark Corporation.",
+      "coverImage": "./senior-borderland.png"
+    },
+    {
+      "type": "quote",
+      "tag": "01 / NGHỊCH LÝ NĂNG LỰC",
+      "headline": "Bạn giải quyết việc trong một buổi. Người khác mất cả tuần.",
+      "quote": "Bất kỳ task nào phức tạp, bạn giải quyết nhẹ nhàng như một task đơn giản nhất. Nhưng khi bạn vắng mặt, cái thứ tưởng chừng 'dễ ẹc' lại sinh chuyện.",
+      "takeaway": "Senior thực thụ không đo bằng thâm niên lâu năm hay alcohol bàn nhậu. Senior là người giải quyết việc khó nhất với nỗ lực nhẹ nhàng nhất."
+    },
+    {
+      "type": "quote",
+      "tag": "02 / BẪY THAO TÚNG",
+      "headline": "Vì sao biết bị bóc lột nhưng vẫn tình nguyện ở lại?",
+      "quote": "Cái hiểm của thao túng tâm lý là khiến bạn nghĩ rằng: được bóc lột cũng không quá tệ, thậm chí có phần sung sướng!",
+      "takeaway": "Vài lời khen đãi bôi gieo ảo tưởng sức mạnh, vài đợt phát phiếu 'bé ngoan' sau thời gian dài ăn chay. Họ muốn bạn 'ngoan' để tiếp tục phục vụ lợi ích của họ."
+    },
+    {
+      "type": "quote",
+      "tag": "03 / ĐẤU TRƯỜNG SINH TỒN",
+      "headline": "Rời khỏi đấu trường, hay làm kẻ quản trò kế tiếp?",
+      "quote": "Cũng như người chiến thắng trong Alice in Borderland, bạn sẽ phải đối mặt với một câu hỏi định đoạt:",
+      "takeaway": "Thoát ra khỏi thế giới nghiệt ngã để tìm cuộc sống đời thường đúng nghĩa, hay chấp nhận làm 'cư dân' — tiếp tay cho guồng máy để hành hạ những người chơi mới?"
+    },
+    {
+      "type": "comparison",
+      "tag": "04 / NGUYÊN TẮC BẢO VỆ",
+      "headline": "Kiểm Soát khác Thao Túng",
+      "item1Title": "1. KIỂM SOÁT (Control)",
+      "item1Text": "Hành động lèo lái các yếu tố để giải quyết bài toán kỹ thuật hóc búa của khách hàng, hoặc cùng team xử lý tận gốc vấn đề.",
+      "item2Title": "2. THAO TÚNG (Manipulation)",
+      "item2Text": "Bóp méo nhận thức để trục lợi. Khẩu hiệu 'OT nhiều để tăng năng suất' là chiêu trò bòn rút effort miễn phí bằng cách kéo dài giờ làm."
+    },
+    {
+      "type": "cta",
+      "headline": "Quên System Design đi.",
+      "subtitle": "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."
+    }
+  ]
+}
