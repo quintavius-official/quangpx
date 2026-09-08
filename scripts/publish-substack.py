@@ -127,7 +127,7 @@ def get_substack_api():
     """Initializes and returns a Substack Api client using environment variables."""
     load_dotenv()
     
-    pub_url = os.getenv("PUBLICATION_URL", "https://quangpx.substack.com")
+    pub_url = os.getenv("PUBLICATION_URL", "https://corpdispatch.substack.com")
     cookies_string = os.getenv("COOKIES_STRING") or os.getenv("SUBSTACK_COOKIES")
     cookies_path = os.getenv("COOKIES_PATH")
     email = os.getenv("EMAIL")
