@@ -5,6 +5,7 @@
 #     "python-substack>=0.3.0",
 #     "pyyaml>=6.0",
 #     "python-dotenv>=1.0.0",
+#     "curl-cffi>=0.7.0",
 # ]
 # ///
 
@@ -16,6 +17,24 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dotenv import load_dotenv
+
+# Monkey-patch requests.Session with curl_cffi to bypass Cloudflare bot challenge in CI
+try:
+    import curl_cffi.requests as cffi_requests
+    import substack.api
+
+    class ImpersonatedSession(cffi_requests.Session):
+        def __init__(self, *args, **kwargs):
+            kwargs.setdefault("impersonate", "chrome")
+            super().__init__(*args, **kwargs)
+
+        def mount(self, prefix, adapter):
+            pass
+
+    substack.api.requests.Session = ImpersonatedSession
+except ImportError:
+    pass
+
 
 def parse_frontmatter(content: str) -> Tuple[Dict, str]:
     """Parse YAML frontmatter and return (metadata, markdown_body)."""
