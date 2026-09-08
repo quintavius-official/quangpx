@@ -32,7 +32,11 @@ export default defineAstroPaperConfig({
   socials: [
     { name: "github",   url: "https://github.com/quintavius-official" },
     { name: "linkedin", url: "https://linkedin.com/in/quangpx" },
-    { name: "substack", url: "https://quangpx.substack.com" },
+    {
+      name: "substack",
+      url: "https://quangpx.substack.com",
+      linkTitle: "The Corporate Dispatch on Substack",
+    },
     { name: "mail",     url: "mailto:alexquang169@gmail.com" },
   ],
   shareLinks: [
