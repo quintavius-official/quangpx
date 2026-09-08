@@ -30,7 +30,7 @@ In the dark shadows of organizational politics, however, the gatekeeper doesn't 
 
 ## The Favoritism Playbook: Sinking Vendor A to Feed Vendor B
 
-Picture a classic enterprise consulting scenario that anyone with years in outsourcing or solution delivery has witnessed with a shudder:
+Picture a classic scenario that anyone who has worked in partner delivery, solution consulting, or any client-facing partnership has witnessed with a shudder:
 
 A major enterprise client launches an ambitious multi-million-dollar digital transformation initiative and contracts two strategic delivery partners:
 

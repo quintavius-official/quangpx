@@ -18,7 +18,7 @@ postSlug: "the-silent-siege"
 translationKey: "the-silent-siege"
 ---
 
-Trong bài viết trước về [Information Gatekeeping](/vi/posts/information-gatekeeping), tôi có nhắc đến chuyện đòn tấn công thụ động vi mô (micro-passive-aggressive manipulation) không chỉ là độc chiêu của những kẻ gác cổng dự án outsourcing để dìm hàng đối tác. Đáng sợ hơn gấp bội, đó chính là **vũ khí ruột của tầng lớp middle management độc hại** bên trong chính doanh nghiệp của bạn.
+Trong bài viết trước về [Information Gatekeeping](/vi/posts/information-gatekeeping), tôi có nhắc đến chuyện đòn tấn công thụ động vi mô (micro-passive-aggressive manipulation) không chỉ là độc chiêu của những kẻ gác cổng trong các mối quan hệ đối tác – khách hàng để dìm hàng bên yếu thế. Đáng sợ hơn gấp bội, đó chính là **vũ khí ruột của tầng lớp middle management độc hại** bên trong chính doanh nghiệp của bạn.
 
 Nhiều bạn từng thắc mắc với tôi: _"Nếu sếp ghét em, hoặc thấy em không cùng phe cánh, tại sao sếp không gọi em vào phòng họp, thẳng thắn phê bình hoặc đề xuất gói đền bù hợp đồng để em ra đi trong êm đẹp?"_
 

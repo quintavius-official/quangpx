@@ -30,7 +30,7 @@ Nhưng trong thế giới ngầm của quyền lực và phe nhóm, kẻ gác c�
 
 ## Trò chơi dìm Vendor A để nuôi béo Vendor B
 
-Hãy hình dung một kịch bản dự án kinh điển mà bất kỳ ai lăn lộn lâu năm trong ngành outsourcing hay tư vấn giải pháp đều từng ít nhất một lần rùng mình chứng kiến:
+Hãy hình dung một kịch bản kinh điển mà bất kỳ ai từng làm việc trong môi trường đối tác, tư vấn giải pháp hay bất kỳ mối quan hệ hợp tác khách hàng nào đều từng ít nhất một lần rùng mình chứng kiến:
 
 Khách hàng (Client) khởi động một chương trình chuyển đổi số quy mô lớn và thuê hai đối tác cùng tham gia:
 

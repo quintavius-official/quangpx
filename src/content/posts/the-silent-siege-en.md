@@ -18,7 +18,7 @@ postSlug: "the-silent-siege"
 translationKey: "the-silent-siege"
 ---
 
-In my previous post on [Information Gatekeeping](/posts/information-gatekeeping), I mentioned how micro-passive-aggressive manipulation is not merely the pet trick of outsourcing project gatekeepers looking to downplay their partners. Far more terrifyingly, it is the **go-to weapon of toxic middle management** right inside your own organization.
+In my previous post on [Information Gatekeeping](/posts/information-gatekeeping), I mentioned how micro-passive-aggressive manipulation is not merely the pet trick of gatekeepers in client-partner relationships looking to undermine their counterparts. Far more terrifyingly, it is the **go-to weapon of toxic middle management** right inside your own organization.
 
 Many engineers have asked me: _"If my manager dislikes me, or sees that I don’t belong to their clique, why don’t they just pull me into a meeting room, offer constructive feedback, or propose a severance buyout so we can part ways amicably?"_
 
