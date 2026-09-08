@@ -32,8 +32,10 @@ try:
             pass
 
     substack.api.requests.Session = ImpersonatedSession
-except ImportError:
-    pass
+    print("[+] Successfully monkey-patched substack with curl_cffi (Chrome impersonation).")
+except Exception as e:
+    print(f"[-] Warning: Failed to initialize curl_cffi: {e}")
+
 
 
 def parse_frontmatter(content: str) -> Tuple[Dict, str]:
