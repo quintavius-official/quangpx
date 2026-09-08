@@ -14,6 +14,7 @@
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "lint": "eslint .",
+    "prepare": "git config core.hooksPath .githooks",
     "substack:publish": "uv run scripts/publish-substack.py",
     "substack:dry-run": "uv run scripts/publish-substack.py --dry-run"
   },
