@@ -34,8 +34,8 @@ export default defineAstroPaperConfig({
     { name: "linkedin", url: "https://linkedin.com/in/quangpx" },
     {
       name: "substack",
-      url: "https://corpdispatch.substack.com",
-      linkTitle: "The Corporate Dispatch on Substack",
+      url: "https://trochoicongso.substack.com",
+      linkTitle: "Trò Chơi Công Sở on Substack",
     },
     { name: "mail",     url: "mailto:alexquang169@gmail.com" },
   ],

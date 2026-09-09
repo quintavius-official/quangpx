@@ -1,5 +1,5 @@
 ---
-title: "Dark Patterns #4: Information Gatekeeping – Kẻ gác cổng bóp méo sự thật và cú ngã của những senior tâm huyết"
+title: "Trò chơi #4: Kẻ gác cổng bóp méo sự thật và cú ngã của những người tâm huyết"
 pubDatetime: 2026-09-17T00:00:00Z
 description: "Trò chơi thao túng sự thật của những kẻ gác cổng khách hàng: dìm nghẹt vendor giỏi để nuôi béo nhóm lợi ích, và cú ngã cay đắng của những senior tâm huyết trong bóng tối."
 ogImage: "./information-gatekeeping.png"

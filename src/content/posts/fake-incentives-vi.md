@@ -1,5 +1,5 @@
 ---
-title: "Dark Patterns #1: Fake Incentives – Bánh vẽ và chức danh không budget"
+title: "Trò chơi #1: Bánh vẽ và chức danh không ngân sách"
 pubDatetime: 2026-09-04T00:00:00Z
 description: "Cách các Black Company và Dark Corporation dùng những cơ hội ma và chức danh rỗng để bòn rút 200% effort của senior mà không tốn một đồng chi phí."
 ogImage: "./fake-incentives.png"

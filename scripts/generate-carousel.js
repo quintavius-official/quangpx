@@ -24,8 +24,8 @@ const fontRegular = fs.readFileSync(fontRegularPath);
 const fontBold = fs.readFileSync(fontBoldPath);
 
 const BRAND = {
-  name: "The Corporate Dispatch",
-  url: "corpdispatch.substack.com",
+  name: "Trò Chơi Công Sở",
+  url: "trochoicongso.substack.com",
   author: "QuangPX",
   primaryColor: "#00B4DB",
   secondaryColor: "#FF007F",
@@ -264,6 +264,17 @@ function renderComparisonSlide(slide, meta, bgDataUrl, logoDataUrl) {
 }
 
 /**
+ * Strips markdown formatting for clean text rendering in Satori
+ */
+function formatMarkdownInline(str) {
+  if (!str) return "";
+  return str
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/`(.+?)`/g, "$1");
+}
+
+/**
  * Calculates responsive typography, gaps, and box paddings based on total character count
  * so text fills the vertical canvas comfortably without overflowing.
  */
@@ -284,7 +295,7 @@ function calculateDynamicStyles(slide) {
 
   // Calculate approximate text density
   let totalChars = 0;
-  if (slide.headline) totalChars += slide.headline.length * 1.3;
+  if (slide.headline) totalChars += slide.headline.length * 2.2 + 80;
   if (slide.paragraphs) {
     totalChars += slide.paragraphs.reduce((sum, p) => sum + p.length, 0);
   }
@@ -339,7 +350,7 @@ function calculateDynamicStyles(slide) {
     boxFontSize: Math.max(22, fontSize - 2),
     quoteFontSize: fontSize + 2,
     sidenoteFontSize: Math.max(22, fontSize - 2),
-    headlineFontSize: Math.min(50, fontSize + 16),
+    headlineFontSize: Math.min(46, fontSize + 12),
   };
 }
 
@@ -363,7 +374,7 @@ function renderReaderSlide(slide, meta, bgDataUrl, logoDataUrl) {
 
   const paragraphsHtml = (slide.paragraphs || []).map(p => `
     <p style="font-size: ${bodyFontSize}px; line-height: ${styles.lineHeight}; color: #E2E8F0; margin: 0 0 ${Math.max(12, styles.blockGap - 6)}px 0;">
-      ${p}
+      ${formatMarkdownInline(p)}
     </p>
   `).join("");
 
@@ -374,12 +385,12 @@ function renderReaderSlide(slide, meta, bgDataUrl, logoDataUrl) {
     const borderRgba = isPink ? "rgba(255, 0, 127, 0.3)" : "rgba(0, 180, 219, 0.3)";
     const textParagraphs = (b.text || "").split("\n\n").map(tp => `
       <p style="font-size: ${b.fontSize || styles.boxFontSize}px; line-height: ${styles.lineHeight}; color: #E2E8F0; margin: 0 0 10px 0;">
-        ${tp}
+        ${formatMarkdownInline(tp)}
       </p>
     `).join("");
     return `
       <div style="display: flex; flex-direction: column; background: ${bgRgba}; border: 1px solid ${borderRgba}; border-left: 8px solid ${accentColor}; border-radius: 16px; padding: ${styles.boxPadding}; margin: 8px 0;">
-        ${b.title ? `<span style="font-size: ${styles.boxFontSize + 2}px; font-weight: 700; color: ${accentColor}; margin-bottom: 12px; letter-spacing: 1px;">${b.title}</span>` : ""}
+        ${b.title ? `<span style="font-size: ${styles.boxFontSize + 2}px; font-weight: 700; color: ${accentColor}; margin-bottom: 12px; letter-spacing: 1px;">${formatMarkdownInline(b.title)}</span>` : ""}
         <div style="display: flex; flex-direction: column;">
           ${textParagraphs}
         </div>
@@ -391,7 +402,7 @@ function renderReaderSlide(slide, meta, bgDataUrl, logoDataUrl) {
     ? `
       <div style="display: flex; flex-direction: column; background: rgba(255, 0, 127, 0.08); border-left: 8px solid ${BRAND.secondaryColor}; border-radius: 16px; padding: ${styles.boxPadding}; margin: 8px 0;">
         <p style="font-size: ${slide.quoteFontSize || styles.quoteFontSize}px; font-weight: 600; line-height: 1.55; color: #FFFFFF; margin: 0; font-style: italic;">
-          “${slide.quote}”
+          “${formatMarkdownInline(slide.quote)}”
         </p>
       </div>
     `
@@ -406,7 +417,7 @@ function renderReaderSlide(slide, meta, bgDataUrl, logoDataUrl) {
           </span>
         </div>
         <p style="font-size: ${slide.sidenoteFontSize || styles.sidenoteFontSize}px; font-style: italic; line-height: ${styles.lineHeight}; color: #CBD5E1; margin: 0;">
-          ${slide.sidenote}
+          ${formatMarkdownInline(slide.sidenote)}
         </p>
       </div>
     `
@@ -416,7 +427,7 @@ function renderReaderSlide(slide, meta, bgDataUrl, logoDataUrl) {
     ? `
       <div style="display: flex; flex-direction: column; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 20px;">
         <p style="font-size: ${styles.fontSize}px; line-height: ${styles.lineHeight}; color: #94A3B8; margin: 0;">
-          ${slide.takeaway}
+          ${formatMarkdownInline(slide.takeaway)}
         </p>
       </div>
     `
@@ -441,8 +452,8 @@ function renderReaderSlide(slide, meta, bgDataUrl, logoDataUrl) {
         <!-- Main Reading Block: Centered vertically and flex: 1 to fill available height comfortably -->
         <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; gap: ${styles.blockGap}px; padding: 20px 0;">
           ${slide.headline ? `
-            <h2 style="font-size: ${styles.headlineFontSize}px; font-weight: 700; line-height: 1.25; color: #FFFFFF; margin: 0 0 8px 0;">
-              ${slide.headline}
+            <h2 style="font-size: ${styles.headlineFontSize}px; font-weight: 700; line-height: 1.3; color: #FFFFFF; margin: 0 0 16px 0;">
+              ${formatMarkdownInline(slide.headline)}
             </h2>
           ` : ""}
 
@@ -492,7 +503,7 @@ function renderCtaSlide(slide, meta, bgDataUrl, logoDataUrl) {
       <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; padding: 100px 80px 80px 80px;">
         <div style="display: flex; align-items: center;">
           <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.primaryColor}; background-color: rgba(0, 180, 219, 0.15); border: 2px solid rgba(0, 180, 219, 0.4); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
-            THE CORPORATE DISPATCH
+            TRÒ CHƠI CÔNG SỞ
           </span>
         </div>
 

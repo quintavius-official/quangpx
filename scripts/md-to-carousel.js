@@ -242,7 +242,7 @@ export function mdToCarousel(mdContent, postSlug = "") {
     finalizeSlide();
     currentSlide = {
       type: "reader",
-      tag: currentHeading ? currentHeading.toUpperCase() : category,
+      tag: category,
       paragraphs: []
     };
 
@@ -266,11 +266,10 @@ export function mdToCarousel(mdContent, postSlug = "") {
       continue;
     }
 
-    if (!currentSlide) {
-      startNewSlide();
-    }
-
     if (block.type === "paragraph") {
+      if (!currentSlide) {
+        startNewSlide();
+      }
       const currentLength = (currentSlide.paragraphs || []).reduce(
         (sum, p) => sum + p.length,
         0
@@ -362,7 +361,7 @@ export function mdToCarousel(mdContent, postSlug = "") {
   // Last Slide: Outro CTA
   slides.push({
     type: "cta",
-    tag: "THE CORPORATE DISPATCH",
+    tag: "TRÒ CHƠI CÔNG SỞ",
     headline: "Quên System Design đi.",
     subtitle: "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."
   });

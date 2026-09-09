@@ -1,5 +1,5 @@
 ---
-title: "Dark Patterns #5: The Silent Siege – Combo ba đòn bao vây triệt hạ senior cứng đầu không để lại vết máu"
+title: "Trò chơi #5: Vòng vây thầm lặng – Ba đòn triệt hạ người cứng đầu không để lại vết máu"
 pubDatetime: 2026-09-22T00:00:00Z
 ogImage: "./the-silent-siege.png"
 description: "Chiến thuật bao vây rút cạn sinh lực và đòn tấn công thụ động vi mô của middle management độc hại: khi sếp không đuổi bạn thẳng mặt mà khiến bạn tự héo mòn rồi ra đòn kết liễu."
