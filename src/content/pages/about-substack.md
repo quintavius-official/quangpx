@@ -1,11 +1,11 @@
 ---
 title: "Chào mừng đến với Trò Chơi Công Sở"
-description: "Quên System Design đi. Đây là nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở mà không cuốn sách nào dạy bạn."
+description: "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở mà không cuốn sách nào dạy bạn."
 ---
 
 # Chào mừng đến với Trò Chơi Công Sở
 
-> *"Quên System Design đi. Đây là nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở mà không cuốn sách nào dạy bạn."*
+> *"Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở mà không cuốn sách nào dạy bạn."*
 
 ---
 

@@ -511,7 +511,7 @@ function renderCtaSlide(slide, meta, bgDataUrl, logoDataUrl) {
           ${logoImg}
 
           <h2 style="font-size: 78px; font-weight: 700; line-height: 1.15; color: #FFFFFF; margin: 0;">
-            ${slide.headline || "Quên System Design đi."}
+            ${slide.headline || BRAND.name}
           </h2>
 
           <p style="font-size: 40px; line-height: 1.55; color: ${BRAND.textMuted}; margin: 0;">

@@ -362,7 +362,7 @@ export function mdToCarousel(mdContent, postSlug = "") {
   slides.push({
     type: "cta",
     tag: "TRÒ CHƠI CÔNG SỞ",
-    headline: "Quên System Design đi.",
+    headline: "Trò Chơi Công Sở",
     subtitle: "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."
   });
 
