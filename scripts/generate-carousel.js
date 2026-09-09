@@ -546,12 +546,23 @@ function renderCtaSlide(slide, meta, bgDataUrl, logoDataUrl) {
  * Main generator function
  */
 export async function generateCarousel(options) {
-  const { postFile, slides, outputDir } = options;
+  const { postFile, slides, outputDir, targetPage = null } = options;
+
+  if (targetPage !== null) {
+    if (isNaN(targetPage) || targetPage < 1 || targetPage > slides.length) {
+      console.error(`❌ Trang không hợp lệ: ${targetPage}. Tổng số slide: ${slides.length}`);
+      process.exit(1);
+    }
+  }
 
   console.log(`\n========================================`);
   console.log(`Generating Carousel: ${postFile}`);
   console.log(`Output: ${outputDir}`);
-  console.log(`Total Slides: ${slides.length}`);
+  if (targetPage !== null) {
+    console.log(`Target: Slide ${targetPage} of ${slides.length}`);
+  } else {
+    console.log(`Total Slides: ${slides.length}`);
+  }
   console.log(`========================================\n`);
 
   fs.mkdirSync(outputDir, { recursive: true });
@@ -568,8 +579,12 @@ export async function generateCarousel(options) {
   const logoDataUrl = await getLogoDataUrl(logoPath);
 
   for (let i = 0; i < slides.length; i++) {
-    const slide = slides[i];
     const slideNumber = i + 1;
+    if (targetPage !== null && slideNumber !== targetPage) {
+      continue;
+    }
+
+    const slide = slides[i];
     const isLast = slideNumber === slides.length;
     slide.pageIndicator = `${slideNumber} / ${slides.length} ${isLast ? "•" : "→"}`;
 
@@ -616,12 +631,54 @@ export async function generateCarousel(options) {
     console.log(`✓ Slide ${slideNumber}/${slides.length} -> ${outputPath}`);
   }
 
-  console.log(`\n✨ Hoàn thành! Toàn bộ slide đã được lưu tại: ${outputDir}\n`);
+  if (targetPage !== null) {
+    console.log(`\n✨ Hoàn thành! Đã tạo slide ${targetPage} tại: ${outputDir}\n`);
+  } else {
+    console.log(`\n✨ Hoàn thành! Toàn bộ slide đã được lưu tại: ${outputDir}\n`);
+  }
 }
 
 // Check for companion JSON file or fallback
 const args = process.argv.slice(2);
-const postName = args.find(a => !a.startsWith("--")) || "seniority";
+
+// Parse page options: --page 1, -p 1, --slide 1, -s 1, --page=1
+let targetPage = null;
+const pageFlagIdx = args.findIndex(a => a === "--page" || a === "-p" || a === "--slide" || a === "-s");
+if (pageFlagIdx !== -1 && args[pageFlagIdx + 1]) {
+  targetPage = parseInt(args[pageFlagIdx + 1], 10);
+} else {
+  const inlinePageFlag = args.find(a => a.startsWith("--page=") || a.startsWith("--slide="));
+  if (inlinePageFlag) {
+    targetPage = parseInt(inlinePageFlag.split("=")[1], 10);
+  }
+}
+
+// Extract non-flag arguments
+const cleanArgs = [];
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === "--page" || args[i] === "-p" || args[i] === "--slide" || args[i] === "-s") {
+    i++; // skip value
+    continue;
+  }
+  if (args[i].startsWith("-")) {
+    continue;
+  }
+  cleanArgs.push(args[i]);
+}
+
+let postName = "seniority";
+if (cleanArgs.length > 0) {
+  if (isNaN(Number(cleanArgs[0]))) {
+    postName = cleanArgs[0];
+    if (targetPage === null && cleanArgs.length > 1 && !isNaN(Number(cleanArgs[1]))) {
+      targetPage = parseInt(cleanArgs[1], 10);
+    }
+  } else {
+    // e.g. `node scripts/generate-carousel.js 1`
+    targetPage = parseInt(cleanArgs[0], 10);
+  }
+}
+
 const forceFromMd = args.includes("--from-md");
 const outputFolder = path.join(rootDir, "output/carousels", postName);
 
@@ -675,5 +732,6 @@ generateCarousel({
   postFile: postName,
   slides: slidesToRun,
   outputDir: outputFolder,
+  targetPage,
 }).catch(console.error);
 
