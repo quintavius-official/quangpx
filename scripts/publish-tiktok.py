@@ -259,6 +259,8 @@ def handle_post_browser(args: argparse.Namespace, image_files: List[Path], title
         cmd.extend(["--schedule-time", args.schedule_time])
     if getattr(args, "schedule_date", None):
         cmd.extend(["--schedule-date", args.schedule_date])
+    if getattr(args, "sound", None):
+        cmd.extend(["--sound", args.sound])
     if args.restart_browser:
         cmd.append("--restart-browser")
     if args.dry_run:
@@ -509,6 +511,8 @@ def main():
     post_parser.add_argument("--copy-to-public", action="store_true", help="Copy images from output/ to public/ for Astro hosting")
     post_parser.add_argument("--schedule-time", help="Schedule post time (e.g. '20:00' or '20:30') for TikTok Studio")
     post_parser.add_argument("--schedule-date", help="Schedule post date (e.g. '2026-09-10', default: today) for TikTok Studio")
+    post_parser.add_argument("--sound", default="Dark and mysterious trap beat",
+                             help="Sound/music search keyword or preset (1: 'Dark and mysterious trap beat' [default], 2: 'Mysterious Piano Nocturne', 3: 'Horror, Fear, Mystery, Suspense', 'recommend', or 'none'). Default: 'Dark and mysterious trap beat'")
     post_parser.add_argument("--disable-comments", action="store_true", help="Disable comments on the post")
     post_parser.add_argument("--auto-music", action="store_true", default=True, help="Auto add background music (default: True)")
     post_parser.add_argument("--dry-run", action="store_true", help="Validate and preview payload without sending API requests")

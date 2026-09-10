@@ -63,6 +63,19 @@ python3 scripts/publish-tiktok.py post --slug <slug> --schedule-date 2026-09-11 
 
 *Note: TikTok requires scheduled times to be between 15 minutes and 10 days in advance.*
 
+### 3. Background Music Selection (`--sound`)
+
+You can specify a sound/music track or preset:
+- **Default (Option 1)**: `"Dark and mysterious trap beat"` (`--sound 1` or default)
+- **Option 2**: `"Mysterious Piano Nocturne"` (`--sound 2`)
+- **Option 3**: `"Horror, Fear, Mystery, Suspense"` (`--sound 3`)
+- **No music**: `--sound none`
+
+Example:
+```bash
+python3 scripts/publish-tiktok.py post --slug seniority --sound 1
+```
+
 ### 3. Save as Draft (Manual Review Later)
 
 To upload slides, title, and description into TikTok Studio drafts without scheduling:

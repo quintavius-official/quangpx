@@ -30,6 +30,7 @@ function parseArgs() {
     profileDir: DEFAULT_PROFILE_DIR,
     profileName: 'Profile 5',
     cdpPort: 9223,
+    sound: 'Dark and mysterious trap beat', // Presets: 1 ('Dark and mysterious trap beat'), 2 ('Mysterious Piano Nocturne'), 3 ('Horror, Fear, Mystery, Suspense')
     dryRun: false,
   };
 
@@ -46,6 +47,8 @@ function parseArgs() {
       parsed.title = args[++i] || '';
     } else if (arg === '--desc') {
       parsed.desc = args[++i] || '';
+    } else if (arg === '--sound') {
+      parsed.sound = args[++i] || 'Dark and mysterious trap beat';
     } else if (arg === '--privacy') {
       parsed.privacy = args[++i] || 'PUBLIC_TO_EVERYONE';
     } else if (arg === '--mode') {
@@ -85,6 +88,43 @@ async function getRunningCdpEndpoint(port) {
   return null;
 }
 
+function getTiktokDnsFallbackRules() {
+  try {
+    const defaultCode = execSync(
+      'curl -s -o /dev/null -w "%{http_code}" --connect-timeout 3 "https://www.tiktok.com/tiktokstudio/upload"',
+      { encoding: 'utf8', timeout: 5000 }
+    ).trim();
+    if (defaultCode === '200' || defaultCode === '301' || defaultCode === '302') {
+      return '';
+    }
+  } catch {}
+
+  console.log('[*] Default TikTok endpoint returned non-200. Probing healthy fallback Akamai edge IPs...');
+  const candidateIps = [
+    '125.234.51.57',
+    '125.234.51.50',
+    '125.234.51.98',
+    '125.234.51.44',
+    '125.234.51.96',
+    '125.234.51.97',
+    '125.234.51.56',
+    '125.234.51.48',
+  ];
+  for (const ip of candidateIps) {
+    try {
+      const code = execSync(
+        `curl -s -o /dev/null -w "%{http_code}" --connect-timeout 2 --resolve "www.tiktok.com:443:${ip}" "https://www.tiktok.com/tiktokstudio/upload"`,
+        { encoding: 'utf8', timeout: 3000 }
+      ).trim();
+      if (code === '200' || code === '301' || code === '302') {
+        console.log(`[+] Found healthy fallback Akamai edge IP: ${ip}`);
+        return `--host-resolver-rules="MAP *.tiktok.com ${ip}, MAP tiktok.com ${ip}"`;
+      }
+    } catch {}
+  }
+  return '';
+}
+
 async function launchBrowserWithCdp(options) {
   const dataDir = path.resolve(options.profileDir);
   if (!fs.existsSync(dataDir)) {
@@ -96,14 +136,22 @@ async function launchBrowserWithCdp(options) {
   const sourceProfileDir = path.join(SOURCE_CHROME_DIR, options.profileName);
   const sourceLocalState = path.join(SOURCE_CHROME_DIR, 'Local State');
 
-  if (!fs.existsSync(targetProfileDir) && fs.existsSync(sourceProfileDir)) {
-    console.log(`[*] Initializing automation data directory from ${options.profileName}...`);
+  if (fs.existsSync(sourceProfileDir)) {
     try {
       if (fs.existsSync(sourceLocalState)) {
         fs.copyFileSync(sourceLocalState, path.join(dataDir, 'Local State'));
       }
-      execSync(`cp -R "${sourceProfileDir}" "${targetProfileDir}"`);
-      console.log(`[+] Initialized ${options.profileName} successfully.`);
+      if (!fs.existsSync(targetProfileDir)) {
+        console.log(`[*] Initializing automation data directory from ${options.profileName}...`);
+        execSync(`cp -R "${sourceProfileDir}" "${targetProfileDir}"`);
+        console.log(`[+] Initialized ${options.profileName} successfully.`);
+      } else {
+        const sourceCookies = path.join(sourceProfileDir, 'Cookies');
+        const targetCookies = path.join(targetProfileDir, 'Cookies');
+        if (fs.existsSync(sourceCookies)) {
+          fs.copyFileSync(sourceCookies, targetCookies);
+        }
+      }
     } catch (e) {
       console.error(`[-] Warning syncing profile: ${e.message}`);
     }
@@ -120,7 +168,9 @@ async function launchBrowserWithCdp(options) {
   console.log(`[*] Launching Google Chrome with CDP enabled on port ${options.cdpPort}...`);
   console.log(`[*] Profile directory: ${dataDir} (${options.profileName})`);
 
-  const launchCmd = `open -na "Google Chrome" --args --remote-debugging-port=${options.cdpPort} --user-data-dir="${dataDir}" --profile-directory="${options.profileName}" --no-first-run --no-default-browser-check`;
+  const fallbackRules = getTiktokDnsFallbackRules();
+  const extraArgs = fallbackRules ? ` ${fallbackRules}` : '';
+  const launchCmd = `open -na "Google Chrome" --args --remote-debugging-port=${options.cdpPort} --user-data-dir="${dataDir}" --profile-directory="${options.profileName}"${extraArgs} --disable-blink-features=AutomationControlled --no-first-run --no-default-browser-check`;
   exec(launchCmd);
 
   // 3. Poll for CDP endpoint to be ready (up to 20 seconds)
@@ -165,6 +215,14 @@ async function main() {
     browserWSEndpoint: wsUrl,
     defaultViewport: null,
   });
+
+  const pages = await browser.pages();
+  // Close any existing upload tabs to ensure a completely clean session
+  for (const p of pages) {
+    if (p.url().includes('tiktokstudio/upload')) {
+      try { await p.close(); } catch {}
+    }
+  }
 
   const page = await browser.newPage();
 
@@ -227,15 +285,18 @@ async function main() {
     }
     await sleep(2000);
 
-    // 4. Find file input and upload all slides
+    // 4. Batch Upload Slides (to prevent WAF burst rate limits on large carousels)
+    const BATCH_SIZE = 4;
+    const absoluteSlides = options.slides.map((s) => path.resolve(s));
+    const firstBatch = absoluteSlides.slice(0, BATCH_SIZE);
+    const remainingSlides = absoluteSlides.slice(BATCH_SIZE);
+
+    console.log(`[*] Uploading initial batch (${firstBatch.length}/${options.slides.length} slides)...`);
     const fileInput = await page.$('input[type="file"]');
     if (!fileInput) {
       throw new Error('Could not find file input element on TikTok Studio upload page.');
     }
-
-    console.log(`[*] Uploading ${options.slides.length} slides...`);
-    const absoluteSlides = options.slides.map((s) => path.resolve(s));
-    await fileInput.uploadFile(...absoluteSlides);
+    await fileInput.uploadFile(...firstBatch);
 
     // 5. Wait for transition to photo post editor
     console.log('[*] Waiting for photo post editor to load...');
@@ -249,7 +310,59 @@ async function main() {
       },
       { timeout: 35000 }
     );
-    await sleep(3000);
+    await sleep(2500);
+
+    // 5.1 Upload remaining slides in batches via editor file input
+    if (remainingSlides.length > 0) {
+      console.log(`[*] Uploading remaining ${remainingSlides.length} slides in batches of ${BATCH_SIZE}...`);
+      let uploadedSoFar = firstBatch.length;
+
+      for (let i = 0; i < remainingSlides.length; i += BATCH_SIZE) {
+        const batch = remainingSlides.slice(i, i + BATCH_SIZE);
+        const targetExpected = uploadedSoFar + batch.length;
+        console.log(`[*] Uploading batch: slides ${uploadedSoFar + 1} to ${targetExpected}...`);
+
+        const editorInputs = await page.$$('input[type="file"][multiple]');
+        const inputToUse = editorInputs[0] || (await page.$('input[type="file"]'));
+        if (!inputToUse) {
+          throw new Error('Could not find file input in photo editor for batch upload.');
+        }
+
+        await inputToUse.uploadFile(...batch);
+
+        // Wait for count to reach targetExpected
+        for (let waitSec = 0; waitSec < 12; waitSec++) {
+          await sleep(1500);
+          const currentCount = await page.evaluate(() => {
+            const m = (document.body.innerText || '').match(/(\d+)\s+photos\s+uploaded/i);
+            return m ? parseInt(m[1], 10) : 0;
+          });
+          if (currentCount >= targetExpected) {
+            uploadedSoFar = currentCount;
+            console.log(`[+] Confirmed: ${currentCount}/${options.slides.length} photos uploaded.`);
+            break;
+          }
+        }
+        uploadedSoFar = targetExpected;
+        // Cooldown between batches to prevent WAF burst
+        await sleep(2000);
+      }
+    }
+
+    // 5.5 Confirm all photos are fully uploaded and processed
+    const targetCount = options.slides.length;
+    console.log(`[*] Waiting for all ${targetCount} photos to be fully uploaded...`);
+    for (let i = 0; i < 20; i++) {
+      const currentCount = await page.evaluate(() => {
+        const m = (document.body.innerText || '').match(/(\d+)\s+photos\s+uploaded/i);
+        return m ? parseInt(m[1], 10) : 0;
+      });
+      if (currentCount >= targetCount) {
+        console.log(`[+] All ${targetCount} photos confirmed ready!`);
+        break;
+      }
+      await sleep(1500);
+    }
 
     // 6. Fill Title (using page.type for native React input handling)
     if (options.title) {
@@ -303,6 +416,94 @@ async function main() {
       }
     }
 
+    // 7.5 Configure Background Sound / Music
+    const SOUND_PRESETS = {
+      '1': 'Dark and mysterious trap beat',
+      '2': 'Mysterious Piano Nocturne',
+      '3': 'Horror, Fear, Mystery, Suspense',
+      'default': 'Dark and mysterious trap beat',
+      'dark': 'Dark and mysterious trap beat',
+      'piano': 'Mysterious Piano Nocturne',
+      'horror': 'Horror, Fear, Mystery, Suspense',
+    };
+    const targetSoundKey = (options.sound || '').toString().trim().toLowerCase();
+    const resolvedSound = SOUND_PRESETS[targetSoundKey] || options.sound;
+
+    if (resolvedSound && resolvedSound !== 'none' && resolvedSound !== 'off') {
+      console.log(`[*] Configuring background sound (target: "${resolvedSound}")...`);
+      try {
+        const alreadyHasSound = await page.evaluate(() => {
+          const btns = Array.from(document.querySelectorAll('button'));
+          return btns.some((b) => (b.innerText || '').toLowerCase().includes('replace'));
+        });
+
+        if (!alreadyHasSound) {
+          const addSoundClicked = await page.evaluate(() => {
+            const btns = Array.from(document.querySelectorAll('button'));
+            const btn = btns.find((b) => {
+              const txt = (b.innerText || '').toLowerCase();
+              return txt.includes('add sound') || txt.includes('thêm âm thanh');
+            });
+            if (btn) {
+              btn.click();
+              return true;
+            }
+            return false;
+          });
+
+          if (addSoundClicked) {
+            await sleep(2500);
+
+            // If searching for custom sound query
+            if (resolvedSound !== 'recommend' && resolvedSound !== 'auto') {
+              console.log(`[*] Searching for sound with query: "${resolvedSound}"...`);
+              const searchInput = await page.$('.TUXModal input, [role="dialog"] input, input[placeholder*="sound" i]');
+              if (searchInput) {
+                await searchInput.click({ clickCount: 3 });
+                await page.keyboard.press('Backspace');
+                await searchInput.type(resolvedSound, { delay: 40 });
+                await page.keyboard.press('Enter');
+                await sleep(3000);
+              }
+            }
+
+            // Click "Use" on the first track
+            const selectedTrack = await page.evaluate(() => {
+              const modal = document.querySelector('.TUXModal, [role="dialog"], .modal-container');
+              if (!modal) return null;
+              const btns = Array.from(modal.querySelectorAll('button, div[role="button"], span'));
+              const useBtn = btns.find((b) => {
+                const txt = (b.innerText || '').trim().toLowerCase();
+                return txt === 'use' || txt === 'dùng' || txt === 'sử dụng';
+              });
+              if (useBtn) {
+                const trackContainer = useBtn.closest('div[class*="item" i], li, div') || useBtn.parentElement;
+                const trackName = trackContainer ? trackContainer.innerText.replace(/\n/g, ' - ') : 'track';
+                useBtn.click();
+                return trackName;
+              }
+              return null;
+            });
+
+            if (selectedTrack) {
+              console.log(`[+] Background sound selected: ${selectedTrack.slice(0, 80)}`);
+            } else {
+              console.log('[-] Warning: Could not find "Use" button in sounds modal.');
+              await page.keyboard.press('Escape');
+            }
+            await sleep(2000);
+          }
+        } else {
+          console.log('[*] Background sound is already configured.');
+        }
+      } catch (err) {
+        console.log(`[-] Warning selecting sound: ${err.message}`);
+        try {
+          await page.keyboard.press('Escape');
+        } catch (_) {}
+      }
+    }
+
     // 8. Handle Schedule if requested
     if (options.scheduleTime) {
       console.log(`[*] Configuring post schedule for ${options.scheduleDate || 'today'} at ${options.scheduleTime}...`);
@@ -336,7 +537,7 @@ async function main() {
         console.log(`[*] Selecting schedule date: ${options.scheduleDate}`);
         const dateInput = await page.$('input.TUXTextInputCore-input[value*="-"]');
         if (dateInput) {
-          const currentDateVal = await page.evaluate(el => el.value, dateInput);
+          const currentDateVal = await page.evaluate((el) => el.value, dateInput);
           if (currentDateVal && currentDateVal.trim() !== options.scheduleDate.trim()) {
             await dateInput.click();
             await sleep(800);
@@ -344,7 +545,7 @@ async function main() {
             const targetDay = parseInt(options.scheduleDate.split('-')[2], 10).toString();
             await page.evaluate((day) => {
               const elements = Array.from(document.querySelectorAll('span, div, button, td'));
-              const target = elements.find(el => {
+              const target = elements.find((el) => {
                 const txt = el.innerText ? el.innerText.trim() : '';
                 return txt === day && !el.classList.contains('disabled') && !el.getAttribute('disabled');
               });
@@ -352,9 +553,7 @@ async function main() {
             }, targetDay);
 
             await sleep(500);
-            await page.evaluate(() => {
-              document.querySelector('.titleInput-JiU8Rn')?.click();
-            });
+            await page.keyboard.press('Escape');
             await sleep(500);
           }
         }
@@ -368,41 +567,42 @@ async function main() {
         await timeInput.click();
         await sleep(800);
 
-        const timeSelected = await page.evaluate((h, m) => {
-          const optionLists = Array.from(document.querySelectorAll('.tiktok-timepicker-option-list'));
-          if (optionLists.length < 2) return false;
+        const timeSelected = await page.evaluate(
+          (h, m) => {
+            const optionLists = Array.from(document.querySelectorAll('.tiktok-timepicker-option-list'));
+            if (optionLists.length < 2) return false;
 
-          const hoursList = optionLists[0];
-          const minutesList = optionLists[1];
+            const hoursList = optionLists[0];
+            const minutesList = optionLists[1];
 
-          // Hours
-          const hItem = Array.from(hoursList.children).find((c) => c.innerText.trim() === h);
-          if (hItem) {
-            hItem.scrollIntoView({ block: 'center' });
-            const span = hItem.querySelector('.tiktok-timepicker-option-text') || hItem;
-            span.click();
-          }
+            // Hours
+            const hItem = Array.from(hoursList.children).find((c) => c.innerText.trim() === h);
+            if (hItem) {
+              hItem.scrollIntoView({ block: 'center' });
+              const span = hItem.querySelector('.tiktok-timepicker-option-text') || hItem;
+              span.click();
+            }
 
-          // Minutes
-          const mItem = Array.from(minutesList.children).find((c) => c.innerText.trim() === m);
-          if (mItem) {
-            mItem.scrollIntoView({ block: 'center' });
-            const span = mItem.querySelector('.tiktok-timepicker-option-text') || mItem;
-            span.click();
-          }
+            // Minutes
+            const mItem = Array.from(minutesList.children).find((c) => c.innerText.trim() === m);
+            if (mItem) {
+              mItem.scrollIntoView({ block: 'center' });
+              const span = mItem.querySelector('.tiktok-timepicker-option-text') || mItem;
+              span.click();
+            }
 
-          return !!(hItem && mItem);
-        }, targetHour.padStart(2, '0'), targetMin.padStart(2, '0'));
+            return !!(hItem && mItem);
+          },
+          targetHour.padStart(2, '0'),
+          targetMin.padStart(2, '0')
+        );
 
         if (!timeSelected) {
           console.log(`[-] Warning: Could not find exact time option for ${options.scheduleTime}`);
         }
 
         await sleep(500);
-        // Click title input to dismiss timepicker
-        await page.evaluate(() => {
-          document.querySelector('.titleInput-JiU8Rn')?.click();
-        });
+        await page.keyboard.press('Escape');
         await sleep(500);
       }
     }
@@ -456,26 +656,83 @@ async function main() {
 
     if (options.scheduleTime) {
       console.log(`[*] Scheduling post for ${options.scheduleTime}...`);
-      const schedBtn = await page.evaluate(() => {
-        const btns = Array.from(document.querySelectorAll('button'));
-        const el = btns.find((b) => {
-          const txt = (b.innerText || '').trim().toLowerCase();
-          return txt === 'schedule' || txt === 'lên lịch';
-        });
-        if (el && !el.disabled) {
-          el.click();
-          return true;
-        }
-        return false;
-      });
 
-      if (!schedBtn) {
-        throw new Error('Could not find enabled "Schedule" button.');
+      // Wait for any photo upload indicators to clear
+      console.log('[*] Verifying all slides have completed uploading...');
+      for (let w = 0; w < 30; w++) {
+        const isStillUploading = await page.evaluate(() => {
+          const bodyText = (document.body.innerText || '').toLowerCase();
+          const hasUploadText = /uploading\s*\(\d+%\)/.test(bodyText) || bodyText.includes('đang tải lên');
+          const hasSpinner = !!document.querySelector('.tiktok-spinner, [role="progressbar"], .circle-loading');
+          return hasUploadText || hasSpinner;
+        });
+        if (!isStillUploading) break;
+        console.log('[*] Slides still uploading to TikTok, waiting 2s...');
+        await sleep(2000);
+      }
+      await sleep(1500);
+
+      // Wait up to 30s for Schedule button to be enabled
+      let schedBtn = false;
+      for (let a = 0; a < 15; a++) {
+        schedBtn = await page.evaluate(() => {
+          const btns = Array.from(document.querySelectorAll('button'));
+          const el = btns.find((b) => {
+            const txt = (b.innerText || '').trim().toLowerCase();
+            return txt === 'schedule' || txt === 'lên lịch';
+          });
+          if (el && !el.disabled) {
+            el.click();
+            return true;
+          }
+          return false;
+        });
+        if (schedBtn) break;
+        await sleep(2000);
       }
 
-      console.log('[*] Waiting for schedule confirmation...');
-      await sleep(5000);
-      console.log(`\n[+] Success! Your photo carousel has been SCHEDULED for ${options.scheduleTime}.`);
+      if (!schedBtn) {
+        throw new Error('Could not find enabled "Schedule" button after waiting for upload to finish.');
+      }
+
+      console.log('[*] Clicked Schedule. Waiting for TikTok confirmation...');
+      let confirmed = false;
+      for (let i = 0; i < 25; i++) {
+        await sleep(2000);
+
+        const currentUrl = page.url();
+        if (currentUrl.includes('/tiktokstudio/content') || currentUrl.includes('/content')) {
+          confirmed = true;
+          break;
+        }
+
+        const modalStatus = await page.evaluate(() => {
+          const text = (document.body.innerText || '').toLowerCase();
+          const errs = ['upload failed', 'network error', 'something went wrong', 'tải lên thất bại', 'lỗi mạng'];
+          for (const err of errs) {
+            if (text.includes(err)) return { error: true, msg: err };
+          }
+          const succs = ['has been scheduled', 'đã được lên lịch', 'manage your posts', 'quản lý bài viết', 'upload another'];
+          for (const succ of succs) {
+            if (text.includes(succ)) return { success: true, msg: succ };
+          }
+          return null;
+        });
+
+        if (modalStatus?.error) {
+          throw new Error(`TikTok reported error: ${modalStatus.msg}`);
+        }
+        if (modalStatus?.success) {
+          confirmed = true;
+          break;
+        }
+      }
+
+      if (confirmed) {
+        console.log(`\n[+] Success! Your photo carousel has been SCHEDULED for ${options.scheduleTime}.`);
+      } else {
+        console.log(`\n[+] Schedule request submitted for ${options.scheduleTime}. (Page is kept open for review)`);
+      }
     } else if (options.mode === 'DIRECT_POST') {
       console.log('[*] Publishing post directly to TikTok feed...');
       const postBtn = await page.evaluate(() => {

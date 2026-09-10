@@ -19,6 +19,7 @@ translationKey: "seniority"
 prePublish: true
 substack: true
 tiktok_photo: true
+tiktok_sound: 1
 ---
 
 ## Nghịch lý mang tên "Senior"

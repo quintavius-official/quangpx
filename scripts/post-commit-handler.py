@@ -190,6 +190,7 @@ def handle_tiktok(meta: Dict, file_path: Path):
     print(f"[TikTok] 🚀 Scheduling post on TikTok Studio...")
     pub_script = ROOT_DIR / "scripts" / "publish-tiktok.py"
     py_bin = sys.executable or find_binary("python3")
+    sound = meta.get("tiktok_sound") or meta.get("sound") or "Dark and mysterious trap beat"
     post_cmd = [
         py_bin,
         str(pub_script),
@@ -200,6 +201,8 @@ def handle_tiktok(meta: Dict, file_path: Path):
         sched_date,
         "--schedule-time",
         sched_time,
+        "--sound",
+        str(sound),
     ]
     try:
         subprocess.run(post_cmd, check=True, cwd=ROOT_DIR)
