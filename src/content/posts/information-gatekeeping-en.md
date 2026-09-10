@@ -20,7 +20,7 @@ substack: false
 tiktok_photo: false
 ---
 
-In my previous post on [Seniority](/posts/seniority), I wrote that one of the rarest qualities of a true senior is their intuitive "client sense" – the ability to grasp the root of complex business problems, reconcile unspoken friction, and resolve misunderstandings with effortless grace.
+While the previous games were largely played inside company walls — from [fake incentives and empty titles](/posts/fake-incentives), [moving goalposts](/posts/moving-goalposts), to [the conformity trap](/posts/the-conformity-trap) — this next game expands the toxic battlefield outward: directly targeting the vital relationship between engineering teams and clients.
 
 Yet in the Byzantine world of Dark Corporations and multi-vendor delivery programs, the engineering team rarely gets an unvarnished seat at the table with the client. Standing squarely between you and the entity paying the invoices is a bureaucratic layer: **The Information Gatekeeper** – operating under polished corporate titles like Account Manager, Delivery Lead, Client Partner, or Proxy Product Owner.
 

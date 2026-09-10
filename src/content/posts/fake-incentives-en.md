@@ -19,7 +19,7 @@ substack: false
 tiktok_photo: false
 ---
 
-In my previous post on [Seniority](/posts/seniority), I mentioned how a true senior easily turns into a prime "exploitation tool" in the eyes of Black Companies and Dark Corporations. After that post, quite a few readers reached out asking: _so what specific playbooks do these organizations actually use to manipulate and drain competent engineers?_
+In the [opening part](/posts/seniority), I mentioned how a true senior easily turns into a prime "exploitation tool" in the eyes of Black Companies and Dark Corporations — where your talent and dedication become free battery power for a relentless extraction machine. After that opening piece, quite a few readers reached out asking: _so what specific playbooks do these organizations actually use to manipulate and drain competent engineers?_
 
 Today, we start by deconstructing the most classic move in their playbook: **Fake Incentives** — the fine art of baking empty promises and handing out hollow titles.
 

@@ -16,15 +16,16 @@ prePublish: true
 lang: "vi"
 postSlug: "the-conformity-trap"
 translationKey: "the-conformity-trap"
-substack: false
-tiktok_photo: false
+prePublish: true
+substack: true
+tiktok_photo: true
 ---
 
-Nếu [Fake Incentives](/vi/posts/fake-incentives) là miếng mồi béo bở dụ bạn cắn câu, còn [Moving Goalposts](/vi/posts/moving-goalposts) là chiếc cối xay nghiền nát sự tự tin, thì chuyện gì sẽ xảy ra khi một senior thực thụ đã "miễn nhiễm" với cả hai trò trên?
+Nếu trò [bánh vẽ chức danh](/vi/posts/fake-incentives) là miếng mồi béo bở dụ bạn cắn câu, còn trò [dời cọc gôn](/vi/posts/moving-goalposts) là chiếc cối xay nghiền nát sự tự tin, thì chuyện gì sẽ xảy ra khi một senior thực thụ đã "miễn nhiễm" với cả hai trò chơi trên?
 
 Bạn không còn tin vào những chiếc bánh vẽ triệu đô, và bạn cũng chẳng sợ bị dời cọc gôn vì chất lượng công việc của bạn ở mức không thể bắt bẻ. Lúc này, sổ tay quản trị của các Dark Corporation sẽ lật sang một trang tàn độc hơn nhiều: họ không tấn công vào kết quả công việc nữa, mà tấn công thẳng vào **bản sắc và tư duy độc lập** của bạn.
 
-Chào mừng bạn đến với **The Conformity Trap (Cái bẫy cào bằng)** – nghệ thuật triệt hạ sự vượt trội bằng chiếc lồng tiêu chuẩn thấp, gắn mác "unfit culture", trong khi lén lút "luộc" sạch ý tưởng của bạn ra cửa sau.
+Chào mừng bạn đến với trò chơi thứ ba — **Chiếc lồng cào bằng** — nghệ thuật triệt hạ sự vượt trội bằng chiếc lồng tiêu chuẩn thấp, gắn mác "lệch văn hóa", trong khi lén lút "luộc" sạch ý tưởng của bạn ra cửa sau.
 
 ---
 
@@ -112,7 +113,7 @@ Do đó, phản xạ tự nhiên của tầng lớp này là liên minh lại đ
 
 ## Đừng để chiếc lồng tầm thường bẻ gãy đôi cánh
 
-Khi bạn nhận ra mình đang bị đưa vào "The Conformity Trap", cố gắng gào thét chứng minh mình đúng hay tiếp tục cúc cung dâng hiến ý tưởng là con đường nhanh nhất dẫn đến kiệt quệ và cay đắng. Một senior có bản lĩnh sẽ xử lý như thế nào?
+Khi bạn nhận ra mình đang bị đưa vào chiếc "lồng cào bằng", cố gắng gào thét chứng minh mình đúng hay tiếp tục cúc cung dâng hiến ý tưởng là con đường nhanh nhất dẫn đến kiệt quệ và cay đắng. Một senior có bản lĩnh sẽ xử lý như thế nào?
 
 ### Bảo vệ tài sản trí tuệ: Nguyên tắc "Interface over Implementation"
 

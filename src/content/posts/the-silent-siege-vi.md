@@ -20,7 +20,7 @@ substack: false
 tiktok_photo: false
 ---
 
-Trong bài viết trước về [Information Gatekeeping](/vi/posts/information-gatekeeping), tôi có nhắc đến chuyện đòn tấn công thụ động vi mô (micro-passive-aggressive manipulation) không chỉ là độc chiêu của những kẻ gác cổng trong các mối quan hệ đối tác – khách hàng để dìm hàng bên yếu thế. Đáng sợ hơn gấp bội, đó chính là **vũ khí ruột của tầng lớp middle management độc hại** bên trong chính doanh nghiệp của bạn.
+Nếu ở [trò chơi kẻ gác cổng bóp méo sự thật](/vi/posts/information-gatekeeping), đòn tấn công thụ động vi mô (micro-passive-aggressive manipulation) là độc chiêu để dìm nghẹt đối tác ngoài luồng và nuôi béo phe cánh, thì đáng sợ hơn gấp bội: đó cũng chính là **vũ khí ruột của tầng lớp middle management độc hại** ngay bên trong chính doanh nghiệp của bạn.
 
 Nhiều bạn từng thắc mắc với tôi: _"Nếu sếp ghét em, hoặc thấy em không cùng phe cánh, tại sao sếp không gọi em vào phòng họp, thẳng thắn phê bình hoặc đề xuất gói đền bù hợp đồng để em ra đi trong êm đẹp?"_
 
@@ -32,7 +32,7 @@ Câu trả lời rất đơn giản: **Bởi vì làm thế quá tốn kém, qu�
 
 Hãy đặt mình vào tâm lý của một gã middle manager độc hại trong các Dark Corporation:
 
-Một senior thực thụ dưới quyền bạn là một thực thể cực kỳ nguy hiểm. Họ cứng chuyên môn, hiểu sâu kiến trúc hệ thống, có lòng tự trọng nghề nghiệp và quan trọng nhất: họ dám đặt câu hỏi phản biện. Họ không dễ bị lừa bởi những chiếc [bánh vẽ](/vi/posts/fake-incentives), cũng chẳng run sợ trước trò [Moving Goalposts](/vi/posts/moving-goalposts), và kiên quyết không chịu hòa tan vào chiếc lồng [The Conformity Trap](/vi/posts/the-conformity-trap).
+Một senior thực thụ dưới quyền bạn là một thực thể cực kỳ nguy hiểm. Họ cứng chuyên môn, hiểu sâu kiến trúc hệ thống, có lòng tự trọng nghề nghiệp và quan trọng nhất: họ dám đặt câu hỏi phản biện. Họ không dễ bị lừa bởi những chiếc [bánh vẽ chức danh](/vi/posts/fake-incentives), chẳng run sợ trước trò [dời cọc gôn](/vi/posts/moving-goalposts), và kiên quyết không chịu hòa tan vào chiếc [lồng cào bằng](/vi/posts/the-conformity-trap).
 
 Nếu bạn đường đột sa thải họ:
 - Bạn phải đối mặt với một màn chất vấn sòng phẳng về năng lực chuyên môn – nơi chiếc mặt nạ quản trị của bạn rất dễ bị xé toạc trước mặt HR hoặc Ban giám đốc.
@@ -130,7 +130,7 @@ Một màn thủ tiêu nhân sự hoàn hảo, không để lại một giọt m
 Tại sao một cơ chế đào thải méo mó và tàn độc như vậy lại có thể vận hành trơn tru và lặp đi lặp lại ở biết bao công ty công nghệ lớn nhỏ?
 
 - **Lợi thế phi đối xứng về tài nguyên:** Kẻ thao túng dùng quyền lực của tổ chức, ngân sách của công ty và thời gian làm việc hành chính để bày mưu tính kế. Ngược lại, nạn nhân phải dùng chính máu, mồ hôi, thời gian ngủ và sức khỏe tinh thần của bản thân để chống đỡ. Một bên vừa nhâm nhi cà phê vừa gài bẫy, một bên cắm mặt OT gõ code – kết cục cuộc chiến đã được định đoạt từ đầu.
-- **Sự đồng lõa của hiệu ứng người ngoài cuộc (Bystander Effect):** Những đồng nghiệp xung quanh bạn có nhận ra sự bất công đó không? Có chứ! Đa số họ đều thấy và hiểu rõ. Nhưng như tôi đã phân tích trong [The Conformity Trap](/vi/posts/the-conformity-trap), họ chọn cách im lặng, thậm chí hùa theo để cô lập bạn. Bởi vì trong một môi trường độc hại, bất kỳ ai tỏ ra đồng cảm với kẻ bị ruồng bỏ đều có nguy cơ trở thành mục tiêu săn đuổi tiếp theo.
+- **Sự đồng lõa của hiệu ứng người ngoài cuộc (Bystander Effect):** Những đồng nghiệp xung quanh bạn có nhận ra sự bất công đó không? Có chứ! Đa số họ đều thấy và hiểu rõ. Nhưng như tôi đã phân tích trong trò chơi [chiếc lồng cào bằng](/vi/posts/the-conformity-trap), họ chọn cách im lặng, thậm chí hùa theo để cô lập bạn. Bởi vì trong một môi trường độc hại, bất kỳ ai tỏ ra đồng cảm với kẻ bị ruồng bỏ đều có nguy cơ trở thành mục tiêu săn đuổi tiếp theo.
 - **Cái giá phải trả của doanh nghiệp:** Tổ chức tưởng rằng mình vừa "tinh gọn bộ máy", nhưng thực chất họ vừa hoàn tất quá trình tự sát tập thể: xua đuổi những nhân sự có năng lực phản biện, chỉ giữ lại văn hóa vâng lời (yes-men) và những người không còn lựa chọn rời đi.
 
 ---

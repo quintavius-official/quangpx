@@ -20,7 +20,7 @@ substack: false
 tiktok_photo: false
 ---
 
-Trong bài viết về [Seniority](/vi/posts/seniority), tôi từng chia sẻ rằng một trong những phẩm chất đắt giá nhất của một senior thực thụ là sense "cảm khách hàng" – khả năng thấu hiểu gốc rễ bài toán, biết điều chỉnh, reconcile và giải quyết nhẹ nhàng những bất đồng phức tạp nhất.
+Nếu ở những trò chơi trước, các đòn thao túng chủ yếu diễn ra âm ỉ trong nội bộ — từ trò [bánh vẽ chức danh](/vi/posts/fake-incentives), [dời cọc gôn](/vi/posts/moving-goalposts) cho đến [chiếc lồng cào bằng](/vi/posts/the-conformity-trap) — thì đến trò chơi lần này, bàn cờ độc hại được mở rộng ra bên ngoài: nhắm thẳng vào mối quan hệ sống còn giữa bạn và khách hàng.
 
 Thế nhưng, trong thế giới của các Dark Corporation và những liên minh dự án nhiều bên, hiếm khi tech team được trực tiếp ngồi lại với khách hàng một cách sòng phẳng. Đứng giữa bạn và người trả tiền luôn là một tầng lớp được gọi là: **Kẻ gác cổng thông tin (The Information Gatekeeper)** – khoác lên mình những chức danh bóng bẩy như Account Manager, Delivery Lead, Client Partner hay Proxy PO.
 

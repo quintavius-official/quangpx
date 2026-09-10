@@ -15,13 +15,14 @@ draft: false
 lang: "vi"
 postSlug: "fake-incentives"
 translationKey: "fake-incentives"
-substack: false
-tiktok_photo: false
+prePublish: true
+substack: true
+tiktok_photo: true
 ---
 
-Trong bài viết trước về [Seniority](/vi/posts/seniority), tôi có nhắc đến chuyện một senior thực thụ rất dễ biến thành "công cụ bóc lột" thượng hạng trong mắt các Black Company và Dark Corporation. Sau bài viết đó, nhiều bạn nhắn tôi hỏi: _vậy cụ thể các tổ chức này dùng những ngón đòn nào để thao túng và vắt kiệt một người có năng lực?_
+Trong [phần mở đầu](/vi/posts/seniority), tôi có nhắc về chuyện một senior thực thụ rất dễ biến thành "công cụ bóc lột" thượng hạng trong mắt các Black Company và Dark Corporation — nơi tài năng và tâm huyết của bạn bị biến thành nguồn pin miễn phí cho một cỗ máy bòn rút. Sau phần mở đầu đó, nhiều bạn nhắn tôi hỏi: _vậy cụ thể các tổ chức này dùng những ngón đòn nào để thao túng và vắt kiệt một người có năng lực?_
 
-Hôm nay chúng ta sẽ bắt đầu bóc tách ngón đòn kinh điển đầu tiên: **Fake Incentives** – nghệ thuật tạo ra những chiếc bánh vẽ và ban phát chức danh rỗng.
+Hôm nay chúng ta sẽ bắt đầu bóc tách trò chơi kinh điển đầu tiên: **Bánh vẽ và chức danh không ngân sách** – nghệ thuật tạo ra những chiếc bánh vẽ và ban phát chức danh rỗng.
 
 ---
 
@@ -47,7 +48,7 @@ Nhưng quyền duy nhất bạn được sở hữu trọn vẹn 100% là: **Quy
 
 ## Bản chất kinh tế: Vắt kiệt effort với chi phí vốn bằng 0
 
-Tại sao các công ty lại khoái trò Fake Incentives này đến vậy? Bởi vì xét về mặt "kinh tế học thao túng", đây là một món hời thế kỷ: **Zero Cost of Capital**.
+Tại sao các công ty lại khoái trò bánh vẽ này đến vậy? Bởi vì xét về mặt "kinh tế học thao túng", đây là một món hời thế kỷ: **Zero Cost of Capital**.
 
 Thay vì phải bỏ ra 80–100 triệu/tháng để thuê một Solution Architect xịn từ thị trường về làm việc tử tế, họ chỉ cần:
 
@@ -70,7 +71,7 @@ _Chiếc bánh vẽ triệu đô: tráng lệ từ xa, rỗng tuếch khi chạm
 
 ---
 
-## Sniff Test: Làm sao để ngửi thấy mùi "Fake Incentives"?
+## Sniff Test: Làm sao để ngửi thấy mùi "Bánh vẽ"?
 
 Dân kỹ thuật chúng ta rất nhạy với _Code Smell_, nhưng lại thường mù màu trước _Organizational Smell_. Để không bị dính bẫy bánh vẽ, bạn chỉ cần nhớ một bài test cực kỳ đơn giản gồm 3 câu hỏi sau:
 
