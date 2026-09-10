@@ -40,3 +40,5 @@ __pycache__/
 # generated outputs
 output/
 
+# tiktok tokens & auth
+scripts/.tiktok_*.json
