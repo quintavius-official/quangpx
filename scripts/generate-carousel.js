@@ -690,12 +690,21 @@ const companionJsonPath = path.join(
 
 let slidesToRun;
 
-// If explicitly requested or JSON doesn't exist, generate deterministically from markdown
-if (forceFromMd || !fs.existsSync(companionJsonPath)) {
-  const postPathVi = path.join(rootDir, `src/content/posts/${postName}-vi.md`);
-  const postPathDirect = path.join(rootDir, `src/content/posts/${postName}.md`);
-  const mdPath = fs.existsSync(postPathVi) ? postPathVi : (fs.existsSync(postPathDirect) ? postPathDirect : null);
+const postPathVi = path.join(rootDir, `src/content/posts/${postName}-vi.md`);
+const postPathDirect = path.join(rootDir, `src/content/posts/${postName}.md`);
+const mdPath = fs.existsSync(postPathVi) ? postPathVi : (fs.existsSync(postPathDirect) ? postPathDirect : null);
 
+let isMdNewer = false;
+if (fs.existsSync(companionJsonPath) && mdPath) {
+  const mdMtime = fs.statSync(mdPath).mtimeMs;
+  const jsonMtime = fs.statSync(companionJsonPath).mtimeMs;
+  if (mdMtime > jsonMtime) {
+    isMdNewer = true;
+  }
+}
+
+// If explicitly requested, JSON doesn't exist, or markdown is newer than JSON, generate from markdown
+if (forceFromMd || !fs.existsSync(companionJsonPath) || isMdNewer) {
   if (mdPath) {
     console.log(`Generating slides deterministically from markdown: ${mdPath}`);
     const mdContent = fs.readFileSync(mdPath, "utf-8");

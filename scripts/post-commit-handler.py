@@ -9,6 +9,7 @@ Triggers automated distribution workflows based on post frontmatter:
 
 import os
 import re
+import shutil
 import subprocess
 import sys
 from datetime import datetime, timedelta
@@ -16,8 +17,44 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import zoneinfo
 
+# Ensure unbuffered standard output for real-time console streaming in git hooks
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(line_buffering=True)
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(line_buffering=True)
+
+# Ensure standard Homebrew and local user paths are available in PATH
+EXTRA_PATHS = [
+    "/opt/homebrew/bin",
+    "/usr/local/bin",
+    str(Path.home() / ".local/bin"),
+    str(Path.home() / ".cargo/bin"),
+]
+for p in EXTRA_PATHS:
+    if p not in os.environ.get("PATH", ""):
+        os.environ["PATH"] = f"{p}:{os.environ.get('PATH', '')}"
+
 ROOT_DIR = Path(__file__).resolve().parent.parent
 LOCAL_TZ = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
+
+
+def find_binary(name: str) -> str:
+    """Find absolute path to binary, checking PATH and common macOS locations."""
+    found = shutil.which(name)
+    if found:
+        return found
+    candidates = [
+        Path.home() / ".local" / "bin" / name,
+        Path.home() / ".cargo" / "bin" / name,
+        Path("/opt/homebrew/bin") / name,
+        Path("/usr/local/bin") / name,
+        Path("/usr/bin") / name,
+    ]
+    for c in candidates:
+        if c.exists() and os.access(c, os.X_OK):
+            return str(c)
+    return name
+
 
 
 def parse_frontmatter(content: str) -> Tuple[Dict, str]:
@@ -119,7 +156,8 @@ def handle_substack(file_path: Path):
     """Publish or update single post on Substack."""
     print(f"\n[Substack] 📡 Publishing post to Substack: {file_path.name}")
     script_path = ROOT_DIR / "scripts" / "publish-substack.py"
-    cmd = ["uv", "run", str(script_path), str(file_path.resolve())]
+    uv_bin = find_binary("uv")
+    cmd = [uv_bin, "run", str(script_path), str(file_path.resolve())]
     try:
         subprocess.run(cmd, check=True, cwd=ROOT_DIR)
         print(f"[Substack] [+] Successfully synced {file_path.name} to Substack.")
@@ -132,11 +170,12 @@ def handle_tiktok(meta: Dict, file_path: Path):
     slug = resolve_slug(meta, file_path)
     print(f"\n[TikTok] 🎬 Initiating TikTok Carousel workflow for slug: '{slug}'")
 
-    # 1. Generate carousel slides
-    print(f"[TikTok] 📸 Generating carousel slides (node scripts/generate-carousel.js {slug})...")
+    # 1. Generate carousel slides from markdown
+    print(f"[TikTok] 📸 Generating carousel slides (node scripts/generate-carousel.js {slug} --from-md)...")
     gen_script = ROOT_DIR / "scripts" / "generate-carousel.js"
+    node_bin = find_binary("node")
     try:
-        subprocess.run(["node", str(gen_script), slug], check=True, cwd=ROOT_DIR)
+        subprocess.run([node_bin, str(gen_script), slug, "--from-md"], check=True, cwd=ROOT_DIR)
         print(f"[TikTok] [+] Carousel slides generated successfully.")
     except subprocess.CalledProcessError as e:
         print(f"[TikTok] [-] Failed to generate carousel for {slug} (exit {e.returncode}).")
@@ -150,8 +189,9 @@ def handle_tiktok(meta: Dict, file_path: Path):
     # 3. Schedule post via Chrome CDP
     print(f"[TikTok] 🚀 Scheduling post on TikTok Studio...")
     pub_script = ROOT_DIR / "scripts" / "publish-tiktok.py"
+    py_bin = sys.executable or find_binary("python3")
     post_cmd = [
-        "python3",
+        py_bin,
         str(pub_script),
         "post",
         "--slug",
@@ -166,6 +206,10 @@ def handle_tiktok(meta: Dict, file_path: Path):
         print(f"[TikTok] [+] Successfully scheduled '{slug}' on TikTok for {sched_date} {sched_time}!")
     except subprocess.CalledProcessError as e:
         print(f"[TikTok] [-] Failed to schedule post on TikTok (exit {e.returncode}).")
+        print(f"[TikTok] 💡 Mẹo: Đảm bảo Chrome (Profile 5) đang chạy và đã đăng nhập TikTok Studio.")
+        print(f"[TikTok] 💡 Bạn cũng có thể chạy lệnh thủ công bất cứ lúc nào:")
+        print(f"         {py_bin} scripts/publish-tiktok.py post --slug {slug} --schedule-date {sched_date} --schedule-time {sched_time}")
+
 
 
 def get_changed_files_from_git() -> List[Path]:

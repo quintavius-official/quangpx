@@ -183,7 +183,7 @@ async function main() {
       console.log('[*] Waiting for login to complete (monitoring page URL)...\n');
 
       let loggedIn = false;
-      for (let i = 0; i < 300; i++) {
+      for (let i = 0; i < 60; i++) {
         await sleep(1000);
         const currentUrl = page.url();
         if (!currentUrl.includes('/login') && currentUrl.includes('tiktok.com')) {
@@ -191,10 +191,13 @@ async function main() {
           loggedIn = true;
           break;
         }
+        if ((i + 1) % 15 === 0) {
+          console.log(`[*] Still waiting for TikTok login (${60 - (i + 1)}s remaining)...`);
+        }
       }
 
       if (!loggedIn) {
-        throw new Error('Login timed out after 5 minutes. Please run the script again after logging in.');
+        throw new Error('TikTok login timed out after 60s. Please log in to TikTok in Chrome (Profile 5) first.');
       }
 
       await page.goto('https://www.tiktok.com/tiktokstudio/upload', {

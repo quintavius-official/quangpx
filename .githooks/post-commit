@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
+export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 set -e
 
 if [ "$SKIP_POST_COMMIT" = "1" ] || [ "$SKIP_SUBSTACK_SYNC" = "1" ]; then
   exit 0
 fi
 
-# Delegate to python handler
-python3 scripts/post-commit-handler.py
+# Delegate to python handler with unbuffered output
+python3 -u scripts/post-commit-handler.py
+
