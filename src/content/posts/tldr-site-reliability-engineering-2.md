@@ -9,6 +9,8 @@ featured: true
 draft: false
 lang: "en"
 canonicalURL: "https://www.linkedin.com/pulse/tldr-site-reliability-engineering-2-quang-ph%C6%B0%C6%A1ng-oyjjc/"
+substack: false
+tiktok_photo: false
 ---
 
 > Originally published on [LinkedIn](https://www.linkedin.com/pulse/tldr-site-reliability-engineering-2-quang-ph%C6%B0%C6%A1ng-oyjjc/) on Jun 28, 2024. This is the follow-up to [TL;DR Site Reliability Engineering](/posts/tldr-site-reliability-engineering).

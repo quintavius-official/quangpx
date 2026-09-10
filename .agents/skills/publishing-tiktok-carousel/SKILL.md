@@ -21,9 +21,28 @@ The slides are rendered from `src/content/posts/<slug>.carousel.json` into `outp
 
 ---
 
-## Common Workflows
+## Automated Workflow: Git Post-Commit Hook (Recommended)
 
-### 1. Schedule Post for Tonight (Recommended)
+You can trigger automated carousel generation and TikTok scheduling simply by setting frontmatter flags in the blog post markdown file (`src/content/posts/<slug>.md`):
+
+```yaml
+---
+title: 'Bài viết của bạn'
+pubDatetime: 2026-09-15T00:00:00Z
+substack: true       # When true, post-commit hook publishes/updates to Substack
+tiktok_photo: true   # When true, post-commit hook generates carousel & schedules TikTok post
+---
+```
+
+When you commit this post (`git commit`), `.githooks/post-commit` (via `scripts/post-commit-handler.py`):
+1. Detects `tiktok_photo: true`.
+2. Generates the carousel slides automatically via `node scripts/generate-carousel.js <slug>`.
+3. Derives the target schedule date and time from `pubDatetime` (e.g. evening 20:00 or specified time, adjusted for timezone `Asia/Ho_Chi_Minh`).
+4. Launches the browser automation and schedules the post on TikTok Studio.
+
+---
+
+## Common Workflows (Manual CLI)
 
 To schedule publication for tonight (e.g. at 20:00 or 20:30):
 

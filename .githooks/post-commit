@@ -1,51 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-if [ "$SKIP_SUBSTACK_SYNC" = "1" ]; then
+if [ "$SKIP_POST_COMMIT" = "1" ] || [ "$SKIP_SUBSTACK_SYNC" = "1" ]; then
   exit 0
 fi
 
-# Get list of changed markdown files in src/content/posts/ from HEAD commit
-CHANGED_FILES=$(git diff-tree -r --no-commit-id --name-only HEAD | grep -E '^src/content/posts/.*\.md$' || true)
-CHANGED_ABOUT=$(git diff-tree -r --no-commit-id --name-only HEAD | grep -E '^src/content/pages/about-substack\.md$' || true)
-
-if [ -n "$CHANGED_ABOUT" ] && [ -f "src/content/pages/about-substack.md" ]; then
-  echo ""
-  echo "=================================================="
-  echo "🚀 [Post-Commit Hook] Detected updated Substack About page:"
-  echo "   - src/content/pages/about-substack.md"
-  echo "📡 Syncing About page to Substack..."
-  echo "=================================================="
-  uv run scripts/publish-substack.py --about || {
-    echo "⚠️ [Post-Commit Hook] Substack About page sync encountered an issue."
-  }
-fi
-
-if [ -z "$CHANGED_FILES" ]; then
-  exit 0
-fi
-
-EXISTING_FILES=()
-for f in $CHANGED_FILES; do
-  if [ -f "$f" ]; then
-    EXISTING_FILES+=("$f")
-  fi
-done
-
-if [ ${#EXISTING_FILES[@]} -eq 0 ]; then
-  exit 0
-fi
-
-echo ""
-echo "=================================================="
-echo "🚀 [Post-Commit Hook] Detected updated blog posts:"
-for f in "${EXISTING_FILES[@]}"; do
-  echo "   - $f"
-done
-echo "📡 Syncing changes to Substack..."
-echo "=================================================="
-
-uv run scripts/publish-substack.py "${EXISTING_FILES[@]}" || {
-  echo "⚠️ [Post-Commit Hook] Substack sync encountered an issue."
-}
-echo ""
+# Delegate to python handler
+python3 scripts/post-commit-handler.py

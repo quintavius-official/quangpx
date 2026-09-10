@@ -14,6 +14,8 @@ draft: false
 lang: "en"
 postSlug: "about-devops"
 translationKey: "about-devops"
+substack: false
+tiktok_photo: false
 ---
 
 Today I want to talk about a term that isn't new at all, one every Dev and Architect already knows by heart, and one that even gets dismissed as boring in tech circles these days. And yet it might be the single hardest term to make outdated or replace: DevOps.

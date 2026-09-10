@@ -1,6 +1,6 @@
 ---
 title: "Trò chơi #5: Vòng vây thầm lặng – Ba đòn triệt hạ người cứng đầu không để lại vết máu"
-pubDatetime: 2026-09-22T00:00:00Z
+pubDatetime: 2026-09-15T20:00:00+07:00
 ogImage: "./the-silent-siege.png"
 description: "Chiến thuật bao vây rút cạn sinh lực và đòn tấn công thụ động vi mô của middle management độc hại: khi sếp không đuổi bạn thẳng mặt mà khiến bạn tự héo mòn rồi ra đòn kết liễu."
 tags:
@@ -16,6 +16,8 @@ prePublish: true
 lang: "vi"
 postSlug: "the-silent-siege"
 translationKey: "the-silent-siege"
+substack: false
+tiktok_photo: false
 ---
 
 Trong bài viết trước về [Information Gatekeeping](/vi/posts/information-gatekeeping), tôi có nhắc đến chuyện đòn tấn công thụ động vi mô (micro-passive-aggressive manipulation) không chỉ là độc chiêu của những kẻ gác cổng trong các mối quan hệ đối tác – khách hàng để dìm hàng bên yếu thế. Đáng sợ hơn gấp bội, đó chính là **vũ khí ruột của tầng lớp middle management độc hại** bên trong chính doanh nghiệp của bạn.

@@ -1,6 +1,6 @@
 ---
 title: "Dark Patterns #4: Information Gatekeeping – The Truth Distorters and the Silent Sacrifices of Real Seniors"
-pubDatetime: 2026-09-17T00:00:00Z
+pubDatetime: 2026-09-14T20:00:00+07:00
 description: "How manipulative gatekeepers distort reality between clients and engineering teams: sabotaging competent vendors to feed favored cronies, and the silent destruction of passionate seniors."
 ogImage: "./information-gatekeeping.png"
 tags:
@@ -16,6 +16,8 @@ prePublish: true
 lang: "en"
 postSlug: "information-gatekeeping"
 translationKey: "information-gatekeeping"
+substack: false
+tiktok_photo: false
 ---
 
 In my previous post on [Seniority](/posts/seniority), I wrote that one of the rarest qualities of a true senior is their intuitive "client sense" – the ability to grasp the root of complex business problems, reconcile unspoken friction, and resolve misunderstandings with effortless grace.

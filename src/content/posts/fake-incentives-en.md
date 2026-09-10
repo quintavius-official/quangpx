@@ -1,6 +1,6 @@
 ---
 title: "Dark Patterns #1: Fake Incentives – Empty Promises and Budgetless Titles"
-pubDatetime: 2026-09-04T00:00:00Z
+pubDatetime: 2026-09-11T20:00:00+07:00
 description: "How Black Companies and Dark Corporations use phantom opportunities and hollow titles to extract 200% effort from seniors without spending a single dime."
 ogImage: "./fake-incentives.png"
 tags:
@@ -15,6 +15,8 @@ draft: false
 lang: "en"
 postSlug: "fake-incentives"
 translationKey: "fake-incentives"
+substack: false
+tiktok_photo: false
 ---
 
 In my previous post on [Seniority](/posts/seniority), I mentioned how a true senior easily turns into a prime "exploitation tool" in the eyes of Black Companies and Dark Corporations. After that post, quite a few readers reached out asking: _so what specific playbooks do these organizations actually use to manipulate and drain competent engineers?_

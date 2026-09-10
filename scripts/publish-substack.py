@@ -156,6 +156,7 @@ def process_post(
     dry_run: bool = False,
     target_lang: str = "vi",
     include_drafts: bool = False,
+    require_substack_flag: bool = False,
 ) -> Optional[str]:
     """
     Processes a single markdown file: checks frontmatter, uploads images, formats links,
@@ -175,6 +176,11 @@ def process_post(
     slug = metadata.get("postSlug", file_path.stem)
     is_draft = metadata.get("draft", False)
     post_lang = metadata.get("lang", "")
+
+    # Substack flag filter
+    if require_substack_flag and not metadata.get("substack", False):
+        print(f"[*] Skipping {file_path.name} (substack: false)")
+        return "skipped"
 
     # Language filter
     if target_lang != "any" and post_lang and post_lang != target_lang:
@@ -294,6 +300,7 @@ def main():
     parser.add_argument("--about", action="store_true", help="Sync About page (src/content/pages/about-substack.md) to Substack")
     parser.add_argument("--lang", default="vi", help="Language filter ('vi', 'en', or 'any'). Default: 'vi'")
     parser.add_argument("--include-drafts", action="store_true", help="Include files with draft: true in frontmatter")
+    parser.add_argument("--require-flag", action="store_true", help="Only process files with substack: true in frontmatter")
     parser.add_argument("--draft-only", action="store_true", help="Save to Substack as draft without publishing live")
     parser.add_argument("--dry-run", action="store_true", help="Preview actions without updating Substack")
     args = parser.parse_args()
@@ -363,6 +370,7 @@ def main():
                 dry_run=args.dry_run,
                 target_lang=args.lang,
                 include_drafts=args.include_drafts,
+                require_substack_flag=args.require_flag or args.all,
             )
             if res in counts:
                 counts[res] += 1

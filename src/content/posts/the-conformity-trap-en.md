@@ -1,6 +1,6 @@
 ---
 title: "Dark Patterns #3: The Conformity Trap – Forcing Mediocrity, Faking Culture, and Hijacking Ideas"
-pubDatetime: 2026-09-15T00:00:00Z
+pubDatetime: 2026-09-13T20:00:00+07:00
 description: "How Dark Corporations use low common denominators to cage exceptional talent, label breakthrough thinking as 'culture unfit', while quietly hijacking ideas behind closed doors for private profit."
 ogImage: "./the-conformity-trap.png"
 tags:
@@ -16,6 +16,8 @@ prePublish: true
 lang: "en"
 postSlug: "the-conformity-trap"
 translationKey: "the-conformity-trap"
+substack: false
+tiktok_photo: false
 ---
 
 If [Fake Incentives](/posts/fake-incentives) is the fragrant bait dangled to hook you in, and [Moving Goalposts](/posts/moving-goalposts) is the meat grinder designed to pulverize your confidence, what happens when a seasoned senior becomes entirely immune to both?

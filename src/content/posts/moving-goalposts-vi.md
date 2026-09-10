@@ -1,6 +1,6 @@
 ---
 title: "Trò chơi #2: Dời cọc gôn – Tuyển X, làm Y và đánh giá Z"
-pubDatetime: 2026-09-05T00:00:00Z
+pubDatetime: 2026-09-12T20:00:00+07:00
 description: "Trò chơi dời cọc gôn trong các Dark Corporation: khi nhân viên luôn là người 'chưa đủ tốt', và nghệ thuật thuyên chuyển để reset đồng hồ tăng lương."
 ogImage: "./moving-goalposts.png"
 tags:
@@ -15,6 +15,8 @@ draft: false
 lang: "vi"
 postSlug: "moving-goalposts"
 translationKey: "moving-goalposts"
+substack: false
+tiktok_photo: false
 ---
 
 Nếu [Fake Incentives](/vi/posts/fake-incentives) là mồi câu thơm phức để lừa bạn cắn câu, thì **Moving Goalposts (Dời cọc gôn)** chính là chiếc cối xay nghiền nát sự tự tin và cản trở việc bạn nhận được những đãi ngộ xứng đáng.

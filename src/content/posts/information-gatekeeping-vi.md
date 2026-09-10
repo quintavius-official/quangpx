@@ -1,6 +1,6 @@
 ---
 title: "Trò chơi #4: Kẻ gác cổng bóp méo sự thật và cú ngã của những người tâm huyết"
-pubDatetime: 2026-09-17T00:00:00Z
+pubDatetime: 2026-09-14T20:00:00+07:00
 description: "Trò chơi thao túng sự thật của những kẻ gác cổng khách hàng: dìm nghẹt vendor giỏi để nuôi béo nhóm lợi ích, và cú ngã cay đắng của những senior tâm huyết trong bóng tối."
 ogImage: "./information-gatekeeping.png"
 tags:
@@ -16,6 +16,8 @@ prePublish: true
 lang: "vi"
 postSlug: "information-gatekeeping"
 translationKey: "information-gatekeeping"
+substack: false
+tiktok_photo: false
 ---
 
 Trong bài viết về [Seniority](/vi/posts/seniority), tôi từng chia sẻ rằng một trong những phẩm chất đắt giá nhất của một senior thực thụ là sense "cảm khách hàng" – khả năng thấu hiểu gốc rễ bài toán, biết điều chỉnh, reconcile và giải quyết nhẹ nhàng những bất đồng phức tạp nhất.

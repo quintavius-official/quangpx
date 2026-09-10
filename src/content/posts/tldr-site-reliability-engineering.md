@@ -9,6 +9,8 @@ featured: true
 draft: false
 lang: "en"
 canonicalURL: "https://www.linkedin.com/pulse/tldr-site-reliability-engineering-quang-ph%C6%B0%C6%A1ng-knclc/"
+substack: false
+tiktok_photo: false
 ---
 
 > Originally published on [LinkedIn](https://www.linkedin.com/pulse/tldr-site-reliability-engineering-quang-ph%C6%B0%C6%A1ng-knclc/) on Jun 12, 2024.

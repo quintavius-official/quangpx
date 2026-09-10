@@ -1,6 +1,6 @@
 ---
 title: "Dark Patterns #5: The Silent Siege – The Bloodless Three-Strike Playbook Toxic Middle Management Uses to Eliminate Stubborn Seniors"
-pubDatetime: 2026-09-22T00:00:00Z
+pubDatetime: 2026-09-15T20:00:00+07:00
 ogImage: "./the-silent-siege.png"
 description: "The slow-drain siege tactics and micro-passive-aggressive warfare of toxic middle management: how bad bosses break you without firing you to your face."
 tags:
@@ -16,6 +16,8 @@ prePublish: true
 lang: "en"
 postSlug: "the-silent-siege"
 translationKey: "the-silent-siege"
+substack: false
+tiktok_photo: false
 ---
 
 In my previous post on [Information Gatekeeping](/posts/information-gatekeeping), I mentioned how micro-passive-aggressive manipulation is not merely the pet trick of gatekeepers in client-partner relationships looking to undermine their counterparts. Far more terrifyingly, it is the **go-to weapon of toxic middle management** right inside your own organization.

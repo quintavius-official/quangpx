@@ -25,6 +25,8 @@ const posts = defineCollection({
       lang: z.enum(["en", "vi"]).default("en"),
       postSlug: z.string().optional(),
       translationKey: z.string().optional(),
+      substack: z.boolean().default(false),
+      tiktok_photo: z.boolean().default(false),
     }),
 });
 

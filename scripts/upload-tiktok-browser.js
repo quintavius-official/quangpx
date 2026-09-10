@@ -328,6 +328,35 @@ async function main() {
       });
       await sleep(1500);
 
+      // 2.5 Set Date if specified
+      if (options.scheduleDate) {
+        console.log(`[*] Selecting schedule date: ${options.scheduleDate}`);
+        const dateInput = await page.$('input.TUXTextInputCore-input[value*="-"]');
+        if (dateInput) {
+          const currentDateVal = await page.evaluate(el => el.value, dateInput);
+          if (currentDateVal && currentDateVal.trim() !== options.scheduleDate.trim()) {
+            await dateInput.click();
+            await sleep(800);
+
+            const targetDay = parseInt(options.scheduleDate.split('-')[2], 10).toString();
+            await page.evaluate((day) => {
+              const elements = Array.from(document.querySelectorAll('span, div, button, td'));
+              const target = elements.find(el => {
+                const txt = el.innerText ? el.innerText.trim() : '';
+                return txt === day && !el.classList.contains('disabled') && !el.getAttribute('disabled');
+              });
+              if (target) target.click();
+            }, targetDay);
+
+            await sleep(500);
+            await page.evaluate(() => {
+              document.querySelector('.titleInput-JiU8Rn')?.click();
+            });
+            await sleep(500);
+          }
+        }
+      }
+
       // 3. Set Time
       console.log(`[*] Selecting schedule time: ${options.scheduleTime}`);
       const [targetHour, targetMin] = options.scheduleTime.split(':');

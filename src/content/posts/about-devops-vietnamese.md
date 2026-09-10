@@ -14,6 +14,8 @@ draft: false
 lang: "vi"
 postSlug: "about-devops"
 translationKey: "about-devops"
+substack: false
+tiktok_photo: false
 ---
 
 

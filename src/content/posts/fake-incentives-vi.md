@@ -1,6 +1,6 @@
 ---
 title: "Trò chơi #1: Bánh vẽ và chức danh không ngân sách"
-pubDatetime: 2026-09-04T00:00:00Z
+pubDatetime: 2026-09-11T20:00:00+07:00
 description: "Cách các Black Company và Dark Corporation dùng những cơ hội ma và chức danh rỗng để bòn rút 200% effort của senior mà không tốn một đồng chi phí."
 ogImage: "./fake-incentives.png"
 tags:
@@ -15,6 +15,8 @@ draft: false
 lang: "vi"
 postSlug: "fake-incentives"
 translationKey: "fake-incentives"
+substack: false
+tiktok_photo: false
 ---
 
 Trong bài viết trước về [Seniority](/vi/posts/seniority), tôi có nhắc đến chuyện một senior thực thụ rất dễ biến thành "công cụ bóc lột" thượng hạng trong mắt các Black Company và Dark Corporation. Sau bài viết đó, nhiều bạn nhắn tôi hỏi: _vậy cụ thể các tổ chức này dùng những ngón đòn nào để thao túng và vắt kiệt một người có năng lực?_

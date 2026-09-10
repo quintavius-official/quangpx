@@ -1,6 +1,6 @@
 ---
 title: 'Trò chơi #3: Chiếc lồng cào bằng và đòn triệt hạ dưới mác "Lệch văn hóa"'
-pubDatetime: 2026-09-15T00:00:00Z
+pubDatetime: 2026-09-13T20:00:00+07:00
 description: "Cách các Dark Corporation dùng tiêu chuẩn thấp để giam cầm người giỏi, biến tư duy đột phá thành 'tội đồ văn hoá', trong khi âm thầm tuồn ý tưởng cho nhóm thân tín để trục lợi."
 ogImage: "./the-conformity-trap.png"
 tags:
@@ -16,6 +16,8 @@ prePublish: true
 lang: "vi"
 postSlug: "the-conformity-trap"
 translationKey: "the-conformity-trap"
+substack: false
+tiktok_photo: false
 ---
 
 Nếu [Fake Incentives](/vi/posts/fake-incentives) là miếng mồi béo bở dụ bạn cắn câu, còn [Moving Goalposts](/vi/posts/moving-goalposts) là chiếc cối xay nghiền nát sự tự tin, thì chuyện gì sẽ xảy ra khi một senior thực thụ đã "miễn nhiễm" với cả hai trò trên?

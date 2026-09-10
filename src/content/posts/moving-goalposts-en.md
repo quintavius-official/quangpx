@@ -1,6 +1,6 @@
 ---
 title: "Dark Patterns #2: Moving Goalposts – Hired for X, Tasked with Y, Graded on Z"
-pubDatetime: 2026-09-05T00:00:00Z
+pubDatetime: 2026-09-12T20:00:00+07:00
 description: "The moving goalposts game inside Dark Corporations: why you're perpetually 'not quite ready', and the reorg playbook used to reset your promotion clock."
 ogImage: "./moving-goalposts.png"
 tags:
@@ -15,6 +15,8 @@ draft: false
 lang: "en"
 postSlug: "moving-goalposts"
 translationKey: "moving-goalposts"
+substack: false
+tiktok_photo: false
 ---
 
 If [Fake Incentives](/posts/fake-incentives) is the fragrant bait dangled to hook you in, **Moving Goalposts** is the meat grinder designed to pulverize your confidence and sabotage the rewards you rightfully earned.
