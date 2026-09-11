@@ -21,26 +21,55 @@ try {
   // Ignore env loading errors
 }
 
-const SOURCE_CHROME_DIR = path.join(
+const DEFAULT_CHROME_ROOT = path.join(
   process.env.HOME || '/Users/phuongquang',
   'Library/Application Support/Google/Chrome'
 );
-const DEFAULT_PROFILE_DIR =
-  process.env.TIKTOK_CHROME_PROFILE ||
-  path.join(
-    process.env.HOME || '/Users/phuongquang',
-    'Library/Application Support/Google/Chrome-Profile5'
-  );
 
-function getDefaultProfileName(profileDir) {
-  if (process.env.TIKTOK_CHROME_PROFILE_NAME) {
-    return process.env.TIKTOK_CHROME_PROFILE_NAME;
+/**
+ * Resolves Chrome User Data Directory (root) and Profile Directory name.
+ *
+ * Supports:
+ * - Direct profile path: "/Users/.../Google/Chrome/Profile 5" -> root: ".../Google/Chrome", profile: "Profile 5"
+ * - Root path with profile name: "/Users/.../Google/Chrome" + "Profile 5" -> root: ".../Google/Chrome", profile: "Profile 5"
+ * - Fallbacks: default macOS Chrome path and "Profile 5"
+ */
+function resolveChromeProfile(inputDir, inputName) {
+  let rawPath =
+    inputDir ||
+    process.env.TIKTOK_CHROME_PROFILE_DIR ||
+    process.env.TIKTOK_CHROME_PROFILE ||
+    path.join(DEFAULT_CHROME_ROOT, 'Profile 5');
+  rawPath = path.resolve(rawPath);
+
+  let rawName = inputName || process.env.TIKTOK_CHROME_PROFILE_NAME;
+
+  const baseName = path.basename(rawPath);
+
+  // Check if rawPath points directly to a profile subfolder (e.g. ".../Google/Chrome/Profile 5" or ".../Default")
+  const isProfileSubfolder =
+    /^Profile\s*\d+$/i.test(baseName) ||
+    baseName.toLowerCase() === 'default' ||
+    fs.existsSync(path.join(rawPath, 'Preferences'));
+
+  let userDataDir;
+  let profileName;
+
+  if (isProfileSubfolder) {
+    userDataDir = path.dirname(rawPath);
+    profileName = rawName || baseName;
+  } else {
+    userDataDir = rawPath;
+    if (rawName) {
+      profileName = rawName;
+    } else {
+      const match = rawPath.match(/Profile\s*(\d+)/i);
+      profileName = match ? `Profile ${match[1]}` : 'Profile 5';
+    }
   }
-  const match = profileDir.match(/Profile\s*(\d+)/i);
-  return match ? `Profile ${match[1]}` : 'Profile 5';
-}
 
-const DEFAULT_PROFILE_NAME = getDefaultProfileName(DEFAULT_PROFILE_DIR);
+  return { userDataDir, profileName };
+}
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -52,10 +81,11 @@ function parseArgs() {
     mode: 'MEDIA_UPLOAD',
     scheduleTime: null, // e.g. "20:00"
     scheduleDate: null, // e.g. "2026-09-10"
-    profileDir: DEFAULT_PROFILE_DIR,
-    profileName: DEFAULT_PROFILE_NAME,
+    profileDir: null,
+    profileName: null,
     cdpPort: 9223,
     sound: 'Dark and mysterious trap beat', // Presets: 1 ('Dark and mysterious trap beat'), 2 ('Mysterious Piano Nocturne'), 3 ('Horror, Fear, Mystery, Suspense')
+    restartBrowser: false,
     dryRun: false,
   };
 
@@ -83,15 +113,21 @@ function parseArgs() {
     } else if (arg === '--schedule-date') {
       parsed.scheduleDate = args[++i] || null;
     } else if (arg === '--profile-dir') {
-      parsed.profileDir = args[++i] || DEFAULT_PROFILE_DIR;
+      parsed.profileDir = args[++i];
     } else if (arg === '--profile-name') {
-      parsed.profileName = args[++i] || DEFAULT_PROFILE_NAME;
+      parsed.profileName = args[++i];
     } else if (arg === '--port') {
       parsed.cdpPort = parseInt(args[++i], 10) || 9223;
+    } else if (arg === '--restart-browser') {
+      parsed.restartBrowser = true;
     } else if (arg === '--dry-run') {
       parsed.dryRun = true;
     }
   }
+
+  const { userDataDir, profileName } = resolveChromeProfile(parsed.profileDir, parsed.profileName);
+  parsed.userDataDir = userDataDir;
+  parsed.profileName = profileName;
 
   return parsed;
 }
@@ -151,54 +187,61 @@ function getTiktokDnsFallbackRules() {
 }
 
 async function launchBrowserWithCdp(options) {
-  const dataDir = path.resolve(options.profileDir);
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
-  }
+  const userDataDir = options.userDataDir;
+  const profileName = options.profileName;
 
-  // Ensure target profile and Local State exist in target directory
-  const targetProfileDir = path.join(dataDir, options.profileName);
-  const sourceProfileDir = path.join(SOURCE_CHROME_DIR, options.profileName);
-  const sourceLocalState = path.join(SOURCE_CHROME_DIR, 'Local State');
-
-  if (fs.existsSync(sourceProfileDir)) {
+  // 1. If restart explicitly requested, quit any running Google Chrome
+  if (options.restartBrowser) {
+    console.log(`[*] Restarting Google Chrome with remote debugging on port ${options.cdpPort}...`);
     try {
-      if (fs.existsSync(sourceLocalState)) {
-        fs.copyFileSync(sourceLocalState, path.join(dataDir, 'Local State'));
-      }
-      if (!fs.existsSync(targetProfileDir)) {
-        console.log(`[*] Initializing automation data directory from ${options.profileName}...`);
-        execSync(`cp -R "${sourceProfileDir}" "${targetProfileDir}"`);
-        console.log(`[+] Initialized ${options.profileName} successfully.`);
-      } else {
-        const sourceCookies = path.join(sourceProfileDir, 'Cookies');
-        const targetCookies = path.join(targetProfileDir, 'Cookies');
-        if (fs.existsSync(sourceCookies)) {
-          fs.copyFileSync(sourceCookies, targetCookies);
-        }
-      }
-    } catch (e) {
-      console.error(`[-] Warning syncing profile: ${e.message}`);
-    }
+      execSync('osascript -e \'quit app "Google Chrome"\'', { stdio: 'ignore' });
+      await sleep(1500);
+    } catch {}
+    try {
+      execSync('pkill -f "Google Chrome"', { stdio: 'ignore' });
+      await sleep(1000);
+    } catch {}
   }
 
-  // 1. Check if Chrome CDP is already listening on the port
+  // 2. Check if Chrome CDP is already listening on the port
   let wsUrl = await getRunningCdpEndpoint(options.cdpPort);
   if (wsUrl) {
     console.log(`[+] Found active Chrome CDP instance on port ${options.cdpPort}`);
     return wsUrl;
   }
 
-  // 2. Launch Chrome with CDP enabled on macOS via open -na
-  console.log(`[*] Launching Google Chrome with CDP enabled on port ${options.cdpPort}...`);
-  console.log(`[*] Profile directory: ${dataDir} (${options.profileName})`);
+  // 3. Check if Chrome is already running normally without remote debugging port
+  let isRunning = false;
+  try {
+    const pgrep = execSync('pgrep -x "Google Chrome"', { encoding: 'utf8' }).trim();
+    isRunning = Boolean(pgrep);
+  } catch {
+    isRunning = false;
+  }
+
+  if (isRunning) {
+    console.log(`[!] Google Chrome is already running, but remote debugging port ${options.cdpPort} is not accessible.`);
+    console.log(`[*] Restarting Chrome to enable remote debugging on port ${options.cdpPort}...`);
+    try {
+      execSync('osascript -e \'quit app "Google Chrome"\'', { stdio: 'ignore' });
+      await sleep(1500);
+    } catch {}
+    try {
+      execSync('pkill -f "Google Chrome"', { stdio: 'ignore' });
+      await sleep(1000);
+    } catch {}
+  }
+
+  // 4. Launch Chrome directly with the real profile
+  console.log(`[*] Launching Google Chrome directly with profile: ${profileName}...`);
+  console.log(`[*] Chrome User Data Dir: ${userDataDir}`);
 
   const fallbackRules = getTiktokDnsFallbackRules();
   const extraArgs = fallbackRules ? ` ${fallbackRules}` : '';
-  const launchCmd = `open -na "Google Chrome" --args --remote-debugging-port=${options.cdpPort} --user-data-dir="${dataDir}" --profile-directory="${options.profileName}"${extraArgs} --disable-blink-features=AutomationControlled --no-first-run --no-default-browser-check`;
+  const launchCmd = `open -na "Google Chrome" --args --remote-debugging-port=${options.cdpPort} --user-data-dir="${userDataDir}" --profile-directory="${profileName}"${extraArgs} --disable-blink-features=AutomationControlled --no-first-run --no-default-browser-check`;
   exec(launchCmd);
 
-  // 3. Poll for CDP endpoint to be ready (up to 20 seconds)
+  // 5. Poll for CDP endpoint to be ready (up to 20 seconds)
   console.log(`[*] Waiting for Chrome CDP to initialize...`);
   for (let i = 0; i < 40; i++) {
     await sleep(500);
@@ -209,7 +252,7 @@ async function launchBrowserWithCdp(options) {
     }
   }
 
-  throw new Error(`Failed to launch Chrome with CDP on port ${options.cdpPort} within 20 seconds.`);
+  throw new Error(`Failed to connect to Chrome CDP on port ${options.cdpPort} within 20 seconds.`);
 }
 
 async function main() {

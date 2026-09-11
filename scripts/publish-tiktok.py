@@ -230,12 +230,51 @@ def handle_info(args: argparse.Namespace):
         print(f"[-] Error fetching creator info: {e}")
 
 
+def resolve_chrome_profile(input_dir: Optional[str] = None, input_name: Optional[str] = None) -> Tuple[str, str]:
+    """
+    Resolve Chrome User Data Dir (root) and Profile Name.
+    Supports passing a direct profile directory (e.g. ".../Google/Chrome/Profile 5")
+    or root user data dir with profile name.
+    """
+    default_chrome_root = str(Path.home() / "Library/Application Support/Google/Chrome")
+    raw_path = (
+        input_dir
+        or os.environ.get("TIKTOK_CHROME_PROFILE_DIR")
+        or os.environ.get("TIKTOK_CHROME_PROFILE")
+        or str(Path(default_chrome_root) / "Profile 5")
+    )
+    raw_path = str(Path(raw_path).expanduser().resolve())
+    raw_name = input_name or os.environ.get("TIKTOK_CHROME_PROFILE_NAME")
+
+    base_name = Path(raw_path).name
+    is_subfolder = (
+        bool(re.match(r"^Profile\s*\d+$", base_name, re.IGNORECASE))
+        or base_name.lower() == "default"
+        or (Path(raw_path) / "Preferences").exists()
+    )
+
+    if is_subfolder:
+        user_data_dir = str(Path(raw_path).parent)
+        profile_name = raw_name or base_name
+    else:
+        user_data_dir = raw_path
+        if raw_name:
+            profile_name = raw_name
+        else:
+            match = re.search(r"Profile\s*(\d+)", raw_path, re.IGNORECASE)
+            profile_name = f"Profile {match.group(1)}" if match else "Profile 5"
+
+    return user_data_dir, profile_name
+
+
 def handle_post_browser(args: argparse.Namespace, image_files: List[Path], title: str, desc: Optional[str]):
     """Upload photo carousel to TikTok Studio via Chrome CDP browser automation."""
     node_script = ROOT_DIR / "scripts" / "upload-tiktok-browser.js"
     if not node_script.exists():
         print(f"[-] Error: Browser automation script not found at {node_script}")
         sys.exit(1)
+
+    user_data_dir, profile_name = resolve_chrome_profile(args.profile_dir, args.profile_name)
 
     cmd = [
         "node",
@@ -251,9 +290,9 @@ def handle_post_browser(args: argparse.Namespace, image_files: List[Path], title
         "--mode",
         args.mode,
         "--profile-dir",
-        args.profile_dir,
+        user_data_dir,
         "--profile-name",
-        args.profile_name,
+        profile_name,
     ]
     if getattr(args, "schedule_time", None):
         cmd.extend(["--schedule-time", args.schedule_time])
@@ -491,18 +530,16 @@ def main():
     post_parser = subparsers.add_parser("post", help="Upload/publish a photo carousel")
     post_parser.add_argument("--method", choices=["browser", "api"], default="browser",
                              help="Publishing method: 'browser' (default, uses Chrome CDP with Default profile) or 'api' (official TikTok Content Posting API)")
-    default_profile_dir = os.environ.get(
-        "TIKTOK_CHROME_PROFILE",
-        str(Path.home() / "Library/Application Support/Google/Chrome-Profile5")
+    default_dir_or_profile = (
+        os.environ.get("TIKTOK_CHROME_PROFILE_DIR")
+        or os.environ.get("TIKTOK_CHROME_PROFILE")
+        or str(Path.home() / "Library/Application Support/Google/Chrome/Profile 5")
     )
-    default_profile_name = os.environ.get("TIKTOK_CHROME_PROFILE_NAME")
-    if not default_profile_name:
-        match = re.search(r"Profile\s*(\d+)", default_profile_dir, re.IGNORECASE)
-        default_profile_name = f"Profile {match.group(1)}" if match else "Profile 5"
+    _, default_profile_name = resolve_chrome_profile(default_dir_or_profile)
 
     post_parser.add_argument("--profile-dir",
-                             default=default_profile_dir,
-                             help=f"Chrome user data directory for browser method (default: {default_profile_dir})")
+                             default=default_dir_or_profile,
+                             help=f"Chrome profile or user data directory (default: {default_dir_or_profile})")
     post_parser.add_argument("--profile-name", default=default_profile_name,
                              help=f"Chrome profile name inside user data dir (default: {default_profile_name})")
     post_parser.add_argument("--restart-browser", action="store_true",

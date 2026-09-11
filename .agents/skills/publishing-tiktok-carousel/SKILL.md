@@ -13,7 +13,7 @@ The slides are rendered from `src/content/posts/<slug>.carousel.json` into `outp
 
 ## Architecture & Authentication
 
-- **Chrome Profile:** Configurable via `.env` (`TIKTOK_CHROME_PROFILE` for the profile directory, `TIKTOK_CHROME_PROFILE_NAME` for the profile name). If not set, it falls back to sensible defaults in code (`Profile 5` / `Chrome-Profile5`). Retains active creator session cookies for TikTok Studio without enforcing a fixed profile number.
+- **Chrome Profile:** Configurable via `.env` (`TIKTOK_CHROME_PROFILE` or `TIKTOK_CHROME_PROFILE_DIR` pointing directly to the real profile directory e.g. `~/Library/Application Support/Google/Chrome/Profile 5`). Automatically resolves root user data directory and profile name without duplicating or cloning folders.
 - **Protocol:** Uses Chrome DevTools Protocol (CDP) via Puppeteer on remote debugging port `9223`.
 - **Scripts:**
   - `scripts/publish-tiktok.py`: Top-level CLI for resolving carousels, parsing metadata, and passing arguments (supports `--profile-dir` and `--profile-name`).
@@ -23,20 +23,22 @@ The slides are rendered from `src/content/posts/<slug>.carousel.json` into `outp
 
 ## Chrome Profile Configuration
 
-The automation interacts with TikTok Studio through a persistent Chrome profile holding creator session cookies.
+The automation interacts with TikTok Studio through your real Chrome profile holding creator session cookies.
 
-You can configure the active profile in `.env`:
+You can configure the active profile in `.env` by pointing directly to your profile directory:
 ```env
-# Custom Chrome user data directory (defaults to ~/Library/Application Support/Google/Chrome-Profile5)
-TIKTOK_CHROME_PROFILE=/Users/phuongquang/Library/Application Support/Google/Chrome-Profile4
+# Point directly to your active Chrome profile:
+TIKTOK_CHROME_PROFILE=/Users/phuongquang/Library/Application Support/Google/Chrome/Profile 5
 
-# Profile name inside user data dir (auto-inferred from dir name or defaults to Profile 5)
-TIKTOK_CHROME_PROFILE_NAME=Profile 4
+# Optional: profile name override if pointing only to root Chrome dir
+TIKTOK_CHROME_PROFILE_NAME=Profile 5
 ```
+
+The script automatically detects whether the path points to a specific profile subfolder (like `Profile 5`, `Profile 4`, or `Default`) or the root Chrome directory, cleanly resolving both without copying or cloning directories.
 
 You can also override either parameter directly via CLI arguments:
 ```bash
-python3 scripts/publish-tiktok.py post --slug <slug> --profile-name "Profile 4" --profile-dir "/path/to/profile-dir"
+python3 scripts/publish-tiktok.py post --slug <slug> --profile-dir "/Users/phuongquang/Library/Application Support/Google/Chrome/Profile 5"
 ```
 
 ---
