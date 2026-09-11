@@ -209,7 +209,8 @@ def handle_tiktok(meta: Dict, file_path: Path):
         print(f"[TikTok] [+] Successfully scheduled '{slug}' on TikTok for {sched_date} {sched_time}!")
     except subprocess.CalledProcessError as e:
         print(f"[TikTok] [-] Failed to schedule post on TikTok (exit {e.returncode}).")
-        print(f"[TikTok] 💡 Mẹo: Đảm bảo Chrome (Profile 5) đang chạy và đã đăng nhập TikTok Studio.")
+        profile_hint = os.environ.get("TIKTOK_CHROME_PROFILE_NAME") or "profile được cấu hình"
+        print(f"[TikTok] 💡 Mẹo: Đảm bảo Chrome ({profile_hint}) đang chạy và đã đăng nhập TikTok Studio.")
         print(f"[TikTok] 💡 Bạn cũng có thể chạy lệnh thủ công bất cứ lúc nào:")
         print(f"         {py_bin} scripts/publish-tiktok.py post --slug {slug} --schedule-date {sched_date} --schedule-time {sched_time}")
 

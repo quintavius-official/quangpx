@@ -491,11 +491,20 @@ def main():
     post_parser = subparsers.add_parser("post", help="Upload/publish a photo carousel")
     post_parser.add_argument("--method", choices=["browser", "api"], default="browser",
                              help="Publishing method: 'browser' (default, uses Chrome CDP with Default profile) or 'api' (official TikTok Content Posting API)")
+    default_profile_dir = os.environ.get(
+        "TIKTOK_CHROME_PROFILE",
+        str(Path.home() / "Library/Application Support/Google/Chrome-Profile5")
+    )
+    default_profile_name = os.environ.get("TIKTOK_CHROME_PROFILE_NAME")
+    if not default_profile_name:
+        match = re.search(r"Profile\s*(\d+)", default_profile_dir, re.IGNORECASE)
+        default_profile_name = f"Profile {match.group(1)}" if match else "Profile 5"
+
     post_parser.add_argument("--profile-dir",
-                             default=os.environ.get("TIKTOK_CHROME_PROFILE", "/Users/phuongquang/Library/Application Support/Google/Chrome-Profile5"),
-                             help="Chrome user data directory for browser method (default: /Users/phuongquang/Library/Application Support/Google/Chrome-Profile5)")
-    post_parser.add_argument("--profile-name", default="Profile 5",
-                             help="Chrome profile name inside user data dir (default: Profile 5)")
+                             default=default_profile_dir,
+                             help=f"Chrome user data directory for browser method (default: {default_profile_dir})")
+    post_parser.add_argument("--profile-name", default=default_profile_name,
+                             help=f"Chrome profile name inside user data dir (default: {default_profile_name})")
     post_parser.add_argument("--restart-browser", action="store_true",
                              help="If Chrome is already open, cleanly restart it with CDP remote debugging enabled")
     post_parser.add_argument("--slug", help="Slug name of the carousel (e.g., 'seniority' in output/carousels/seniority)")

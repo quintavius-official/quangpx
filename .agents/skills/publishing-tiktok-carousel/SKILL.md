@@ -1,6 +1,6 @@
 ---
 name: publishing-tiktok-carousel
-description: Use when uploading, drafting, scheduling, or publishing photo carousel slides to TikTok Studio using browser automation with Profile 5.
+description: Use when uploading, drafting, scheduling, or publishing photo carousel slides to TikTok Studio using browser automation with the configured Chrome profile.
 ---
 
 # Publish QuangPX Carousels to TikTok
@@ -13,11 +13,31 @@ The slides are rendered from `src/content/posts/<slug>.carousel.json` into `outp
 
 ## Architecture & Authentication
 
-- **Chrome Profile:** Always uses **`Profile 5`** (`/Users/phuongquang/Library/Application Support/Google/Chrome-Profile5`), which retains active creator session cookies for TikTok.
+- **Chrome Profile:** Configurable via `.env` (`TIKTOK_CHROME_PROFILE` for the profile directory, `TIKTOK_CHROME_PROFILE_NAME` for the profile name). If not set, it falls back to sensible defaults in code (`Profile 5` / `Chrome-Profile5`). Retains active creator session cookies for TikTok Studio without enforcing a fixed profile number.
 - **Protocol:** Uses Chrome DevTools Protocol (CDP) via Puppeteer on remote debugging port `9223`.
 - **Scripts:**
-  - `scripts/publish-tiktok.py`: Top-level CLI for resolving carousels, parsing metadata, and passing arguments.
+  - `scripts/publish-tiktok.py`: Top-level CLI for resolving carousels, parsing metadata, and passing arguments (supports `--profile-dir` and `--profile-name`).
   - `scripts/upload-tiktok-browser.js`: Puppeteer CDP automation script that controls the browser, uploads slides, fills inputs natively, handles modals, and interacts with schedule pickers.
+
+---
+
+## Chrome Profile Configuration
+
+The automation interacts with TikTok Studio through a persistent Chrome profile holding creator session cookies.
+
+You can configure the active profile in `.env`:
+```env
+# Custom Chrome user data directory (defaults to ~/Library/Application Support/Google/Chrome-Profile5)
+TIKTOK_CHROME_PROFILE=/Users/phuongquang/Library/Application Support/Google/Chrome-Profile4
+
+# Profile name inside user data dir (auto-inferred from dir name or defaults to Profile 5)
+TIKTOK_CHROME_PROFILE_NAME=Profile 4
+```
+
+You can also override either parameter directly via CLI arguments:
+```bash
+python3 scripts/publish-tiktok.py post --slug <slug> --profile-name "Profile 4" --profile-dir "/path/to/profile-dir"
+```
 
 ---
 
@@ -127,5 +147,5 @@ python3 scripts/publish-tiktok.py post --slug <slug> --mode DIRECT_POST
 | --- | --- |
 | **"Schedule at least 15 minutes in advance"** | The requested `--schedule-time` is in the past or less than 15 minutes away. Choose a time at least 20 minutes in the future. |
 | **"Post is invalid"** | Usually indicates the Title input was empty. Ensure `--title` is provided or `meta.title` exists in `<slug>.carousel.json`. |
-| **Login required prompt** | If TikTok session expires, Chrome will stay open on the login page. Log in manually in Chrome once, and Profile 5 will persist the session for future runs. |
+| **Login required prompt** | If TikTok session expires, Chrome will stay open on the login page. Log in manually in Chrome once using your configured profile, and it will persist the session for future runs. |
 | **Slide images missing** | Ensure `output/carousels/<slug>/slide_*.png` exist. If not generated yet, render them using the project's carousel generator first. |

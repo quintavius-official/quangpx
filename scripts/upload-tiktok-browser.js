@@ -3,7 +3,7 @@
  * scripts/upload-tiktok-browser.js
  * --------------------------------
  * Uploads Photo Mode (carousel) slides to TikTok Studio via Chrome DevTools Protocol (CDP).
- * Uses Chrome Profile 5 (with persistent login session) and launches with CDP enabled.
+ * Uses configured Chrome Profile (from .env or code default) and launches with CDP enabled.
  * Supports: Direct Post, Save Draft, and Scheduled Posting.
  */
 
@@ -12,10 +12,35 @@ import path from 'path';
 import { exec, execSync } from 'child_process';
 import puppeteer from 'puppeteer-core';
 
-const SOURCE_CHROME_DIR = '/Users/phuongquang/Library/Application Support/Google/Chrome';
+// Load environment variables from .env if running standalone
+try {
+  if (typeof process.loadEnvFile === 'function' && fs.existsSync('.env')) {
+    process.loadEnvFile('.env');
+  }
+} catch {
+  // Ignore env loading errors
+}
+
+const SOURCE_CHROME_DIR = path.join(
+  process.env.HOME || '/Users/phuongquang',
+  'Library/Application Support/Google/Chrome'
+);
 const DEFAULT_PROFILE_DIR =
   process.env.TIKTOK_CHROME_PROFILE ||
-  '/Users/phuongquang/Library/Application Support/Google/Chrome-Profile5';
+  path.join(
+    process.env.HOME || '/Users/phuongquang',
+    'Library/Application Support/Google/Chrome-Profile5'
+  );
+
+function getDefaultProfileName(profileDir) {
+  if (process.env.TIKTOK_CHROME_PROFILE_NAME) {
+    return process.env.TIKTOK_CHROME_PROFILE_NAME;
+  }
+  const match = profileDir.match(/Profile\s*(\d+)/i);
+  return match ? `Profile ${match[1]}` : 'Profile 5';
+}
+
+const DEFAULT_PROFILE_NAME = getDefaultProfileName(DEFAULT_PROFILE_DIR);
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -28,7 +53,7 @@ function parseArgs() {
     scheduleTime: null, // e.g. "20:00"
     scheduleDate: null, // e.g. "2026-09-10"
     profileDir: DEFAULT_PROFILE_DIR,
-    profileName: 'Profile 5',
+    profileName: DEFAULT_PROFILE_NAME,
     cdpPort: 9223,
     sound: 'Dark and mysterious trap beat', // Presets: 1 ('Dark and mysterious trap beat'), 2 ('Mysterious Piano Nocturne'), 3 ('Horror, Fear, Mystery, Suspense')
     dryRun: false,
@@ -60,7 +85,7 @@ function parseArgs() {
     } else if (arg === '--profile-dir') {
       parsed.profileDir = args[++i] || DEFAULT_PROFILE_DIR;
     } else if (arg === '--profile-name') {
-      parsed.profileName = args[++i] || 'Profile 5';
+      parsed.profileName = args[++i] || DEFAULT_PROFILE_NAME;
     } else if (arg === '--port') {
       parsed.cdpPort = parseInt(args[++i], 10) || 9223;
     } else if (arg === '--dry-run') {
@@ -131,7 +156,7 @@ async function launchBrowserWithCdp(options) {
     fs.mkdirSync(dataDir, { recursive: true });
   }
 
-  // Ensure Profile 5 and Local State exist in target directory
+  // Ensure target profile and Local State exist in target directory
   const targetProfileDir = path.join(dataDir, options.profileName);
   const sourceProfileDir = path.join(SOURCE_CHROME_DIR, options.profileName);
   const sourceLocalState = path.join(SOURCE_CHROME_DIR, 'Local State');
@@ -255,7 +280,7 @@ async function main() {
       }
 
       if (!loggedIn) {
-        throw new Error('TikTok login timed out after 60s. Please log in to TikTok in Chrome (Profile 5) first.');
+        throw new Error(`TikTok login timed out after 60s. Please log in to TikTok in Chrome (${options.profileName}) first.`);
       }
 
       await page.goto('https://www.tiktok.com/tiktokstudio/upload', {
