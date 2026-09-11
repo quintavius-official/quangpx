@@ -1,15 +1,16 @@
 ---
-title: "Trò chơi #4: Kẻ gác cổng bóp méo sự thật và cú ngã của những người tâm huyết"
+title: "Hồ sơ #4: Kẻ gác cổng bóp méo sự thật và cú ngã của những người tâm huyết"
 pubDatetime: 2026-09-14T20:00:00+07:00
-description: "Trò chơi thao túng sự thật của những kẻ gác cổng khách hàng: dìm nghẹt vendor giỏi để nuôi béo nhóm lợi ích, và cú ngã cay đắng của những senior tâm huyết trong bóng tối."
+description: "Hồ sơ thao túng sự thật của những kẻ gác cổng khách hàng: dìm nghẹt vendor giỏi để nuôi béo nhóm lợi ích, và cú ngã cay đắng của những senior tâm huyết trong bóng tối."
 ogImage: "./information-gatekeeping.png"
 tags:
-  - Career
-  - Culture
-  - Leadership
-  - Psychology
-  - Dark Corporation
-  - Black Company
+  - trochoicongso
+  - chuyencongso
+  - dramacongso
+  - kegaccong
+  - daudachinhtri
+  - danit
+  - batdoixungthongtin
 featured: true
 draft: false
 prePublish: true
@@ -20,7 +21,7 @@ substack: false
 tiktok_photo: false
 ---
 
-Nếu ở những trò chơi trước, các đòn thao túng chủ yếu diễn ra âm ỉ trong nội bộ — từ trò [bánh vẽ chức danh](/vi/posts/fake-incentives), [dời cọc gôn](/vi/posts/moving-goalposts) cho đến [chiếc lồng cào bằng](/vi/posts/the-conformity-trap) — thì đến trò chơi lần này, bàn cờ độc hại được mở rộng ra bên ngoài: nhắm thẳng vào mối quan hệ sống còn giữa bạn và khách hàng.
+Nếu ở những hồ sơ trước, các đòn thao túng chủ yếu diễn ra âm ỉ trong nội bộ — từ trò [bánh vẽ chức danh](/vi/posts/fake-incentives), [dời cọc gôn](/vi/posts/moving-goalposts) cho đến [chiếc lồng cào bằng](/vi/posts/the-conformity-trap) — thì đến hồ sơ lần này, bàn cờ độc hại được mở rộng ra bên ngoài: nhắm thẳng vào mối quan hệ sống còn giữa bạn và khách hàng.
 
 Thế nhưng, trong thế giới của các Dark Corporation và những liên minh dự án nhiều bên, hiếm khi tech team được trực tiếp ngồi lại với khách hàng một cách sòng phẳng. Đứng giữa bạn và người trả tiền luôn là một tầng lớp được gọi là: **Kẻ gác cổng thông tin (The Information Gatekeeper)** – khoác lên mình những chức danh bóng bẩy như Account Manager, Delivery Lead, Client Partner hay Proxy PO.
 
@@ -30,7 +31,7 @@ Nhưng trong thế giới ngầm của quyền lực và phe nhóm, kẻ gác c�
 
 ---
 
-## Trò chơi dìm Vendor A để nuôi béo Vendor B
+## Hồ sơ dìm Vendor A để nuôi béo Vendor B
 
 Hãy hình dung một kịch bản kinh điển mà bất kỳ ai từng làm việc trong môi trường đối tác, tư vấn giải pháp hay bất kỳ mối quan hệ hợp tác khách hàng nào đều từng ít nhất một lần rùng mình chứng kiến:
 
@@ -81,7 +82,7 @@ _Nghệ thuật bóp méo: Kiếm gỗ được tôn sùng đi đánh trận, b�
 
 ## Đốt tiền, dẹp dự án và sự thật muộn màng
 
-Trò chơi bóp méo thông tin có thể giúp kẻ gác cổng bỏ túi những khoản lợi ích béo bở trong vài quý. Nhưng có một định luật bất biến mà không kẻ thao túng nào có thể bẻ cong: **Khoa học máy tính không biết nói dối, và hệ thống vận hành không chạy bằng những lời nịnh bợ.**
+Hồ sơ bóp méo thông tin có thể giúp kẻ gác cổng bỏ túi những khoản lợi ích béo bở trong vài quý. Nhưng có một định luật bất biến mà không kẻ thao túng nào có thể bẻ cong: **Khoa học máy tính không biết nói dối, và hệ thống vận hành không chạy bằng những lời nịnh bợ.**
 
 Sau 12 đến 18 tháng:
 

@@ -24,8 +24,8 @@ const fontRegular = fs.readFileSync(fontRegularPath);
 const fontBold = fs.readFileSync(fontBoldPath);
 
 const BRAND = {
-  name: "Trò Chơi Công Sở",
-  url: "trochoicongso.substack.com",
+  name: "Hộp Đen",
+  url: "hopden.substack.com",
   author: "QuangPX",
   primaryColor: "#00B4DB",
   secondaryColor: "#FF007F",
@@ -503,7 +503,7 @@ function renderCtaSlide(slide, meta, bgDataUrl, logoDataUrl) {
       <div style="display: flex; flex-direction: column; justify-content: space-between; width: 1080px; height: 1920px; padding: 100px 80px 80px 80px;">
         <div style="display: flex; align-items: center;">
           <span style="display: flex; font-size: 24px; font-weight: 700; color: ${BRAND.primaryColor}; background-color: rgba(0, 180, 219, 0.15); border: 2px solid rgba(0, 180, 219, 0.4); padding: 8px 24px; border-radius: 9999px; letter-spacing: 2px;">
-            TRÒ CHƠI CÔNG SỞ
+            HỘP ĐEN
           </span>
         </div>
 
@@ -515,7 +515,7 @@ function renderCtaSlide(slide, meta, bgDataUrl, logoDataUrl) {
           </h2>
 
           <p style="font-size: 40px; line-height: 1.55; color: ${BRAND.textMuted}; margin: 0;">
-            ${slide.subtitle || "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."}
+            ${slide.subtitle || "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và hồ sơ quyền lực nơi công sở."}
           </p>
 
           <!-- CTA Box -->

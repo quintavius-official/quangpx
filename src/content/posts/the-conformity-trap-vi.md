@@ -1,31 +1,31 @@
 ---
-title: 'Trò chơi #3: Chiếc lồng cào bằng và đòn triệt hạ dưới mác "Lệch văn hóa"'
+title: 'Hồ sơ #3: Chiếc lồng cào bằng và đòn triệt hạ dưới mác "Lệch văn hóa"'
 pubDatetime: 2026-09-13T20:00:00+07:00
 description: "Cách các Dark Corporation dùng tiêu chuẩn thấp để giam cầm người giỏi, biến tư duy đột phá thành 'tội đồ văn hoá', trong khi âm thầm tuồn ý tưởng cho nhóm thân tín để trục lợi."
 ogImage: "./the-conformity-trap.png"
 tags:
-  - Career
-  - Culture
-  - Leadership
-  - Psychology
-  - Dark Corporation
-  - Black Company
+  - trochoicongso
+  - chuyencongso
+  - dramacongso
+  - caobang
+  - lechvanhoa
+  - gockhuatcongso
+  - tallpoppysyndrome
 featured: true
 draft: false
 prePublish: true
 lang: "vi"
 postSlug: "the-conformity-trap"
 translationKey: "the-conformity-trap"
-prePublish: true
 substack: true
-tiktok_photo: true
+tiktok_photo: false
 ---
 
-Nếu trò [bánh vẽ chức danh](/vi/posts/fake-incentives) là miếng mồi béo bở dụ bạn cắn câu, còn trò [dời cọc gôn](/vi/posts/moving-goalposts) là chiếc cối xay nghiền nát sự tự tin, thì chuyện gì sẽ xảy ra khi một senior thực thụ đã "miễn nhiễm" với cả hai trò chơi trên?
+Nếu trò [bánh vẽ chức danh](/vi/posts/fake-incentives) là miếng mồi béo bở dụ bạn cắn câu, còn trò [dời cọc gôn](/vi/posts/moving-goalposts) là chiếc cối xay nghiền nát sự tự tin, thì chuyện gì sẽ xảy ra khi một senior thực thụ đã "miễn nhiễm" với cả hai hồ sơ trên?
 
 Bạn không còn tin vào những chiếc bánh vẽ triệu đô, và bạn cũng chẳng sợ bị dời cọc gôn vì chất lượng công việc của bạn ở mức không thể bắt bẻ. Lúc này, sổ tay quản trị của các Dark Corporation sẽ lật sang một trang tàn độc hơn nhiều: họ không tấn công vào kết quả công việc nữa, mà tấn công thẳng vào **bản sắc và tư duy độc lập** của bạn.
 
-Chào mừng bạn đến với trò chơi thứ ba — **Chiếc lồng cào bằng** — nghệ thuật triệt hạ sự vượt trội bằng chiếc lồng tiêu chuẩn thấp, gắn mác "lệch văn hóa", trong khi lén lút "luộc" sạch ý tưởng của bạn ra cửa sau.
+Chào mừng bạn đến với hồ sơ thứ ba — **Chiếc lồng cào bằng** — nghệ thuật triệt hạ sự vượt trội bằng chiếc lồng tiêu chuẩn thấp, gắn mác "lệch văn hóa", trong khi lén lút "luộc" sạch ý tưởng của bạn ra cửa sau.
 
 ---
 

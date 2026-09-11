@@ -361,9 +361,9 @@ export function mdToCarousel(mdContent, postSlug = "") {
   // Last Slide: Outro CTA
   slides.push({
     type: "cta",
-    tag: "TRÒ CHƠI CÔNG SỞ",
-    headline: "Trò Chơi Công Sở",
-    subtitle: "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."
+    tag: "HỘP ĐEN",
+    headline: "Hộp Đen",
+    subtitle: "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và hồ sơ quyền lực nơi công sở."
   });
 
   return { meta: frontmatter, slides };

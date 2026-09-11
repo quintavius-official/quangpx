@@ -1,16 +1,16 @@
 ---
-title: 'Trò chơi mở đầu: Khi thao túng trở thành luật chơi'
+title: 'Hồ sơ mở đầu: Khi thao túng trở thành luật chơi'
 pubDatetime: 2026-09-10T20:00:00+07:00
 description: "Thế nào là một senior thực thụ? Và khi tài năng bị biến thành công cụ trong các Black Company và Dark Corporation."
 ogImage: "./senior-borderland.png"
 tags:
-  - Career
-  - Engineering
-  - Culture
-  - Leadership
-  - Psychology
-  - Dark Corporation
-  - Black Company
+  - trochoicongso
+  - chuyencongso
+  - dramacongso
+  - danit
+  - senior
+  - toxicworkplace
+  - reviewcongty
 featured: true
 draft: false
 lang: "vi"
@@ -18,7 +18,7 @@ postSlug: "seniority"
 translationKey: "seniority"
 prePublish: true
 substack: true
-tiktok_photo: true
+tiktok_photo: false
 tiktok_sound: 1
 ---
 
@@ -62,7 +62,7 @@ Khác gì so với Black Company? Chắc chỉ khác mỗi cái chữ, nhưng t�
 
 > **Góc 101: Chủ nghĩa tư bản thao túng (Manipulative Capitalism)**
 >
-> Thứ đang bòn rút bạn ở các Black Company hay Dark Corporation không dừng lại ở đạo đức của một vài cá nhân sếp tồi, mà là một **vấn đề cấu trúc** — nơi thao túng đã trở thành một hệ thống tự vận hành, thứ mà chúng ta sẽ cùng nhau bóc tách trong những phần sau bao gồm các trò chơi cụ thể của họ.
+> Thứ đang bòn rút bạn ở các Black Company hay Dark Corporation không dừng lại ở đạo đức của một vài cá nhân sếp tồi, mà là một **vấn đề cấu trúc** — nơi thao túng đã trở thành một hệ thống tự vận hành, thứ mà chúng ta sẽ cùng nhau bóc tách trong những phần sau bao gồm các hồ sơ cụ thể của họ.
 >
 > Còn trước mắt, để nhận diện xem môi trường mình đang làm việc có thực sự "toxic" hay không, điều cốt tử bạn cần nhìn thấu là ranh giới giữa **kiểm soát** (ở công ty tốt) và **thao túng** (ở công ty toxic):
 >

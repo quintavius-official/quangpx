@@ -57,8 +57,49 @@ When creating a translated blog post file in `src/content/posts/`, strictly foll
    - In Vietnamese posts, link to Vietnamese routes: `/vi/posts/<target-slug>`, `/vi/tags/<tag>`, etc.
    - In English posts, link to English routes: `/posts/<target-slug>`, `/tags/<tag>`, etc.
 
-4. **Tags Consistency**:
-   - Maintain appropriate tags matching existing tags in the target language (e.g., check `src/pages/tags/` or `src/pages/vi/tags/`). Technical tags are frequently shared (e.g., `DevOps`, `Career`, `Culture`).
+4. **Tags & Distribution Strategy**:
+   - Technical / English posts: Maintain clean, standard technical tags (e.g., `DevOps`, `CI/CD`, `Automation`, `SRE`).
+   - Vietnamese workplace / career posts (especially the "Trò Chơi Công Sở" series): **Do NOT use generic English tags** like `Career`, `Culture`, `Leadership`, `Psychology`, or `Dark Corporation`. These fail to capture search traffic and kill distribution on TikTok and Substack.
+   - Use the repository's dedicated trending hashtag tool (`scripts/update-trending-hashtags.py`) to derive high-converting, unaccented, lowercase tags (e.g., `trochoicongso`, `chuyencongso`, `dramacongso`, `toxicworkplace`, `tamlycongso`, `banhve`, `danit`).
+
+## Automated Trending Hashtag Synchronization
+
+For any Vietnamese post in `src/content/posts/` (especially when polishing, reviewing, or prepping for multi-platform distribution via Substack and TikTok), use `scripts/update-trending-hashtags.py` to ensure optimal discovery.
+
+### The 5–7 Hashtag Formula for TikTok Vietnam
+TikTok algorithms penalize hashtag stuffing while rewarding focused, high-intent clusters. The script balances exactly 5 to 7 tags per post:
+1. **Brand Anchor:** Always `#trochoicongso` (builds series equity and connects content across platforms).
+2. **Mass Reach (500M - 2B+ views):** `#chuyencongso`, `#dramacongso` (broad algorithmic distribution).
+3. **Topic-Specific Pain Point:** Directly matched to the article's core thesis:
+   - Bánh vẽ chức danh: `#banhve`, `#thangtien`
+   - Dời cọc gôn: `#doicocgon`, `#kpi`
+   - Chiếc lồng cào bằng: `#caobang`, `#lechvanhoa`, `#tallpoppysyndrome`
+   - Kẻ gác cổng thông tin: `#kegaccong`, `#daudachinhtri`, `#batdoixungthongtin`
+   - Vòng vây thầm lặng: `#baoluclanh`, `#colap`, `#quietfiring`
+4. **Workplace Reality & Psychology:** `#tamlycongso`, `#toxicworkplace`, `#reviewcongty`, `#gockhuatcongso`.
+5. **Audience Persona:** `#danit`, `#senior`, `#kinhnghiemdilam`.
+
+### Execution Commands
+
+```bash
+# Preview hashtags for a specific post without modifying files
+python3 scripts/update-trending-hashtags.py --slug <postSlug> --dry-run
+# Or preview for all posts in the series:
+npm run hashtags:dry-run
+
+# Apply updates to markdown frontmatter and companion carousel JSON
+python3 scripts/update-trending-hashtags.py --slug <postSlug>
+# Or update all posts:
+npm run hashtags:update
+```
+
+### What the Script Synchronizes
+1. **Markdown Frontmatter (`src/content/posts/*-vi.md`)**:
+   - Updates `tags:` with clean, unaccented, slug-friendly strings.
+   - Automatically sanitizes YAML by removing duplicate keys (e.g. duplicate `prePublish: true`).
+2. **Companion Carousel JSON (`src/content/posts/<slug>.carousel.json`)**:
+   - Updates `meta.tags`. This is critical because `scripts/publish-tiktok.py` parses `meta.tags` when uploading carousels to TikTok Studio, appending `#hashtag` formatted tags directly into the video caption.
+3. **Dynamic Resolution**: Supports both pre-configured series posts and newly added Vietnamese posts dynamically via `--slug <postSlug>`.
 
 ## Editing Boundaries
 
@@ -70,4 +111,5 @@ When creating a translated blog post file in `src/content/posts/`, strictly foll
 
 ## Completion Check
 
-Before handing off a Polish-mode review, confirm that no change has been applied. State what was fact-checked, every proposed correction, and any remaining uncertainty.
+- Before handing off a Polish-mode review, confirm that no change has been applied. State what was fact-checked, every proposed correction, and any remaining uncertainty.
+- When approved frontmatter edits or trending hashtag synchronizations are applied, always run `npx astro check` to verify zero YAML syntax errors and validate schema integrity.

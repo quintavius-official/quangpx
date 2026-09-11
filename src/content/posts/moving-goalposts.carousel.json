@@ -1,16 +1,17 @@
 {
   "meta": {
-    "title": "Trò chơi #2: Dời cọc gôn – Tuyển X, làm Y và đánh giá Z",
+    "title": "Hồ sơ #2: Dời cọc gôn – Tuyển X, làm Y và đánh giá Z",
     "pubDatetime": "2026-09-12T20:00:00+07:00",
-    "description": "Trò chơi dời cọc gôn trong các Dark Corporation: khi nhân viên luôn là người 'chưa đủ tốt', và nghệ thuật thuyên chuyển để reset đồng hồ tăng lương.",
+    "description": "Hồ sơ dời cọc gôn trong các Dark Corporation: khi nhân viên luôn là người 'chưa đủ tốt', và nghệ thuật thuyên chuyển để reset đồng hồ tăng lương.",
     "ogImage": "./moving-goalposts.png",
     "tags": [
-      "Career",
-      "Culture",
-      "Leadership",
-      "Psychology",
-      "Dark Corporation",
-      "Black Company"
+      "trochoicongso",
+      "chuyencongso",
+      "doicocgon",
+      "kpi",
+      "kinhnghiemdilam",
+      "toxicworkplace",
+      "tamlycongso"
     ],
     "featured": "true",
     "draft": "false",
@@ -19,22 +20,22 @@
     "translationKey": "moving-goalposts",
     "prePublish": "true",
     "substack": "true",
-    "tiktok_photo": "true"
+    "tiktok_photo": "false"
   },
   "slides": [
     {
       "type": "cover",
       "category": "CAREER",
-      "title": "Trò chơi #2: Dời cọc gôn – Tuyển X, làm Y và đánh giá Z",
-      "subtitle": "Trò chơi dời cọc gôn trong các Dark Corporation: khi nhân viên luôn là người 'chưa đủ tốt', và nghệ thuật thuyên chuyển để reset đồng hồ tăng lương.",
+      "title": "Hồ sơ #2: Dời cọc gôn – Tuyển X, làm Y và đánh giá Z",
+      "subtitle": "Hồ sơ dời cọc gôn trong các Dark Corporation: khi nhân viên luôn là người 'chưa đủ tốt', và nghệ thuật thuyên chuyển để reset đồng hồ tăng lương.",
       "coverImage": "./moving-goalposts.png"
     },
     {
       "type": "reader",
       "tag": "CAREER",
       "paragraphs": [
-        "Nếu trò bánh vẽ chức danh là mồi câu thơm phức dụ bạn cắn câu, thì trò chơi thứ hai mang tên Dời cọc gôn chính là chiếc cối xay nghiền nát sự tự tin và cản trở bạn nhận được những đãi ngộ xứng đáng.",
-        "Đây là trò chơi tàn độc nhất trong sổ tay quản trị của các Dark Corporation: nó không chỉ bòn rút công sức mà còn gieo rắc vào đầu nhân viên hội chứng _Imposter Syndrome nhân tạo_ (hội chứng kẻ mạo danh do môi trường cố tình cấy vào), khiến bạn luôn sống trong cảm giác dằn vặt rằng mình làm mãi mà vẫn \"chưa đủ tốt\"."
+        "Nếu trò bánh vẽ chức danh là mồi câu thơm phức dụ bạn cắn câu, thì hồ sơ thứ hai mang tên Dời cọc gôn chính là chiếc cối xay nghiền nát sự tự tin và cản trở bạn nhận được những đãi ngộ xứng đáng.",
+        "Đây là hồ sơ tàn độc nhất trong sổ tay quản trị của các Dark Corporation: nó không chỉ bòn rút công sức mà còn gieo rắc vào đầu nhân viên hội chứng _Imposter Syndrome nhân tạo_ (hội chứng kẻ mạo danh do môi trường cố tình cấy vào), khiến bạn luôn sống trong cảm giác dằn vặt rằng mình làm mãi mà vẫn \"chưa đủ tốt\"."
       ]
     },
     {
@@ -73,7 +74,7 @@
       "type": "reader",
       "tag": "CAREER",
       "paragraphs": [
-        "Bản chất của trò chơi _dời cọc gôn_ là thước đo luôn thay đổi ngay khi bạn sắp chạm đích:",
+        "Bản chất của hồ sơ _dời cọc gôn_ là thước đo luôn thay đổi ngay khi bạn sắp chạm đích:",
         "- Khi bạn tập trung làm Tech thật giỏi → Họ bảo bạn thiếu Kỹ năng mềm.\n- Khi bạn cải thiện Giao tiếp và phối hợp team mượt mà → Họ bảo bạn thiếu Tư duy kinh doanh (Business Acumen).\n- Khi bạn thức đêm hiểu cả nghiệp vụ kinh doanh → Họ bảo bạn thiếu \"Văn hoá gắn kết\", chưa chịu đi nhậu hoặc chưa chủ động tham gia hoạt động phong trào."
       ],
       "headline": "Nghệ thuật dời cọc gôn ở phút 89"
@@ -244,9 +245,9 @@
     },
     {
       "type": "cta",
-      "tag": "TRÒ CHƠI CÔNG SỞ",
-      "headline": "Trò Chơi Công Sở",
-      "subtitle": "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."
+      "tag": "HỘP ĐEN",
+      "headline": "Hộp Đen",
+      "subtitle": "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và hồ sơ quyền lực nơi công sở."
     }
   ]
 }

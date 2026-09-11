@@ -1,11 +1,11 @@
 ---
-title: "Chào mừng đến với Trò Chơi Công Sở"
-description: "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở mà không cuốn sách nào dạy bạn."
+title: "Chào mừng đến với Hộp Đen"
+description: "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và hồ sơ quyền lực nơi công sở mà không cuốn sách nào dạy bạn."
 ---
 
-# Chào mừng đến với Trò Chơi Công Sở
+# Chào mừng đến với Hộp Đen
 
-> *"Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở mà không cuốn sách nào dạy bạn."*
+> *"Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và hồ sơ quyền lực nơi công sở mà không cuốn sách nào dạy bạn."*
 
 ---
 
@@ -19,9 +19,9 @@ Người ta có thể bán cho bạn hàng trăm cuốn sách dạy cách scale 
 
 ### Ở đây có gì?
 
-**Trò Chơi Công Sở** là nơi mổ xẻ những ca phẫu thuật công sở không dùng thuốc gây mê:
+**Hộp Đen** là nơi mổ xẻ những ca phẫu thuật công sở không dùng thuốc gây mê:
 
-- **Giải mã Dark Patterns:** Nhận diện các cạm bẫy thao túng tâm lý, trò chơi chính trị ngầm và những chiếc bẫy hành chính được giăng ra để triệt hạ những nhân sự có chuyên môn nhưng "cứng đầu".
+- **Giải mã Dark Patterns:** Nhận diện các cạm bẫy thao túng tâm lý, đấu đá chính trị ngầm và những chiếc bẫy hành chính được giăng ra để triệt hạ những nhân sự có chuyên môn nhưng "cứng đầu".
 - **Chiến lược sinh tồn & Phản xạ nghề nghiệp:** Nhận biết sớm các tín hiệu cảnh báo, phương pháp lưu vết tự vệ và cách giữ vững sự tỉnh táo để không trở thành nạn nhân trong các cuộc đấu đá vô nghĩa.
 - **Sự thật trần trụi về nghề:** Không tô hồng, không sáo rỗng, không ru ngủ bằng văn hóa "chúng ta là một gia đình". Ở đây chỉ có thực tế làm nghề, mỉa mai một chút cho bớt cay đắng, và sự rành mạch giữa giá trị lao động với những ảo tưởng công sở.
 

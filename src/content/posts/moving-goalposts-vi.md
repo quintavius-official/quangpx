@@ -1,15 +1,16 @@
 ---
-title: "Trò chơi #2: Dời cọc gôn – Tuyển X, làm Y và đánh giá Z"
+title: "Hồ sơ #2: Dời cọc gôn – Tuyển X, làm Y và đánh giá Z"
 pubDatetime: 2026-09-12T20:00:00+07:00
-description: "Trò chơi dời cọc gôn trong các Dark Corporation: khi nhân viên luôn là người 'chưa đủ tốt', và nghệ thuật thuyên chuyển để reset đồng hồ tăng lương."
+description: "Hồ sơ dời cọc gôn trong các Dark Corporation: khi nhân viên luôn là người 'chưa đủ tốt', và nghệ thuật thuyên chuyển để reset đồng hồ tăng lương."
 ogImage: "./moving-goalposts.png"
 tags:
-  - Career
-  - Culture
-  - Leadership
-  - Psychology
-  - Dark Corporation
-  - Black Company
+  - trochoicongso
+  - chuyencongso
+  - doicocgon
+  - kpi
+  - kinhnghiemdilam
+  - toxicworkplace
+  - tamlycongso
 featured: true
 draft: false
 lang: "vi"
@@ -17,12 +18,12 @@ postSlug: "moving-goalposts"
 translationKey: "moving-goalposts"
 prePublish: true
 substack: true
-tiktok_photo: true
+tiktok_photo: false
 ---
 
-Nếu trò [bánh vẽ chức danh](/vi/posts/fake-incentives) là mồi câu thơm phức dụ bạn cắn câu, thì trò chơi thứ hai mang tên **Dời cọc gôn** chính là chiếc cối xay nghiền nát sự tự tin và cản trở bạn nhận được những đãi ngộ xứng đáng.
+Nếu trò [bánh vẽ chức danh](/vi/posts/fake-incentives) là mồi câu thơm phức dụ bạn cắn câu, thì hồ sơ thứ hai mang tên **Dời cọc gôn** chính là chiếc cối xay nghiền nát sự tự tin và cản trở bạn nhận được những đãi ngộ xứng đáng.
 
-Đây là trò chơi tàn độc nhất trong sổ tay quản trị của các Dark Corporation: nó không chỉ bòn rút công sức mà còn gieo rắc vào đầu nhân viên hội chứng _Imposter Syndrome nhân tạo_ (hội chứng kẻ mạo danh do môi trường cố tình cấy vào), khiến bạn luôn sống trong cảm giác dằn vặt rằng mình làm mãi mà vẫn "chưa đủ tốt".
+Đây là hồ sơ tàn độc nhất trong sổ tay quản trị của các Dark Corporation: nó không chỉ bòn rút công sức mà còn gieo rắc vào đầu nhân viên hội chứng _Imposter Syndrome nhân tạo_ (hội chứng kẻ mạo danh do môi trường cố tình cấy vào), khiến bạn luôn sống trong cảm giác dằn vặt rằng mình làm mãi mà vẫn "chưa đủ tốt".
 
 ---
 
@@ -53,7 +54,7 @@ Nghe xong bạn chỉ biết đứng hình. Bạn vừa dành nửa năm cứu v
 
 ## Nghệ thuật dời cọc gôn ở phút 89
 
-Bản chất của trò chơi _dời cọc gôn_ là **thước đo luôn thay đổi ngay khi bạn sắp chạm đích**:
+Bản chất của hồ sơ _dời cọc gôn_ là **thước đo luôn thay đổi ngay khi bạn sắp chạm đích**:
 
 - Khi bạn tập trung làm Tech thật giỏi → Họ bảo bạn thiếu Kỹ năng mềm.
 - Khi bạn cải thiện Giao tiếp và phối hợp team mượt mà → Họ bảo bạn thiếu Tư duy kinh doanh (Business Acumen).

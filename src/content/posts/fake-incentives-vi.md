@@ -1,15 +1,16 @@
 ---
-title: "Trò chơi #1: Bánh vẽ và chức danh không ngân sách"
+title: "Hồ sơ #1: Bánh vẽ và chức danh không ngân sách"
 pubDatetime: 2026-09-11T20:00:00+07:00
 description: "Cách các Black Company và Dark Corporation dùng những cơ hội ma và chức danh rỗng để bòn rút 200% effort của senior mà không tốn một đồng chi phí."
 ogImage: "./fake-incentives.png"
 tags:
-  - Career
-  - Culture
-  - Leadership
-  - Psychology
-  - Dark Corporation
-  - Black Company
+  - trochoicongso
+  - chuyencongso
+  - dramacongso
+  - banhve
+  - thangtien
+  - toxicworkplace
+  - reviewcongty
 featured: true
 draft: false
 lang: "vi"
@@ -17,12 +18,12 @@ postSlug: "fake-incentives"
 translationKey: "fake-incentives"
 prePublish: true
 substack: true
-tiktok_photo: true
+tiktok_photo: false
 ---
 
 Trong [phần mở đầu](/vi/posts/seniority), tôi có nhắc về chuyện một senior thực thụ rất dễ biến thành "công cụ bóc lột" thượng hạng trong mắt các Black Company và Dark Corporation — nơi tài năng và tâm huyết của bạn bị biến thành nguồn pin miễn phí cho một cỗ máy bòn rút. Sau phần mở đầu đó, nhiều bạn nhắn tôi hỏi: _vậy cụ thể các tổ chức này dùng những ngón đòn nào để thao túng và vắt kiệt một người có năng lực?_
 
-Hôm nay chúng ta sẽ bắt đầu bóc tách trò chơi kinh điển đầu tiên: **Bánh vẽ và chức danh không ngân sách** – nghệ thuật tạo ra những chiếc bánh vẽ và ban phát chức danh rỗng.
+Hôm nay chúng ta sẽ bắt đầu bóc tách hồ sơ kinh điển đầu tiên: **Bánh vẽ và chức danh không ngân sách** – nghệ thuật tạo ra những chiếc bánh vẽ và ban phát chức danh rỗng.
 
 ---
 

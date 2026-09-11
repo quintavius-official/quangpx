@@ -1,16 +1,17 @@
 {
   "meta": {
-    "title": "Trò chơi #1: Bánh vẽ và chức danh không ngân sách",
+    "title": "Hồ sơ #1: Bánh vẽ và chức danh không ngân sách",
     "pubDatetime": "2026-09-11T20:00:00+07:00",
     "description": "Cách các Black Company và Dark Corporation dùng những cơ hội ma và chức danh rỗng để bòn rút 200% effort của senior mà không tốn một đồng chi phí.",
     "ogImage": "./fake-incentives.png",
     "tags": [
-      "Career",
-      "Culture",
-      "Leadership",
-      "Psychology",
-      "Dark Corporation",
-      "Black Company"
+      "trochoicongso",
+      "chuyencongso",
+      "dramacongso",
+      "banhve",
+      "thangtien",
+      "toxicworkplace",
+      "reviewcongty"
     ],
     "featured": "true",
     "draft": "false",
@@ -19,13 +20,13 @@
     "translationKey": "fake-incentives",
     "prePublish": "true",
     "substack": "true",
-    "tiktok_photo": "true"
+    "tiktok_photo": "false"
   },
   "slides": [
     {
       "type": "cover",
       "category": "CAREER",
-      "title": "Trò chơi #1: Bánh vẽ và chức danh không ngân sách",
+      "title": "Hồ sơ #1: Bánh vẽ và chức danh không ngân sách",
       "subtitle": "Cách các Black Company và Dark Corporation dùng những cơ hội ma và chức danh rỗng để bòn rút 200% effort của senior mà không tốn một đồng chi phí.",
       "coverImage": "./fake-incentives.png"
     },
@@ -40,7 +41,7 @@
       "type": "reader",
       "tag": "CAREER",
       "paragraphs": [
-        "Hôm nay chúng ta sẽ bắt đầu bóc tách trò chơi kinh điển đầu tiên: Bánh vẽ và chức danh không ngân sách – nghệ thuật tạo ra những chiếc bánh vẽ và ban phát chức danh rỗng."
+        "Hôm nay chúng ta sẽ bắt đầu bóc tách hồ sơ kinh điển đầu tiên: Bánh vẽ và chức danh không ngân sách – nghệ thuật tạo ra những chiếc bánh vẽ và ban phát chức danh rỗng."
       ]
     },
     {
@@ -181,9 +182,9 @@
     },
     {
       "type": "cta",
-      "tag": "TRÒ CHƠI CÔNG SỞ",
-      "headline": "Trò Chơi Công Sở",
-      "subtitle": "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và trò chơi quyền lực nơi công sở."
+      "tag": "HỘP ĐEN",
+      "headline": "Hộp Đen",
+      "subtitle": "Nơi mổ xẻ những sự thật trần trụi, cạm bẫy ngầm và hồ sơ quyền lực nơi công sở."
     }
   ]
 }

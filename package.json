@@ -20,7 +20,9 @@
     "substack:dry-run": "uv run scripts/publish-substack.py --dry-run",
     "tiktok:auth": "uv run scripts/publish-tiktok.py auth",
     "tiktok:post": "uv run scripts/publish-tiktok.py post",
-    "tiktok:dry-run": "uv run scripts/publish-tiktok.py post --dry-run"
+    "tiktok:dry-run": "uv run scripts/publish-tiktok.py post --dry-run",
+    "hashtags:update": "python3 scripts/update-trending-hashtags.py",
+    "hashtags:dry-run": "python3 scripts/update-trending-hashtags.py --dry-run"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.0",
